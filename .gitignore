@@ -26,6 +26,7 @@ bin/
 !DualityEditor.exe
 !DualityEditor.exe.config
 !Duality.dll
+!DualityPrimitives.dll
 !NuGet.Core.dll
 !PackageConfig.xml
 !VistaBridgeLibrary.dll
