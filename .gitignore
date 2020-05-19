@@ -1,0 +1,33 @@
+# General
+*.dat
+*.exe
+*.zip
+*.dll
+*.pdb
+*.xml
+*.nupkg
+*.config
+
+# Visual Studio
+.vs/
+
+# Source
+Packages/
+obj/
+bin/
+
+# Duality
+*log*.txt
+*.chm
+!DefaultUserData.dat
+!AppData.dat
+
+# Duality First Run
+!DualityEditor.exe
+!DualityEditor.exe.config
+!Duality.dll
+!NuGet.Core.dll
+!PackageConfig.xml
+!VistaBridgeLibrary.dll
+!Windows7.DesktopIntegration.dll
+
