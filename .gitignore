@@ -8,6 +8,10 @@
 *.nupkg
 *.config
 
+# System
+*.ico
+*.ini
+
 # Visual Studio
 .vs/
 
