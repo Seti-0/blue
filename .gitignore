@@ -21,6 +21,7 @@ obj/
 bin/
 
 # Duality
+Backups/
 *log*.txt
 *.chm
 !DefaultUserData.dat
@@ -36,3 +37,8 @@ bin/
 !VistaBridgeLibrary.dll
 !Windows7.DesktopIntegration.dll
 
+# Soulstone specific
+!SoulstoneUtility.core.dll
+!SoulstoneUtility.core.pdb
+!SoulstoneSerialization.editor.dll
+!SoulstoneSerialization.editor.pdb
