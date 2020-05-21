@@ -5,13 +5,7 @@ using System.Text;
 
 using Duality;
 
-namespace Duality_
+namespace Soulstone.Duality.Plugins.Blue
 {
-	/// <summary>
-	/// Defines a Duality core plugin.
-	/// </summary>
-	public class Duality_CorePlugin : CorePlugin
-	{
-		// Override methods here for global logic
-	}
+	public class BluePlugin : CorePlugin {}
 }

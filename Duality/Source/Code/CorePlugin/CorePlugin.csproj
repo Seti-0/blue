@@ -8,8 +8,8 @@
     <ProjectGuid>{AFE883F3-72B4-4C7C-A1D1-44EDC09C8F6E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Duality_</RootNamespace>
-    <AssemblyName>GamePlugin.core</AssemblyName>
+    <RootNamespace>Soulstone.Duality.Plugins.Blue</RootNamespace>
+    <AssemblyName>Blue.core</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
@@ -39,17 +39,35 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlueInput.core">
+      <HintPath>..\..\..\Plugins\BlueInput.core.dll</HintPath>
+    </Reference>
     <Reference Include="Duality">
       <HintPath>..\..\..\Duality.dll</HintPath>
     </Reference>
     <Reference Include="DualityPrimitives">
       <HintPath>..\..\..\DualityPrimitives.dll</HintPath>
     </Reference>
+    <Reference Include="SoulstoneUtility.core">
+      <HintPath>..\..\..\Plugins\SoulstoneUtility.core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlueCategoryNames.cs" />
+    <Compile Include="Components\AlphaGlider.cs" />
+    <Compile Include="Components\Background.cs" />
+    <Compile Include="Components\Button.cs" />
+    <Compile Include="Components\Context.cs" />
+    <Compile Include="Components\Layout.cs" />
+    <Compile Include="Components\NotificationsArea.cs" />
+    <Compile Include="Components\NotificationTest.cs" />
+    <Compile Include="Components\TextEditor.cs" />
     <Compile Include="CorePlugin.cs" />
-    <Compile Include="YourCustomComponentType.cs" />
+    <Compile Include="Margins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ContextHelper.cs" />
+    <Compile Include="Utility\ListenerCollection.cs" />
+    <Compile Include="Utility\OldContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- Copy all plugin binaries to the plugin folder -->
