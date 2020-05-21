@@ -21,7 +21,7 @@ obj/
 bin/
 
 # Duality
-Backups/
+Backup/
 *log*.txt
 *.chm
 !DefaultUserData.dat
