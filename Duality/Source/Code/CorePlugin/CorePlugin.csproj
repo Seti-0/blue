@@ -54,20 +54,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlueCategoryNames.cs" />
-    <Compile Include="Components\AlphaGlider.cs" />
-    <Compile Include="Components\Background.cs" />
-    <Compile Include="Components\Button.cs" />
-    <Compile Include="Components\Context.cs" />
-    <Compile Include="Components\Layout.cs" />
-    <Compile Include="Components\NotificationsArea.cs" />
-    <Compile Include="Components\NotificationTest.cs" />
-    <Compile Include="Components\TextEditor.cs" />
+    <Compile Include="BlueConfig.cs" />
+    <Compile Include="Components\Old\Background.cs" />
+    <Compile Include="Components\Old\Button.cs" />
+    <Compile Include="Components\UIContext.cs" />
+    <Compile Include="Components\Layouts\FlexLayout.cs" />
+    <Compile Include="Components\Layouts\FlexLayoutElement.cs" />
+    <Compile Include="Components\Layouts\LayoutBase.cs" />
+    <Compile Include="Components\Layouts\TestLayoutElement.cs" />
+    <Compile Include="Components\Layouts\TestLayoutPanel.cs" />
+    <Compile Include="Components\Old\NotificationsArea.cs" />
+    <Compile Include="Components\Old\NotificationTest.cs" />
+    <Compile Include="Components\UIComponents\Panel.cs" />
+    <Compile Include="Components\SpriteBackground.cs" />
+    <Compile Include="Components\Old\TextEditor.cs" />
+    <Compile Include="Components\UIComponent.cs" />
     <Compile Include="CorePlugin.cs" />
-    <Compile Include="Margins.cs" />
+    <Compile Include="Interface\ICmpBackground.cs" />
+    <Compile Include="Interface\ICmpNotificationReciever.cs" />
+    <Compile Include="Interface\Layouts\ICmpFlexLayoutElement.cs" />
+    <Compile Include="Interface\ICmpLayout.cs" />
+    <Compile Include="Interface\ICmpLayoutElement.cs" />
+    <Compile Include="Utility\Margins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Color.cs" />
+    <Compile Include="Resources\DefaultStyles.cs" />
+    <Compile Include="Resources\Styles\PanelStyle.cs" />
+    <Compile Include="Resources\Styles\TextButtonStyle.cs" />
+    <Compile Include="Resources\Styles\TextLabelStyle.cs" />
+    <Compile Include="Resources\Styles\UIComponentStyle.cs" />
     <Compile Include="Utility\ContextHelper.cs" />
     <Compile Include="Utility\ListenerCollection.cs" />
-    <Compile Include="Utility\OldContext.cs" />
+    <Compile Include="Utility\OptionalField.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- Copy all plugin binaries to the plugin folder -->

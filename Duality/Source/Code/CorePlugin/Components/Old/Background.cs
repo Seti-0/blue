@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ namespace Soulstone.Duality.Plugins.Blue
 {
     [EditorHintCategory(BlueCategoryNames.Components)]
     [RequiredComponent(typeof(SpriteRenderer))]
-    public class Background : Component, ICmpInitializable, ILayoutCmp
+    public class Background : Component, ICmpInitializable, ICmpLayoutOld
     {
         public string Name { get; set; } = null;
 
@@ -115,7 +115,7 @@ namespace Soulstone.Duality.Plugins.Blue
 
             FitToLayout();
             FitToText();
-            var layout = GameObj?.GetComponent<Layout>() ?? GameObj?.Parent?.GetComponent<Layout>();
+            var layout = GameObj?.GetComponent<OldLayout>() ?? GameObj?.Parent?.GetComponent<OldLayout>();
             layout?.PerformLayout(updateAncestors);
         }
 
@@ -141,7 +141,7 @@ namespace Soulstone.Duality.Plugins.Blue
 
         private void FitToLayout()
         {
-            var layout = GameObj.GetComponent<Layout>();
+            var layout = GameObj.GetComponent<OldLayout>();
             var bg = GameObj.GetComponent<SpriteRenderer>();
 
             if (Warnings.NullOrDisposed(layout, warn: false)) return;
@@ -156,3 +156,4 @@ namespace Soulstone.Duality.Plugins.Blue
         }
     }
 }
+*/

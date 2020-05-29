@@ -8,6 +8,10 @@ namespace Soulstone.Duality.Plugins.Blue
 {
     public static class BlueCategoryNames
     {
-        public const string Components = "Components\\Blue";
+        public const string Components = "Blue",
+                            UIElements = "Blue\\UI Elements",
+                            Layouts = "Blue\\Layouts",
+                            Resources = "Blue",
+                            Styles = "Blue\\Styles";
     }
 }
