@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
+    <Compile Include="Utility\LayoutEventHelper.cs" />
     <Compile Include="Utility\OptionalField.cs" />
     <None Include="Old\AlphaGlider.cs" />
     <None Include="Old\Background.cs" />
