@@ -13,6 +13,7 @@ using Soulstone.Duality.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue
 {
+    [EditorHintCategory(CategoryNames.Components)]
     public class UIContext : Component
     {
         [DontSerialize] private ListenerCollection _listeners = new ListenerCollection();
