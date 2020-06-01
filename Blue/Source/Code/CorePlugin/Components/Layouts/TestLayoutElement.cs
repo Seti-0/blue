@@ -21,7 +21,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
         public bool StretchVertical;
     }
 
-    //[EditorHintCategory(CategoryNames.Layouts)]
+    [EditorHintCategory(CategoryNames.Layout)]
     public class TestLayoutElement : SpriteRenderer, ICmpLayoutElement, ICmpInitializable
     {
         private int _order;

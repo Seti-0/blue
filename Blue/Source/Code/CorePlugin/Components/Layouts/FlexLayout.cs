@@ -32,7 +32,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         Start, End, Center, Default = Start
     }
 
-    //[EditorHintCategory(CategoryNames.Layouts)]
+    [EditorHintCategory(CategoryNames.Layout)]
     public class FlexLayout : LayoutBase
     {
         /*

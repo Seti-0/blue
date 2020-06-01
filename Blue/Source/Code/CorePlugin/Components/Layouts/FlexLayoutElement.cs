@@ -11,7 +11,7 @@ using Soulstone.Duality.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
 {
-    //[EditorHintCategory(CategoryNames.Layouts)]
+    [EditorHintCategory(CategoryNames.Layout)]
     public class FlexLayoutElement : Component, ICmpFlexLayoutElement
     {
         private OptionalField<bool> _stretchCross;
