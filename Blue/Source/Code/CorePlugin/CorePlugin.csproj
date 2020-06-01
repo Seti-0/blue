@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlueCategoryNames.cs" />
+    <Compile Include="CategoryNames.cs" />
+    <Compile Include="BlueConfig.cs" />
+    <Compile Include="Utility\OptionalField.cs" />
     <None Include="Old\AlphaGlider.cs" />
     <None Include="Old\Background.cs" />
     <None Include="Old\Button.cs" />
@@ -62,7 +64,14 @@
     <None Include="Old\NotificationsArea.cs" />
     <None Include="Old\NotificationTest.cs" />
     <None Include="Old\TextEditor.cs" />
+    <Compile Include="Components\Layouts\FlexLayout.cs" />
+    <Compile Include="Components\Layouts\FlexLayoutElement.cs" />
+    <Compile Include="Components\Layouts\LayoutBase.cs" />
+    <Compile Include="Components\Layouts\TestLayoutElement.cs" />
     <Compile Include="CorePlugin.cs" />
+    <Compile Include="Interface\ICmpFlexLayoutElement.cs" />
+    <Compile Include="Interface\ICmpLayout.cs" />
+    <Compile Include="Interface\ICmpLayoutElement.cs" />
     <Compile Include="Margins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ContextHelper.cs" />
