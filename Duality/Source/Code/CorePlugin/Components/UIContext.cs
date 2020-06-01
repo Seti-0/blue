@@ -15,6 +15,16 @@ namespace Soulstone.Duality.Plugins.Blue
 {
     public class UIContext : Component
     {
+        public static void SendEvent<T>(string eventID, T sender) where T : Component
+        {
+            ContextHelper.SendEventToParents(sender, eventID);
+        }
+
+        public static void SendRootEvent<T>(string eventID, T sender, string name = null)
+        {
+            ContextHelper.SendEventToRoots(sender, eventID, name);
+        }
+
         [DontSerialize] private ListenerCollection _listeners = new ListenerCollection();
 
         [EditorHintFlags(MemberFlags.Invisible)]

@@ -288,7 +288,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public override void UpdateLayout()
         {
-            Vector2 position = Vector2.Zero;// -Size/2;
+            Vector2 position = Position.Xy;
             Vector2 totalSize = Size;
 
             ICmpLayoutElement[] targets;
@@ -523,8 +523,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             // Apply sizes and positions
             for (int i = 0; i < hints.Length; i++)
             {
-                elements[i].Target.Position = new Vector3(destinations[i].Position);
-                elements[i].Target.Size = destinations[i].Size;
+                elements[i].Target.ApplyDimensions(new Vector3(destinations[i].Position),
+                    destinations[i].Size);
             }
         }
 

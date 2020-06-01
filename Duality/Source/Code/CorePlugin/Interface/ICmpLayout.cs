@@ -4,14 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Duality;
+
 namespace Soulstone.Duality.Plugins.Blue
 {
     public interface ICmpLayout
     {
         bool Active { get; }
 
-        void UpdateLayout();
+        Vector2 MinimumSize { get; }
 
-        void UpdateLayoutTree();
+        Vector2 MaximumSize { get; }
+
+        Vector2 PreferredSize { get; }
+
+        void UpdateLayout();
     }
 }

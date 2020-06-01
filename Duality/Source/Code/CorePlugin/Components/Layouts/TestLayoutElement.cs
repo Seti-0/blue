@@ -12,13 +12,27 @@ using Duality.Editor;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
 {
+    public struct Bounds
+    {
+        public Vector3 Position;
+        public Vector2 Size;
+
+        public bool StretchHorizontal;
+        public bool StretchVertical;
+    }
+
     [EditorHintCategory(BlueCategoryNames.Layouts)]
-    public class TestLayoutElement : SpriteRenderer, ICmpLayoutElement
+    public class TestLayoutElement : SpriteRenderer, ICmpLayoutElement, ICmpInitializable
     {
         private int _order;
-        private bool _ignoreLayout, _stretchVertical, _stretchHorizontal;
+        private bool _ignoreParentLayout, _ignoreSiblingLayout, _stretchVertical, _stretchHorizontal;
         private OptionalField<Vector2> _customMaxSize, _customMinSize, _customPreferredSize;
-        private Vector2 _size;
+
+        private OptionalField<Bounds> _customBounds;
+
+        private Vector2 _layoutPosition;
+        private Vector2 _layoutSize;
+
         public int Order
         {
             get => _order;
@@ -32,12 +46,51 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
 
         public bool IgnoreParentLayout
         {
-            get => _ignoreLayout;
+            get => _ignoreParentLayout;
 
             set
             {
-                _ignoreLayout = value;
+                _ignoreParentLayout = value;
                 if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public bool IgnoreSiblingLayout
+        {
+            get => _ignoreSiblingLayout;
+
+            set
+            {
+                _ignoreSiblingLayout = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public ICmpLayout ParentLayout
+        {
+            get
+            {
+                if (_ignoreParentLayout) return null;
+
+                var parent = GameObj?.Parent?.GetComponent<ICmpLayout>();
+
+                // Ideally inactive components wouldn't feature, but that would make the init impossible with things as is
+                if (parent == null /* || !parent.Active*/) return null;
+                return parent;
+            }
+        }
+
+        public ICmpLayout SiblingLayout
+        {
+            get
+            {
+                if (_ignoreSiblingLayout) return null;
+
+                var sibling = GameObj?.GetComponent<ICmpLayout>();
+
+                // Ideally inactive components wouldn't feature, but that would make the init impossible with things as is
+                if (sibling == null/* || !sibling.Active*/) return null;
+                return sibling;
             }
         }
 
@@ -96,12 +149,26 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
             }
         }
 
+        public OptionalField<Bounds> CustomBounds
+        {
+            get => _customBounds;
+
+            set
+            {
+                _customBounds = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
         public Vector2 MinimumSize
         {
             get
             {
                 if (_customMinSize.Use)
                     return _customMinSize.Value;
+
+                if (SiblingLayout != null)
+                    return SiblingLayout.MinimumSize;
 
                 return new Vector2(100, 100);
             }
@@ -114,6 +181,9 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
                 if (_customMaxSize.Use)
                     return _customMaxSize.Value;
 
+                if (SiblingLayout != null)
+                    return SiblingLayout.MaximumSize;
+
                 return new Vector2(500, 500);
             }
         }
@@ -124,6 +194,9 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
             {
                 if (_customPreferredSize.Use)
                     return _customPreferredSize.Value;
+
+                if (SiblingLayout != null)
+                    return SiblingLayout.PreferredSize;
 
                 return new Vector2(200, 200);
             }
@@ -138,57 +211,112 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
         {
             get
             {
-                if (Warnings.NullOrDisposed(GameObj)) return Vector3.Zero;
-                if (Warnings.NullOrDisposed(GameObj.Transform)) return Vector3.Zero;
+                if (ParentLayout != null)
+                    return new Vector3(_layoutPosition);
 
-                return GameObj.Transform.Pos;
-            }
+                if (_customBounds.Use)
+                { 
+                    var pos = _customBounds.Value.Position;
 
-            set
-            {
-                if (Warnings.NullOrDisposed(GameObj)) return;
-                if (Warnings.NullOrDisposed(GameObj.Transform)) return;
+                    if (_customBounds.Value.StretchHorizontal)
+                        pos.X = 0;
 
-                var xy = value.Xy;
-                xy += Size / 2;
-                value = new Vector3(xy, value.Z);
+                    if (_customBounds.Value.StretchVertical)
+                        pos.Y = 0;
 
-                if (GameObj.Transform.Pos != value)
-                    GameObj.Transform.Pos = value;
+                    return pos;
+                }
+
+                return Vector3.Zero;
             }
         }
 
         public Vector2 Size
         {
-            get => _size;
-
-            set
+            get
             {
-                UpdateContentSize(value);
+                if (ParentLayout != null)
+                    return _layoutSize;
+
+                if (_customBounds.Use)
+                {
+                    var size = _customBounds.Value.Size;
+
+                    if (_customBounds.Value.StretchHorizontal)
+                        size.X = DualityApp.WindowSize.X;
+
+                    if (_customBounds.Value.StretchVertical)
+                        size.Y = DualityApp.WindowSize.Y;
+
+                    return size;
+                }
+
+                return DualityApp.WindowSize;
             }
         }
 
         public void UpdateLayoutTree()
         {
-            if (IgnoreParentLayout) return;
-            var layout = GameObj?.Parent?.GetComponent<ICmpLayout>();
-            layout?.UpdateLayoutTree();
+            UpdateLayoutTree(false);
         }
 
-        public void UpdateContentSize(Vector2 newSize)
+        public void UpdateLayoutTree(bool updateTreeEvenIfIgnored)
         {
-            var oldSize = _size;
-            _size = newSize;
+            // If the layout element is the root of a tree, or 
+            // not part of one, it needs to be updated directly.
 
-            Rect = Rect.Align(Alignment.Center, 0, 0, Size.X, Size.Y);
+            if (ParentLayout == null)
+            {
+                UpdateLayout();
+            }
 
-            if (!Warnings.NullOrDisposed(GameObj))
-                if (!Warnings.NullOrDisposed(GameObj.Transform))
+            // Otherwise, send the signal up the tree and start the update from the root.
+
+            // "updateTreeEvenIfIgnored" is for the case where this element has just ignored the tree it
+            // was part of. In that case, that tree should be updated even though this element is 
+            // not a part of it.
+
+            if (ParentLayout != null || updateTreeEvenIfIgnored)
+            {
+                // This is a tiny bit messy the way it is currently - there are two cases: either the layout is on it's own,
+                // or depedent on a neighbouring layout element. This should be changed.
+
+                var parentLayoutElement = GameObj?.Parent?
+                    .GetComponent<ICmpLayoutElement>();
+
+                if (parentLayoutElement == null)
                 {
-                    var xy = GameObj.Transform.Pos.Xy;
-                    xy += (-oldSize / 2) + (newSize / 2);
-                    GameObj.Transform.Pos = new Vector3(xy, GameObj.Transform.Pos.Z);
+                    var parentLayout = GameObj?.Parent?.GetComponent<ICmpLayout>();
+                    parentLayout?.UpdateLayout();
                 }
+
+                else parentLayoutElement.UpdateLayoutTree();
+            }
         }
+
+        public void ApplyDimensions(Vector3 position, Vector2 size)
+        {
+            _layoutPosition = position.Xy;
+            _layoutSize = size;
+            UpdateLayout();
+        }
+
+        public void UpdateLayout()
+        {
+            var size = Size;
+            var position = Position;
+
+            Rect = Rect.Align(Alignment.TopLeft, 0, 0, size.X, size.Y);
+            GameObj.Transform.Pos = position;
+
+            SiblingLayout?.UpdateLayout();
+        }
+
+        public void OnActivate()
+        {
+            VisibilityGroup = BlueConfig.DefaultUIVisibilityFlag;
+        }
+
+        public void OnDeactivate(){}
     }
 }

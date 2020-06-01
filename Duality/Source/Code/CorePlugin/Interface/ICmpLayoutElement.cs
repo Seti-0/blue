@@ -17,9 +17,12 @@ namespace Soulstone.Duality.Plugins.Blue
 
         bool StretchHorizontal { get; }
 
+        
         bool IgnoreParentLayout { get; }
 
+        ICmpLayout ParentLayout { get; }
 
+        
         Vector2 MinimumSize { get; }
 
         Vector2 MaximumSize { get; }
@@ -29,9 +32,14 @@ namespace Soulstone.Duality.Plugins.Blue
 
         Component Component { get; }
 
-        Vector2 Size { get; set; }
+        Vector2 Size { get; }
 
-        Vector3 Position { get; set; }
+        Vector3 Position { get; }
+
+        void ApplyDimensions(Vector3 position, Vector2 size);
+
+        // Currently not needed, but perhaps should be a natural part of this?
+        //void UpdateLayout();
 
         void UpdateLayoutTree();
     }

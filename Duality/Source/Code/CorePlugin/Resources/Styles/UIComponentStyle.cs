@@ -17,7 +17,5 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Styles
         public Margins Padding { get; set; }
 
         public ContentRef<Color> Background { get; set; }
-        public ContentRef<Color> BackgroundHover { get; set; }
-        public ContentRef<Color> BackgroundActive { get; set; }
     }
 }

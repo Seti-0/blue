@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Duality;
-using Duality.Resources;
-
-namespace Soulstone.Duality.Plugins.Blue.Resources.Styles
+namespace Soulstone.Duality.Plugins.Blue.Components.UIComponents
 {
-    public class TextButtonStyle
+    class TextButton
     {
     }
 }

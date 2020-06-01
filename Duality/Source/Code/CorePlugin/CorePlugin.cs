@@ -7,5 +7,16 @@ using Duality;
 
 namespace Soulstone.Duality.Plugins.Blue
 {
-	public class BluePlugin : CorePlugin {}
+	public class BluePlugin : CorePlugin 
+	{
+		protected override void InitPlugin()
+		{
+			LayoutEventHelper.Init();
+		}
+
+		protected override void OnDisposePlugin()
+		{
+			LayoutEventHelper.Shutdown();
+		}
+	}
 }

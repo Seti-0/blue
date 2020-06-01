@@ -21,15 +21,13 @@ using Soulstone.Duality.Plugins.Blue.Resources.Styles;
 namespace Soulstone.Duality.Plugins.Blue.Components
 {
     [RequiredComponent(typeof(ICmpBackground), typeof(SpriteBackground))]
-    public abstract class UIComponent : Component, ICmpInitializable, ICmpMouseListener, ICmpLayoutElement
+    public abstract class UIComponent : Component, ICmpInitializable//, ICmpLayoutElement
     {
-        public enum State
-        {
-            Normal, Hover, Active, Default = Normal
-        }
-
         public bool Global { get; set; }
 
+        private ContentRef<Color> _color;
+
+        // Layout
         private int _order;
         private bool _ignoreLayout, _stretchVertical, _stretchHorizontal;
         private OptionalField<Vector2> _customMaxSize, _customMinSize, _customPreferredSize;
@@ -39,7 +37,12 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         // This probably shouldn't be serialized. But then, it is only a placeholder mechanism to begin with.
         private ContentRef<UIComponentStyle> _style;
 
-        [DontSerialize] private State _state = State.Normal;
+        public ContentRef<Color> Color
+        {
+            get => _color;
+
+            set => SetColor(value);
+        }
 
         public int Order
         {
@@ -195,8 +198,9 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
                 if (GameObj.Transform.Pos != value)
                 {
+                    var oldValue = GameObj.Transform.Pos;
                     GameObj.Transform.Pos = value;
-                    OnSizeChanged();
+                    //OnPositionChanged(new PositionChangedEventArgs(oldValue, value));
                 }
             }
         }
@@ -207,19 +211,12 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
             set
             {
-                _size = value;
-                OnSizeChanged();
-            }
-        }
-
-        public State CurrentState
-        {
-            get => _state;
-
-            protected set
-            {
-                _state = value;
-                UpdateBackgroundMaterial();
+                if (_size != value)
+                {
+                    var oldValue = _size;
+                    _size = value;
+                    //OnSizeChanged();
+                }
             }
         }
 
@@ -231,78 +228,65 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             set
             {
                 _style = value;
-                UpdateBackgroundMaterial();
+                if (Warnings.NullOrDisposed(_style.Res)) return;
+
+                SetColor(_style.Res.Background);
             }
         }
 
         public virtual void OnActivate()
         {
-            UpdateBackgroundMaterial();
+            if (_style.Res == null) return;
+            SetColor(_style.Res.Background);
         }
 
-        public virtual void OnSizeChanged() {}
-
-        public virtual void OnPositionChanged() {}
-
-        public virtual void OnDeactivate() {}
-
-        public virtual void OnButtonDown(MouseButtonEventArgs args)
+        public virtual void OnDeactivate() 
         {
-            _state = State.Active;
-            UpdateBackgroundMaterial();
+            if (_color.Res != null)
+            {
+                _color.Res.ValueChanged -= OnColorValueChanged;
+            }
         }
 
-        public virtual void OnButtonUp(MouseButtonEventArgs args)
+        private void OnColorValueChanged(object sender, ColorChangedEventArgs e)
         {
-            _state = State.Hover;
-            UpdateBackgroundMaterial();
-        }
-
-        public virtual void OnGainedFocus(EventArgs args)
-        {
-            _state = State.Hover;
-            UpdateBackgroundMaterial();
-        }
-
-        public virtual void OnLostFocus(EventArgs args)
-        {
-            _state = State.Normal;
-            UpdateBackgroundMaterial();
-        }  
-
-        public virtual void OnMove(MouseMoveEventArgs args) {}
-
-        protected void SetStyle(UIComponentStyle style)
-        {
-            _style = style;
-            UpdateBackgroundMaterial();
+            UpdateBackgroundMaterial(_color);
         }
 
         public void UpdateLayoutTree()
         {
             if (IgnoreParentLayout) return;
             var layout = GameObj?.Parent?.GetComponent<ICmpLayout>();
-            layout?.UpdateLayoutTree();
+            //layout?.UpdateLayoutTree();
         }
 
-        private void UpdateBackgroundMaterial()
+        private void SetColor(ContentRef<Color> color)
         {
+            if (_color.Res != null)
+            {
+                _color.Res.ValueChanged -= OnColorValueChanged;
+            }
+
+            _color = color;
+
+            if (_color.Res != null)
+            {
+                _color.Res.ValueChanged += OnColorValueChanged;
+            }
+
+            UpdateBackgroundMaterial(_color.Res);
+        }
+
+        private void UpdateBackgroundMaterial(ContentRef<Color> colorRef)
+        {
+            var color = colorRef.Res;
+            if (Warnings.NullOrDisposed(color)) return;
+
             var style = _style.Res;
             if (Warnings.NullOrDisposed(style)) return;
 
             var material = style.BackgroundMaterial.Res;
             if (Warnings.NullOrDisposed(material)) return;
-
-            Color color;
-
-            switch (_state)
-            {
-                case State.Active: color = style.BackgroundActive.Res; break;
-                case State.Hover: color = style.BackgroundHover.Res; break;
-                default: color = style.Background.Res; break;
-            }
-
-            if (Warnings.NullOrDisposed(color)) return;
 
             var info = new BatchInfo(material);
             info.MainColor = color.Rbga;

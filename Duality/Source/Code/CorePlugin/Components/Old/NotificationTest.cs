@@ -20,7 +20,7 @@ namespace Soulstone.Duality.Plugins.Blue
 
         public void OnActivate()
         {
-            OldContext.ShowNotification(Type, Message, duration: 1, channel: Channel);
+            //OldContext.ShowNotification(Type, Message, duration: 1, channel: Channel);
         }
 
         public void OnDeactivate() {}

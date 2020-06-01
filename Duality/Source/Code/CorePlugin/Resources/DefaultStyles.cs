@@ -12,9 +12,12 @@ namespace Soulstone.Duality.Plugins.Blue.Resources
 {
     public class DefaultStyles : Resource
     {
-        public ContentRef<PanelStyle> PanelStyle { get; set; }
-        public ContentRef<TextLabelStyle> TextLabel { get; set; }
-        public ContentRef<TextButtonStyle> TextButton { get; set; }
+        public ContentRef<PanelStyle> Panel { get; set; }
+        
+        public ContentRef<ButtonStyle> Button { get; set; }
+
+        //public ContentRef<TextLabelStyle> TextLabel { get; set; }
+        //public ContentRef<TextButtonStyle> TextButton { get; set; }
 
     }
 }

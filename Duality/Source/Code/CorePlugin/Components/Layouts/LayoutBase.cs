@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Duality;
-using Duality.Editor;
 
 using Soulstone.Duality.Utility;
 
@@ -15,18 +14,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 {
     public abstract class LayoutBase : Component, ICmpInitializable, ICmpLayout, ICmpResizeListener
     {
-        private bool _ignoreParentLayout, _ignoreSibling;
-
-        public bool IgnoreParentLayout
-        {
-            get => _ignoreParentLayout;
-
-            set
-            {
-                _ignoreParentLayout = value;
-                if (Active) UpdateLayoutTree();
-            }
-        }
+        private bool _ignoreSibling;
 
         public bool IgnoreSibling
         {
@@ -43,11 +31,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         {
             get
             {
-                if (_ignoreSibling)
-                    return DualityApp.WindowSize;
-
-                var sibling = GameObj.GetComponent<ICmpLayoutElement>();
-                
+                var sibling = Sibling;
                 if (sibling == null) 
                     return DualityApp.WindowSize;
 
@@ -59,44 +43,55 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         {
             get
             {
-                if (Warnings.NullOrDisposed(GameObj)) return Vector3.Zero;
-
-                var sibling = GameObj.GetComponent <ICmpLayoutElement>();
+                var sibling = Sibling;
                 if (sibling == null) return Vector3.Zero;
 
                 return sibling.Position;
             }
         }
 
-        public ICmpLayout Parent
+        public ICmpLayoutElement Sibling
         {
             get
             {
-                if (_ignoreParentLayout) return null;
+                if (_ignoreSibling) return null;
 
-                var parent = GameObj?.Parent?.GetComponent<ICmpLayout>();
+                var sibling = GameObj?.GetComponent<ICmpLayoutElement>();
 
-                if (parent == null || parent.Active) return null;
-                return parent;
+                // Ideally we'd ignore an inactive compoent, but the usual problem with initialization applies
+
+                if (sibling?.Component == null/* || !sibling.Component.Active*/) 
+                    return null;
+
+                return sibling;
             }
         }
 
-        [EditorHintFlags(MemberFlags.Invisible)]
-        public Component Component
+        public Vector2 MinimumSize
         {
-            get => this;
+            get => ComputeMinimumSize();
         }
 
-        public void OnActivate()
+        public Vector2 MaximumSize
+        {
+            get => ComputeMaximumSize();
+        }
+
+        public Vector2 PreferredSize
+        {
+            get => ComputePreferredSize();
+        }
+
+        public virtual void OnActivate()
         {
             UpdateLayoutTree();
         }
 
-        public void OnDeactivate(){}
+        public virtual void OnDeactivate(){}
 
-        public void OnWindowSizeChanged(ResizeEventArgs e)
+        public virtual void OnWindowSizeChanged(ResizeEventArgs e)
         {
-            if (Parent == null)
+            if (Sibling?.ParentLayout == null)
                 UpdateLayout();
         }
 
@@ -104,10 +99,19 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         {
             if (Warnings.NullOrDisposed(GameObj)) yield break;
 
-            foreach (var item in GameObj.GetComponentsInChildren<ICmpLayoutElement>())
+            // GameObj does have a method "GetComponentInChildren", but 
+            // it seems to retrieve components among all descendents instead?
+            // This would interfere with child layouts
+            foreach (var child in GameObj.Children)
             {
-                if (item.Component == null || (!item.Component.Active) || item.IgnoreParentLayout) continue;
-                yield return item;
+                //if (!child.Active) continue;
+
+                foreach (var item in child.GetComponents<ICmpLayoutElement>())
+                {
+                    // Ignoring inactive components will cause inconsistencies on init. This will need another look.
+                    if (item.Component == null || (!item.Component.Active) || item.IgnoreParentLayout) continue;
+                    yield return item;
+                }
             }
         }
 
@@ -121,12 +125,12 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public void UpdateLayoutTree()
         {
-            var parent = Parent;
+            var sibling = Sibling;
 
-            if (parent == null)
+            if (sibling == null)
                 UpdateLayout();
 
-            else parent.UpdateLayoutTree();
+            else sibling.UpdateLayoutTree();
         }
     }
 }
