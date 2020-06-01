@@ -496,7 +496,7 @@
                         <pos dataType="Struct" type="Duality.Vector3" />
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">200</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -517,11 +517,11 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">200</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">494</Y>
                         </_layoutSize>
                         <_order dataType="Int">0</_order>
                         <_stretchHorizontal dataType="Bool">false</_stretchHorizontal>
@@ -539,7 +539,7 @@
                         <offset dataType="Float">0</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">298</H>
+                          <H dataType="Float">494</H>
                           <W dataType="Float">200</W>
                           <X dataType="Float">0</X>
                           <Y dataType="Float">0</Y>
@@ -597,7 +597,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">200</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">200</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -624,11 +624,11 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">200</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">661</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">494</Y>
                         </_layoutSize>
                         <_order dataType="Int">1</_order>
                         <_stretchHorizontal dataType="Bool">true</_stretchHorizontal>
@@ -646,7 +646,7 @@
                         <offset dataType="Float">0</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">298</H>
+                          <H dataType="Float">494</H>
                           <W dataType="Float">661</W>
                           <X dataType="Float">0</X>
                           <Y dataType="Float">0</Y>
@@ -704,7 +704,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">861</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">200</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -725,11 +725,11 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">861</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">200</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
-                          <Y dataType="Float">298</Y>
+                          <Y dataType="Float">494</Y>
                         </_layoutSize>
                         <_order dataType="Int">2</_order>
                         <_stretchHorizontal dataType="Bool">false</_stretchHorizontal>
@@ -747,7 +747,7 @@
                         <offset dataType="Float">0</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">298</H>
+                          <H dataType="Float">494</H>
                           <W dataType="Float">200</W>
                           <X dataType="Float">0</X>
                           <Y dataType="Float">0</Y>
@@ -800,12 +800,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">298</Y>
+                    <Y dataType="Float">200</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">298</Y>
+                    <Y dataType="Float">200</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -833,11 +833,11 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">298</Y>
+                    <Y dataType="Float">200</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">1061</X>
-                    <Y dataType="Float">298</Y>
+                    <Y dataType="Float">494</Y>
                   </_layoutSize>
                   <_order dataType="Int">1</_order>
                   <_stretchHorizontal dataType="Bool">false</_stretchHorizontal>
@@ -855,7 +855,7 @@
                   <offset dataType="Float">1</offset>
                   <pixelGrid dataType="Bool">false</pixelGrid>
                   <rect dataType="Struct" type="Duality.Rect">
-                    <H dataType="Float">298</H>
+                    <H dataType="Float">494</H>
                     <W dataType="Float">1061</W>
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
@@ -915,7 +915,7 @@
                         <pos dataType="Struct" type="Duality.Vector3" />
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">596</Y>
+                          <Y dataType="Float">694</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -936,7 +936,7 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">596</Y>
+                          <Y dataType="Float">694</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
@@ -1016,7 +1016,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">200</X>
-                          <Y dataType="Float">596</Y>
+                          <Y dataType="Float">694</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -1037,7 +1037,7 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
-                          <Y dataType="Float">596</Y>
+                          <Y dataType="Float">694</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">661</X>
@@ -1117,7 +1117,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">861</X>
-                          <Y dataType="Float">596</Y>
+                          <Y dataType="Float">694</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -1138,7 +1138,7 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">861</X>
-                          <Y dataType="Float">596</Y>
+                          <Y dataType="Float">694</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
@@ -1213,12 +1213,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">596</Y>
+                    <Y dataType="Float">694</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">596</Y>
+                    <Y dataType="Float">694</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -1246,7 +1246,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">596</Y>
+                    <Y dataType="Float">694</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">1061</X>
@@ -1318,11 +1318,11 @@
           <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.FlexLayout" id="720627655">
             <_crossGroupAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexGroupAlignment" name="Default" value="0" />
             <_crossItemAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexSingleAlignment" name="Start" value="0" />
-            <_direction dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexDirection" name="Row" value="0" />
+            <_direction dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexDirection" name="Column" value="2" />
             <_ignoreSibling dataType="Bool">false</_ignoreSibling>
             <_mainAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexGroupAlignment" name="Default" value="0" />
-            <_stretchCross dataType="Bool">false</_stretchCross>
-            <_stretchMain dataType="Bool">true</_stretchMain>
+            <_stretchCross dataType="Bool">true</_stretchCross>
+            <_stretchMain dataType="Bool">false</_stretchMain>
             <_stretchRows dataType="Bool">true</_stretchRows>
             <_wrap dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexWrap" name="Wrap" value="1" />
             <active dataType="Bool">true</active>
