@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Soulstone.Duality.Plugins.Blue
 {
-    public static class BlueCategoryNames
+    public static class CategoryNames
     {
-        public const string Components = "Components\\Blue";
+        public const string Components = "Blue";
     }
 }
