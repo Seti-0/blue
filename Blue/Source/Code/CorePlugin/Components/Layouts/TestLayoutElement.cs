@@ -12,15 +12,6 @@ using Duality.Editor;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
 {
-    public struct Bounds
-    {
-        public Vector3 Position;
-        public Vector2 Size;
-
-        public bool StretchHorizontal;
-        public bool StretchVertical;
-    }
-
     [EditorHintCategory(CategoryNames.Layout)]
     public class TestLayoutElement : SpriteRenderer, ICmpLayoutElement, ICmpInitializable
     {
