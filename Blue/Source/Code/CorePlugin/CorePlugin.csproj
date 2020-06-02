@@ -55,6 +55,13 @@
   <ItemGroup>
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
+    <Compile Include="Components\Basic\TextArea.cs" />
+    <Compile Include="Components\Renderers\ColorBackground.cs" />
+    <Compile Include="Components\Renderers\SimpleTextRenderer.cs" />
+    <Compile Include="Components\UIComponent.cs" />
+    <Compile Include="Interface\ICmpBackground.cs" />
+    <Compile Include="Interface\ICmpTextRenderer.cs" />
+    <Compile Include="Utility\Bounds.cs" />
     <Compile Include="Utility\LayoutEventHelper.cs" />
     <Compile Include="Utility\OptionalField.cs" />
     <None Include="Old\AlphaGlider.cs" />
@@ -79,6 +86,7 @@
     <Compile Include="Utility\ListenerCollection.cs" />
     <None Include="Old\OldContext.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- Copy all plugin binaries to the plugin folder -->
   <Import Project="$(SolutionDir)AggregateUserPlugins.targets" />
