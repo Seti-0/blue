@@ -52,7 +52,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
             Text.MaxWidth = (int)_size.X;
             Text.MaxHeight = (int)_size.Y;
 
-            Render = Text.MaxWidth != 0 || Text.MaxWidth != 0;
+            Render = Text.MaxWidth != 0 && Text.MaxHeight != 0;
         }
 
         public void ApplyDepthOffset(float offset)

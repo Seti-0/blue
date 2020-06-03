@@ -296,22 +296,64 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         }
 
         [EditorHintFlags(MemberFlags.Invisible)]
-        public Vector3 ContentPosition
+        public Vector3 BackgroundPosition
         {
             get
             {
                 var position = Position;
-                position.X += _margin.Left + _padding.Left;
-                position.Y += _margin.Top + _padding.Top;
+                var size = Size;
+
+                var backgroundPosition = position;
+                backgroundPosition.X += _margin.Left;
+                backgroundPosition.Y += _margin.Bottom;
+
+                backgroundPosition.X = MathF.Clamp(backgroundPosition.X, position.X, position.X + size.X);
+                backgroundPosition.Y = MathF.Clamp(backgroundPosition.Y, position.Y, position.Y + size.Y);
+
+                return backgroundPosition;
+            }
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 BackgroundSize
+        {
+            get
+            {
+                var position = Position;
+
+                var backgroundSize = Size;
+                var backgroundPosition = BackgroundPosition;
+
+                backgroundSize.X -= _margin.Left + _margin.Right;
+                backgroundSize.Y -= _margin.Top + _margin.Bottom;
+
+                backgroundSize.X = MathF.Clamp(backgroundSize.X, 0, backgroundSize.X - (backgroundPosition.X - position.X));
+                backgroundSize.Y = MathF.Clamp(backgroundSize.Y, 0, backgroundSize.Y - (backgroundPosition.Y - position.Y));
+
+                return backgroundSize;
+            }
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector3 ContentPosition
+        {
+            get
+            {
+                var position = BackgroundPosition;
+                var size = BackgroundSize;
+                var contentSize = ContentSize;
+
+                position.X += _padding.Left;
+                position.Y += _padding.Top;
 
                 if (_contentAlignment == Alignment.TopLeft)
                     return position;
 
                 Vector2 contentArea;
-                contentArea.X = Size.X - (_margin.Left + _margin.Right + _padding.Left + _padding.Right);
-                contentArea.Y = Size.Y - (_margin.Top + _margin.Bottom + _padding.Top + _padding.Bottom);
+                contentArea.X = size.X - (_padding.Left + _padding.Right);
+                contentArea.Y = size.Y - (_padding.Top + _padding.Bottom);
 
-                var offset = _contentAlignment.ApplyTo(Vector2.Zero, ContentSize) - _contentAlignment.ApplyTo(Vector2.Zero, contentArea);
+                var offset = _contentAlignment.ApplyTo(Vector2.Zero, contentSize) - _contentAlignment.ApplyTo(Vector2.Zero, contentArea);
                 position.X += offset.X;
                 position.Y += offset.Y;
 
@@ -324,6 +366,16 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         {
             get
             {
+                var size = BackgroundSize;
+
+                Vector2 padding = new Vector2(
+                    _padding.Left + _padding.Right,
+                    _padding.Bottom + _padding.Top
+                    );
+                padding = Vector2.Max(Vector2.Zero, padding);
+
+                size = Vector2.Max(Vector2.Zero, size - padding);
+
                 var minSize = MinimumSize;
                 var maxSize = MaximumSize;
 
@@ -333,23 +385,24 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
                 if (!stretch)
                 {
-                    var prefSize = ComputePreferredSize();
+                    var prefSize = ComputePreferredSize(size);
+
+                    prefSize = Vector2.Max(Vector2.Zero, prefSize);
+
                     maxSize.X = MathF.Clamp(maxSize.X, 0, prefSize.X);
                     maxSize.Y = MathF.Clamp(maxSize.Y, 0, prefSize.Y);
+                }
+                else
+                {
+                    maxSize = Vector2.Max(Vector2.Zero, maxSize);
                 }
 
                 minSize.X = MathF.Clamp(minSize.X, 0, maxSize.X);
                 minSize.Y = MathF.Clamp(minSize.Y, 0, maxSize.X);
 
-                var size = Size;
-                size.X -= (_margin.Left + _margin.Right + _padding.Left + _padding.Right);
-                size.Y -= (_margin.Top + _margin.Bottom + _padding.Top + _padding.Bottom);
-
-                // Strictly speaking the margins and padding could be negative, hence 
-                // max and min to be considered here instead of just min.
                 size.X = MathF.Clamp(size.X, minSize.X, maxSize.X);
                 size.Y = MathF.Clamp(size.Y, minSize.Y, maxSize.Y);
-
+                
                 return size;
             }
         }
@@ -415,18 +468,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public virtual void UpdateLayout()
         {
-            var position = Position;
-            
-            var backgroundSize = Size;
-            var backgroundPosition = position;
-
-            backgroundSize.X -= _margin.Left + _margin.Right;
-            backgroundSize.Y -= _margin.Top + _margin.Bottom;
-            backgroundPosition.X += _margin.Left;
-            backgroundPosition.Y += _margin.Bottom;
-
-            GameObj.Transform.Pos = position;
-            Background.ApplyDimensions(backgroundPosition, backgroundSize);
+            GameObj.Transform.Pos = Position;
+            Background.ApplyDimensions(BackgroundPosition, BackgroundSize);
 
             Background.ApplyDepthOffset(1);
         }
@@ -434,6 +477,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         protected abstract Vector2 ComputeMinimumSize();
 
         protected abstract Vector2 ComputePreferredSize();
+
+        protected virtual Vector2 ComputePreferredSize(Vector2 maxSize)
+        {
+            return ComputePreferredSize();
+        }
 
         // I'm including this method for testing and completeness, I don't see why it
         // would ever be overriden at this point.

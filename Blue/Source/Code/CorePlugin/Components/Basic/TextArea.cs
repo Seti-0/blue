@@ -66,8 +66,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
                 _text.Fonts[0] = value;
                 _text.UpdateVertexCache();
 
-                //var _ = _text.TextMetrics;
-
                 if (Active) UpdateLayoutTree();
             }
         }
@@ -141,14 +139,40 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
             _text.WordWrap = FormattedText.WrapMode.Element;
             _text.LineAlign = Alignment.Left;
-            _text.MaxWidth = int.MaxValue;
-            _text.MaxHeight = int.MaxValue;
+            _text.MaxWidth = 0;
+            _text.MaxHeight = 0;
 
-            _text.UpdateVertexCache();
             var size = _text.Size;
 
             _text.WordWrap = wrap;
             _text.LineAlign = alignment;
+            _text.MaxWidth = width;
+            _text.MaxHeight = height;
+
+            return size;
+        }
+
+        protected override Vector2 ComputePreferredSize(Vector2 maxSize)
+        {
+            // This is far from perfect, I don't understand the precise behaviour of FormattedText.MaxWidth/Height
+            // It seems inconsistent.
+
+            if (maxSize.X == 0 && maxSize.Y == 0)
+                // Handle this specific case here, since 0 is a magic "no constraint" value for formatted text width and height. 
+                // This shouldn't make any real difference, since the final size will be clamped in UIComponent.cs somehwere.
+                return Vector2.Zero;
+
+            maxSize.X = MathF.Clamp(maxSize.X, 0, BlueConfig.MaxTextAreaSize.X);
+            maxSize.Y = MathF.Clamp(maxSize.Y, 0, BlueConfig.MaxTextAreaSize.Y);
+
+            var width = _text.MaxWidth;
+            var height = _text.MaxHeight;
+
+            _text.MaxWidth = (int) maxSize.X;
+            _text.MaxHeight = (int) maxSize.Y;
+
+            var size = _text.Size;
+
             _text.MaxWidth = width;
             _text.MaxHeight = height;
 
