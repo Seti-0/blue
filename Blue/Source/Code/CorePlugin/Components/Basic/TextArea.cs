@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Duality;
 using Duality.Drawing;
 using Duality.Editor;
+using Duality.Resources;
 
 using Soulstone.Duality.Plugins.Blue.Components.Renderers;
 using Soulstone.Duality.Plugins.Blue.Interface;
@@ -25,7 +26,75 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             get => false;
         }
 
-        public FormattedText Text
+        public string Text
+        {
+            get => _text.SourceText;
+
+            set
+            {
+                _text.ApplySource(value);
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public ContentRef<Font>[] Fonts
+        {
+            get => _text.Fonts;
+
+            set
+            {
+                _text.Fonts = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public ContentRef<Font> MainFont
+        {
+            get
+            {
+                if (_text.Fonts == null || _text.Fonts.Length == 0)
+                    return null;
+
+                return _text.Fonts[0];
+            }
+
+            set
+            {
+                if (_text.Fonts == null || _text.Fonts.Length == 0)
+                    _text.Fonts = new ContentRef<Font>[1];
+
+                _text.Fonts[0] = value;
+                _text.UpdateVertexCache();
+
+                //var _ = _text.TextMetrics;
+
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public FormattedText.Icon[] Icons
+        {
+            get => _text.Icons;
+
+            set
+            {
+                _text.Icons = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public FormattedText.WrapMode WordWrap
+        {
+            get => _text.WordWrap;
+
+            set
+            {
+                _text.WordWrap = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public FormattedText FormattedText
         {
             get => _text;
 
@@ -40,6 +109,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
                 var renderer = GetTextRenderer();
                 if (renderer != null) renderer.ApplyText(_text);
+
+                if (Active) UpdateLayoutTree();
             }
         }
 
@@ -48,7 +119,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             base.UpdateLayout();
 
             var text = GetTextRenderer();
-
+            
             if (text != null)
             {
                 text.ApplyText(_text);
@@ -63,13 +134,23 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
         protected override Vector2 ComputePreferredSize()
         {
-            // Maybe this should be cloned to avoid possible future sideeffects?
-            var originalWrap = _text.WordWrap;
-            _text.WordWrap = FormattedText.WrapMode.Element;
+            var wrap = _text.WordWrap;
+            var alignment = _text.LineAlign;
+            var width = _text.MaxWidth;
+            var height = _text.MaxHeight;
 
+            _text.WordWrap = FormattedText.WrapMode.Element;
+            _text.LineAlign = Alignment.Left;
+            _text.MaxWidth = int.MaxValue;
+            _text.MaxHeight = int.MaxValue;
+
+            _text.UpdateVertexCache();
             var size = _text.Size;
 
-            _text.WordWrap = originalWrap;
+            _text.WordWrap = wrap;
+            _text.LineAlign = alignment;
+            _text.MaxWidth = width;
+            _text.MaxHeight = height;
 
             return size;
         }

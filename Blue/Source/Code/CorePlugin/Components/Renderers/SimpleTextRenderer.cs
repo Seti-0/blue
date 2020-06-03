@@ -14,7 +14,7 @@ using Soulstone.Duality.Plugins.Blue.Interface;
 namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 {
     [EditorHintCategory(CategoryNames.Renderers)]
-    public class SimpleTextRenderer : DualityTextRendererCopy, ICmpTextRenderer, ICmpInitializable
+    public class SimpleTextRenderer : MyTextRenderer, ICmpTextRenderer, ICmpInitializable
     {
         private Vector2 _size;
 
@@ -51,6 +51,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
         {
             Text.MaxWidth = (int)_size.X;
             Text.MaxHeight = (int)_size.Y;
+
+            Render = Text.MaxWidth != 0 || Text.MaxWidth != 0;
         }
 
         public void ApplyDepthOffset(float offset)

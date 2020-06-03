@@ -140,6 +140,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="3543126885">
                         <_offset dataType="Struct" type="Duality.Vector3" />
+                        <_render dataType="Bool">true</_render>
                         <_size dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">88</X>
                           <Y dataType="Float">17</Y>
@@ -282,6 +283,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="1240759334">
                         <_offset dataType="Struct" type="Duality.Vector3" />
+                        <_render dataType="Bool">true</_render>
                         <_size dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">88</X>
                           <Y dataType="Float">17</Y>
@@ -315,7 +317,7 @@
                         <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea" id="2609989010">
-                        <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Left" value="1" />
+                        <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Right" value="2" />
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
@@ -367,7 +369,7 @@
                     <body />
                   </identifier>
                   <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-                  <name dataType="String">Pink</name>
+                  <name dataType="String">Tag</name>
                   <parent dataType="ObjectRef">3665771630</parent>
                   <prefabLink />
                 </item>
@@ -424,10 +426,11 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="209660059">
                         <_offset dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">398.5</X>
-                          <Y dataType="Float">225.75</Y>
+                          <X dataType="Float">20</X>
+                          <Y dataType="Float">20</Y>
                           <Z dataType="Float">0</Z>
                         </_offset>
+                        <_render dataType="Bool">true</_render>
                         <_size dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">88</X>
                           <Y dataType="Float">17</Y>
@@ -461,7 +464,7 @@
                         <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea" id="1578889735">
-                        <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
+                        <_contentAlignment dataType="Enum" type="Duality.Alignment" name="TopLeft" value="5" />
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
@@ -678,6 +681,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="4177997815">
                         <_offset dataType="Struct" type="Duality.Vector3" />
+                        <_render dataType="Bool">true</_render>
                         <_size dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">88</X>
                           <Y dataType="Float">17</Y>
@@ -820,6 +824,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="3971956862">
                         <_offset dataType="Struct" type="Duality.Vector3" />
+                        <_render dataType="Bool">true</_render>
                         <_size dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">88</X>
                           <Y dataType="Float">17</Y>
@@ -966,6 +971,7 @@
                           <Y dataType="Float">10</Y>
                           <Z dataType="Float">0</Z>
                         </_offset>
+                        <_render dataType="Bool">true</_render>
                         <_size dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">88</X>
                           <Y dataType="Float">17</Y>
@@ -993,7 +999,7 @@
                           <lineAlign dataType="Enum" type="Duality.Alignment" name="Left" value="1" />
                           <maxHeight dataType="Int">17</maxHeight>
                           <maxWidth dataType="Int">88</maxWidth>
-                          <sourceText dataType="String">say, globally </sourceText>
+                          <sourceText dataType="String">Hello World</sourceText>
                           <wrapMode dataType="Enum" type="Duality.Drawing.FormattedText+WrapMode" name="Word" value="1" />
                         </text>
                         <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />

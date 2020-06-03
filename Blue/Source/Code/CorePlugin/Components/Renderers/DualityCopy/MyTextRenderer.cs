@@ -16,15 +16,16 @@ using Duality.Resources;
 namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 {
     /// <summary>
-    /// Temporary stand-in until I make a more adapted text renderer
+    /// Temporary stand-in until I make a more adapted text renderer. Direct copy from Duality.Drawing.
     /// </summary>
     [ManuallyCloned]
     [EditorHintCategory(CoreResNames.CategoryGraphics)]
     [EditorHintImage(CoreResNames.ImageFont)]
-    public class DualityTextRendererCopy : Renderer, ICmpSerializeListener
+    public class MyTextRenderer : Renderer, ICmpSerializeListener
     {
-		// This is the only Blue modification the the class
+		// These are the only Blue modifications the the class
 		private Vector3 _offset;
+		private bool _render;
 
 		protected Alignment blockAlign = Alignment.Center;
 		protected FormattedText text = new FormattedText("Hello World");
@@ -114,14 +115,22 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 			set => _offset = value;
 		}
 
+		public bool Render
+		{
+			get => _render;
+			set => _render = value;
+		}
 
-		public DualityTextRendererCopy()
+
+		public MyTextRenderer()
 		{
 			this.text.Fonts = new[] { Font.GenericMonospace10 };
 		}
 
 		public override void Draw(IDrawDevice device)
 		{
+			if (!_render) return;
+
 			Vector3 posTemp = GameObj.Transform.Pos + _offset;
 
 			Vector2 xDot, yDot;
@@ -203,7 +212,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 		protected override void OnSetupCloneTargets(object targetObj, ICloneTargetSetup setup)
 		{
 			base.OnSetupCloneTargets(targetObj, setup);
-			DualityTextRendererCopy target = targetObj as DualityTextRendererCopy;
+			MyTextRenderer target = targetObj as MyTextRenderer;
 
 			setup.HandleObject(this.text, target.text);
 			setup.HandleObject(this.customMat, target.customMat);
@@ -211,7 +220,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 		protected override void OnCopyDataTo(object targetObj, ICloneOperation operation)
 		{
 			base.OnCopyDataTo(targetObj, operation);
-			DualityTextRendererCopy target = targetObj as DualityTextRendererCopy;
+			MyTextRenderer target = targetObj as MyTextRenderer;
 
 			target.blockAlign = this.blockAlign;
 			target.colorTint = this.colorTint;
