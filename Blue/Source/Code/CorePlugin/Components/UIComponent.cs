@@ -22,6 +22,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         private OptionalField<Bounds> _customBounds;
 
+        private Margins _margin;
+        private Margins _padding;
+        private Alignment _contentAlignment;
+        private OptionalField<bool> _customStretchContent;
+
         private Vector2 _layoutPosition;
         private Vector2 _layoutSize;
 
@@ -145,10 +150,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         {
             get
             {
-                if (_customMaxSize.Use)
-                    return _customMaxSize.Value;
+                Vector2 maxSize = _customMaxSize.Use ?
+                    _customMaxSize.Value :
+                    ComputeMaximumSize();
 
-                return ComputeMaximumSize();
+                maxSize.X += _padding.Right + _padding.Left
+                    + _margin.Right + _margin.Left;
+
+                maxSize.Y += _padding.Top + _padding.Bottom
+                    + _margin.Top + _margin.Bottom;
+
+                return maxSize;
             }
         }
 
@@ -157,10 +169,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         {
             get
             {
-                if (_customPreferredSize.Use)
-                    return _customPreferredSize.Value;
+                Vector2 prefSize = _customPreferredSize.Use ?
+                    _customPreferredSize.Value :
+                    ComputePreferredSize();
 
-                return ComputePreferredSize();
+                prefSize.X += _padding.Right + _padding.Left
+                    + _margin.Right + _margin.Left;
+
+                prefSize.Y += _padding.Top + _padding.Bottom
+                    + _margin.Top + _margin.Bottom;
+
+                return prefSize;
             }
         }
 
@@ -232,6 +251,114 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
+        public OptionalField<bool> StretchContent
+        {
+            get => _customStretchContent;
+
+            set
+            {
+                _customStretchContent = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public Margins Margin
+        {
+            get => _margin;
+
+            set
+            {
+                _margin = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public Margins Padding
+        {
+            get => _padding;
+            
+            set
+            {
+                _padding = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        public Alignment ContentAlignment
+        {
+            get => _contentAlignment;
+
+            set
+            {
+                _contentAlignment = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector3 ContentPosition
+        {
+            get
+            {
+                var position = Position;
+                position.X += _margin.Left + _padding.Left;
+                position.Y += _margin.Top + _padding.Top;
+
+                if (_contentAlignment == Alignment.TopLeft)
+                    return position;
+
+                Vector2 contentArea;
+                contentArea.X = Size.X - (_margin.Left + _margin.Right + _padding.Left + _padding.Right);
+                contentArea.Y = Size.Y - (_margin.Top + _margin.Bottom + _padding.Top + _padding.Bottom);
+
+                var offset = _contentAlignment.ApplyTo(Vector2.Zero, ContentSize) - _contentAlignment.ApplyTo(Vector2.Zero, contentArea);
+                position.X += offset.X;
+                position.Y += offset.Y;
+
+                return position;
+            }
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 ContentSize
+        {
+            get
+            {
+                var minSize = MinimumSize;
+                var maxSize = MaximumSize;
+
+                bool stretch = _customStretchContent.Use ?
+                    _customStretchContent.Value :
+                    StretchContentDefault;
+
+                if (!stretch)
+                {
+                    var prefSize = ComputePreferredSize();
+                    maxSize.X = MathF.Clamp(maxSize.X, 0, prefSize.X);
+                    maxSize.Y = MathF.Clamp(maxSize.Y, 0, prefSize.Y);
+                }
+
+                minSize.X = MathF.Clamp(minSize.X, 0, maxSize.X);
+                minSize.Y = MathF.Clamp(minSize.Y, 0, maxSize.X);
+
+                var size = Size;
+                size.X -= (_margin.Left + _margin.Right + _padding.Left + _padding.Right);
+                size.Y -= (_margin.Top + _margin.Bottom + _padding.Top + _padding.Bottom);
+
+                // Strictly speaking the margins and padding could be negative, hence 
+                // max and min to be considered here instead of just min.
+                size.X = MathF.Clamp(size.X, minSize.X, maxSize.X);
+                size.Y = MathF.Clamp(size.Y, minSize.Y, maxSize.Y);
+
+                return size;
+            }
+        }
+
+        protected virtual bool StretchContentDefault
+        {
+            get => true;
+        }
+
         protected ICmpBackground Background
         {
             get
@@ -288,11 +415,20 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public virtual void UpdateLayout()
         {
-            var size = Size;
             var position = Position;
+            
+            var backgroundSize = Size;
+            var backgroundPosition = position;
 
-            Background.ApplyDimensions(position, size);
+            backgroundSize.X -= _margin.Left + _margin.Right;
+            backgroundSize.Y -= _margin.Top + _margin.Bottom;
+            backgroundPosition.X += _margin.Left;
+            backgroundPosition.Y += _margin.Bottom;
+
             GameObj.Transform.Pos = position;
+            Background.ApplyDimensions(backgroundPosition, backgroundSize);
+
+            Background.ApplyDepthOffset(1);
         }
 
         protected abstract Vector2 ComputeMinimumSize();

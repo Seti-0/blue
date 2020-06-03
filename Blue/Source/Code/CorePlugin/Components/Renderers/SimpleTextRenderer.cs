@@ -14,7 +14,7 @@ using Soulstone.Duality.Plugins.Blue.Interface;
 namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 {
     [EditorHintCategory(CategoryNames.Renderers)]
-    public class SimpleTextRenderer : TextRenderer, ICmpTextRenderer, ICmpInitializable
+    public class SimpleTextRenderer : DualityTextRendererCopy, ICmpTextRenderer, ICmpInitializable
     {
         private Vector2 _size;
 
@@ -33,8 +33,13 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 
         public void ApplyDimensions(Vector3 position, Vector2 size)
         {
+            var offset = position;
+
             var transform = GameObj.Transform;
-            if (transform != null) transform.Pos = position;
+            if (transform != null)
+                offset -= transform.Pos;
+
+            Offset = offset;
 
             BlockAlign = Alignment.TopLeft;
 

@@ -20,6 +20,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
     {
         private FormattedText _text = new FormattedText("Hello World");
 
+        protected override bool StretchContentDefault
+        {
+            get => false;
+        }
+
         public FormattedText Text
         {
             get => _text;
@@ -47,16 +52,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             if (text != null)
             {
                 text.ApplyText(_text);
-                text.ApplyDimensions(Position, Size);
+                text.ApplyDimensions(ContentPosition, ContentSize);
             }
-
-            var background = GetBackground();
-
-            if (background != null)
-                background.ApplyDimensions(Position, Size);
-
-            text.ApplyDepthOffset(0);
-            background.ApplyDepthOffset(1);
         }
 
         protected override Vector2 ComputeMinimumSize()
@@ -80,11 +77,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
         private ICmpTextRenderer GetTextRenderer()
         {
             return GameObj?.GetComponent<ICmpTextRenderer>();
-        }
-
-        private ICmpBackground GetBackground()
-        {
-            return GameObj?.GetComponent<ICmpBackground>();
         }
     }
 }

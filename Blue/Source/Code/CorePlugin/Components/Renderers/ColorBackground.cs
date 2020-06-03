@@ -48,10 +48,13 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 
         public void ApplyDimensions(Vector3 position, Vector2 size)
         {
-            var transform = GameObj.Transform;
-            if (transform != null) transform.Pos = position;
+            var offset = position;
 
-            Rect = Rect.Align(Alignment.TopLeft, 0, 0, size.X, size.Y);
+            var transform = GameObj.Transform;
+            if (transform != null)
+                offset -= transform.Pos;
+
+            Rect = Rect.Align(Alignment.TopLeft, offset.X, offset.Y, size.X, size.Y);
         }
 
         public void ApplyDepthOffset(float offset)

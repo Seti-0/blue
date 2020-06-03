@@ -57,6 +57,7 @@
     <Compile Include="BlueConfig.cs" />
     <Compile Include="Components\Basic\TextArea.cs" />
     <Compile Include="Components\Renderers\ColorBackground.cs" />
+    <Compile Include="Components\Renderers\DualityTextRendererCopy.cs" />
     <Compile Include="Components\Renderers\SimpleTextRenderer.cs" />
     <Compile Include="Components\UIComponent.cs" />
     <Compile Include="Interface\ICmpBackground.cs" />
