@@ -474,8 +474,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             Background.ApplyDepthOffset(1);
         }
 
-        protected abstract Vector2 ComputeMinimumSize();
-
         protected abstract Vector2 ComputePreferredSize();
 
         protected virtual Vector2 ComputePreferredSize(Vector2 maxSize)
@@ -483,11 +481,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             return ComputePreferredSize();
         }
 
-        // I'm including this method for testing and completeness, I don't see why it
+        // I'm including these methods for testing and completeness, I don't see why they
         // would ever be overriden at this point.
+
         protected virtual Vector2 ComputeMaximumSize()
         {
             return new Vector2(float.MaxValue, float.MaxValue);
+        }
+
+        protected virtual Vector2 ComputeMinimumSize()
+        {
+            return Vector2.Zero;
         }
     }
 }

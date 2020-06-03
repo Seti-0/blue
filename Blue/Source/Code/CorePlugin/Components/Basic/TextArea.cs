@@ -125,11 +125,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             }
         }
 
-        protected override Vector2 ComputeMinimumSize()
-        {
-            return Vector2.Zero;
-        }
-
         protected override Vector2 ComputePreferredSize()
         {
             var wrap = _text.WordWrap;
