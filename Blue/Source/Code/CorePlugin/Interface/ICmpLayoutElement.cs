@@ -29,6 +29,8 @@ namespace Soulstone.Duality.Plugins.Blue
 
         Vector2 PreferredSize { get; }
 
+        float Depth { get; }
+
 
         Component Component { get; }
 
@@ -36,7 +38,9 @@ namespace Soulstone.Duality.Plugins.Blue
 
         Vector3 Position { get; }
 
-        void ApplyDimensions(Vector3 position, Vector2 size);
+        float DepthOffset { get; }
+
+        void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
 
         // Currently not needed, but perhaps should be a natural part of this?
         //void UpdateLayout();

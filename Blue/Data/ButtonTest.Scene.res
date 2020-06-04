@@ -46,7 +46,7 @@
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                         <gameobj dataType="ObjectRef">2123020541</gameobj>
-                        <offset dataType="Float">1</offset>
+                        <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
                           <H dataType="Float">27</H>
@@ -83,7 +83,7 @@
                         <customMat />
                         <gameobj dataType="ObjectRef">2123020541</gameobj>
                         <iconMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]" />
-                        <offset dataType="Float">0</offset>
+                        <offset dataType="Float">1</offset>
                         <text dataType="Struct" type="Duality.Drawing.FormattedText" id="1065881549">
                           <flowAreas />
                           <fonts dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Font]][]" id="3967009318">
@@ -103,11 +103,13 @@
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea" id="2145586889">
                         <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customStretchContent dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                         <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+                        <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2" />
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">98</X>
@@ -195,7 +197,7 @@
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                         <gameobj dataType="ObjectRef">23848018</gameobj>
-                        <offset dataType="Float">1</offset>
+                        <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
                           <H dataType="Float">15</H>
@@ -219,6 +221,7 @@
                         </_activeColor>
                         <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -236,6 +239,7 @@
                           <R dataType="Byte">60</R>
                         </_hoverColor>
                         <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+                        <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">98</X>
                           <Y dataType="Float">0</Y>
@@ -333,7 +337,7 @@
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                         <gameobj dataType="ObjectRef">42616445</gameobj>
-                        <offset dataType="Float">1</offset>
+                        <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
                           <H dataType="Float">15</H>
@@ -357,6 +361,7 @@
                         </_activeColor>
                         <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -374,6 +379,7 @@
                           <R dataType="Byte">60</R>
                         </_hoverColor>
                         <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+                        <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">258</X>
                           <Y dataType="Float">0</Y>
@@ -468,7 +474,7 @@
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                         <gameobj dataType="ObjectRef">3789560285</gameobj>
-                        <offset dataType="Float">1</offset>
+                        <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
                           <H dataType="Float">15</H>
@@ -492,6 +498,7 @@
                         </_activeColor>
                         <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -509,6 +516,7 @@
                           <R dataType="Byte">60</R>
                         </_hoverColor>
                         <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+                        <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">418</X>
                           <Y dataType="Float">0</Y>
@@ -598,6 +606,7 @@
                 </item>
                 <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="1549106614">
                   <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                  <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                   <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
                     <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
                     <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -633,7 +642,7 @@
                   <customMat />
                   <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                   <gameobj dataType="ObjectRef">106473011</gameobj>
-                  <offset dataType="Float">2</offset>
+                  <offset dataType="Float">3</offset>
                   <pixelGrid dataType="Bool">false</pixelGrid>
                   <rect dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">30</H>
@@ -708,6 +717,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="715841363">
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
                           <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
                           <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -740,7 +750,7 @@
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                         <gameobj dataType="ObjectRef">3568175056</gameobj>
-                        <offset dataType="Float">0</offset>
+                        <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
                           <H dataType="Float">200</H>
@@ -881,11 +891,13 @@
                             <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea" id="2100701428">
                               <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                               <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                              <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                               <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                               <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                               <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                               <_customStretchContent dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                               <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+                              <_layoutDepthOffset dataType="Float">1</_layoutDepthOffset>
                               <_layoutPosition dataType="Struct" type="Duality.Vector2">
                                 <X dataType="Float">0</X>
                                 <Y dataType="Float">30</Y>
@@ -1000,6 +1012,7 @@
                               </_activeColor>
                               <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                               <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                              <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                               <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                               <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                               <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -1017,6 +1030,7 @@
                                 <R dataType="Byte">60</R>
                               </_hoverColor>
                               <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+                              <_layoutDepthOffset dataType="Float">1</_layoutDepthOffset>
                               <_layoutPosition dataType="Struct" type="Duality.Vector2">
                                 <X dataType="Float">0</X>
                                 <Y dataType="Float">67</Y>
@@ -1110,6 +1124,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="1082466731">
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
@@ -1220,6 +1235,7 @@
                 </item>
                 <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="229747606">
                   <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                  <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                   <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                   <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                   <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
@@ -1246,7 +1262,7 @@
                   <customMat />
                   <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
                   <gameobj dataType="ObjectRef">3082081299</gameobj>
-                  <offset dataType="Float">4</offset>
+                  <offset dataType="Float">3</offset>
                   <pixelGrid dataType="Bool">false</pixelGrid>
                   <rect dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">200</H>
@@ -1467,6 +1483,7 @@
             </_activeColor>
             <_contentAlignment dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
             <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+            <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
             <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
             <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
             <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -1484,6 +1501,7 @@
               <R dataType="Byte">60</R>
             </_hoverColor>
             <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
+            <_layoutDepthOffset dataType="Float">0</_layoutDepthOffset>
             <_layoutPosition dataType="Struct" type="Duality.Vector2" />
             <_layoutSize dataType="Struct" type="Duality.Vector2" />
             <_margin dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">

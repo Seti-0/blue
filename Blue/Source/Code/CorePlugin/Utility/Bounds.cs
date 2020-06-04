@@ -12,6 +12,7 @@ namespace Soulstone.Duality.Plugins.Blue
     {
         public Vector3 Position;
         public Vector2 Size;
+        public float DepthOffset;
 
         public bool StretchHorizontal;
         public bool StretchVertical;

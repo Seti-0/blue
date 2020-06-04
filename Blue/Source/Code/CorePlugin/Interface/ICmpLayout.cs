@@ -18,6 +18,8 @@ namespace Soulstone.Duality.Plugins.Blue
 
         Vector2 PreferredSize { get; }
 
+        float Depth { get; }
+
         void UpdateLayout();
     }
 }

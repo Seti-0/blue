@@ -46,7 +46,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
 
         public void OnDeactivate(){}
 
-        public void ApplyDimensions(Vector3 position, Vector2 size)
+        public void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset)
         {
             var offset = position;
 
@@ -55,11 +55,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
                 offset -= transform.Pos;
 
             Rect = Rect.Align(Alignment.TopLeft, offset.X, offset.Y, size.X, size.Y);
-        }
 
-        public void ApplyDepthOffset(float offset)
-        {
-            DepthOffset = offset;
+            DepthOffset = depthOffset;
         }
 
         public void ApplyColor(ColorRgba color)

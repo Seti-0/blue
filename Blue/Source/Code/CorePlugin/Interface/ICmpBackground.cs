@@ -13,8 +13,6 @@ namespace Soulstone.Duality.Plugins.Blue.Interface
     {
         void ApplyColor(ColorRgba color);
 
-        void ApplyDepthOffset(float offset);
-
-        void ApplyDimensions(Vector3 position, Vector2 size);
+        void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
     }
 }

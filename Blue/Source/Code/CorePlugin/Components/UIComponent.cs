@@ -19,6 +19,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         private int _order;
         private bool _ignoreParentLayout, _stretchVertical, _stretchHorizontal;
         private OptionalField<Vector2> _customMaxSize, _customMinSize, _customPreferredSize;
+        private OptionalField<float> _customDepth;
 
         private OptionalField<Bounds> _customBounds;
 
@@ -27,8 +28,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         private Alignment _contentAlignment;
         private OptionalField<bool> _customStretchContent;
 
+        // Consider not serializing these? (It would mean being careful with layout on load)
+
         private Vector2 _layoutPosition;
         private Vector2 _layoutSize;
+        private float _layoutDepthOffset;
 
         public int Order
         {
@@ -122,6 +126,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
+        public OptionalField<float> CustomDepth
+        {
+            get => _customDepth;
+
+            set
+            {
+                _customDepth = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
         public OptionalField<Bounds> CustomBounds
         {
             get => _customBounds;
@@ -130,6 +145,19 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             {
                 _customBounds = value;
                 if (Active) UpdateLayoutTree();
+            }
+        }
+
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public float Depth
+        {
+            get
+            {
+                if (_customDepth.Use)
+                    return _customDepth.Value;
+
+                return BackgroundDepth + ComputeContentDepth();
             }
         }
 
@@ -251,6 +279,21 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public float DepthOffset
+        {
+            get
+            {
+                if (ParentLayout != null)
+                    return _layoutDepthOffset;
+
+                if (_customBounds.Use)
+                    return _customBounds.Value.DepthOffset;
+
+                return 0;
+            }
+        }
+
         public OptionalField<bool> StretchContent
         {
             get => _customStretchContent;
@@ -335,6 +378,13 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         }
 
         [EditorHintFlags(MemberFlags.Invisible)]
+        public float BackgroundDepth
+        {
+            // If the background ever gets more complicated, this could to.
+            get => 1;
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
         public Vector3 ContentPosition
         {
             get
@@ -407,6 +457,15 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public float ContentDepthOffset
+        {
+            get
+            {
+                return DepthOffset - BackgroundDepth;
+            }
+        }
+
         protected virtual bool StretchContentDefault
         {
             get => true;
@@ -459,17 +518,18 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
-        public void ApplyDimensions(Vector3 position, Vector2 size)
+        public void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset)
         {
             _layoutPosition = position.Xy;
             _layoutSize = size;
+            _layoutDepthOffset = depthOffset;
             UpdateLayout();
         }
 
         public virtual void UpdateLayout()
         {
             GameObj.Transform.Pos = Position;
-            Background.ApplyDimensions(BackgroundPosition, BackgroundSize);
+            Background.ApplyDimensions(BackgroundPosition, BackgroundSize, DepthOffset);
 
             //Background.ApplyDepthOffset(1);
         }
@@ -479,6 +539,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         protected virtual Vector2 ComputePreferredSize(Vector2 maxSize)
         {
             return ComputePreferredSize();
+        }
+
+        protected virtual float ComputeContentDepth()
+        {
+            return 0;
         }
 
         // I'm including these methods for testing and completeness, I don't see why they

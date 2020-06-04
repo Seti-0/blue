@@ -11,9 +11,7 @@ namespace Soulstone.Duality.Plugins.Blue.Interface
 {
     public interface ICmpTextRenderer
     {
-        void ApplyDepthOffset(float offset);
-
-        void ApplyDimensions(Vector3 position, Vector2 size);
+        void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
 
         void ApplyText(FormattedText text);
     }

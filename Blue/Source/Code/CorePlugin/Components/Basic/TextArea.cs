@@ -121,7 +121,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             if (text != null)
             {
                 text.ApplyText(_text);
-                text.ApplyDimensions(ContentPosition, ContentSize);
+                text.ApplyDimensions(ContentPosition, ContentSize, ContentDepthOffset);
             }
         }
 
@@ -172,6 +172,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             _text.MaxHeight = height;
 
             return size;
+        }
+
+        protected override float ComputeContentDepth()
+        {
+            return 1;
         }
 
         private ICmpTextRenderer GetTextRenderer()

@@ -50,6 +50,19 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
+        public float DepthOffset
+        {
+            get
+            {
+                var sibling = Sibling;
+                if (sibling == null) return Depth;
+
+                // This isn't quite right. In general, though, the sibling
+                // thing is awkward, LayoutBase may as well inherit from UIComponent
+                return sibling.DepthOffset;
+            }
+        }
+
         public ICmpLayoutElement Sibling
         {
             get
@@ -80,6 +93,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         public Vector2 PreferredSize
         {
             get => ComputePreferredSize();
+        }
+
+        public float Depth
+        {
+            get => ComputeDepth();
         }
 
         public virtual void OnActivate()
@@ -120,6 +138,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         protected abstract Vector2 ComputeMinimumSize();
 
         protected abstract Vector2 ComputeMaximumSize();
+
+        protected abstract float ComputeDepth();
 
         public abstract void UpdateLayout();
 

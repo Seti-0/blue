@@ -170,6 +170,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             return result;
         }
 
+        protected override float ComputeDepth()
+        {
+            return GetChildLayoutElements().Select(x => x.Depth).Max();
+        }
+
         private class LayoutHints
         {
             public Vector2 PreferredSize;
@@ -523,7 +528,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             for (int i = 0; i < hints.Length; i++)
             {
                 elements[i].Target.ApplyDimensions(new Vector3(destinations[i].Position),
-                    destinations[i].Size);
+                    destinations[i].Size, DepthOffset - 1);
             }
         }
 

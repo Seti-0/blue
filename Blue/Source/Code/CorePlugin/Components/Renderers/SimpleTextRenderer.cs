@@ -31,7 +31,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
             ApplySize();
         }
 
-        public void ApplyDimensions(Vector3 position, Vector2 size)
+        public void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset)
         {
             var offset = position;
 
@@ -40,6 +40,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
                 offset -= transform.Pos;
 
             Offset = offset;
+            DepthOffset = depthOffset;
 
             BlockAlign = Alignment.TopLeft;
 
@@ -53,11 +54,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
             Text.MaxHeight = (int)_size.Y;
 
             Render = Text.MaxWidth != 0 && Text.MaxHeight != 0;
-        }
-
-        public void ApplyDepthOffset(float offset)
-        {
-            DepthOffset = offset;
         }
     }
 }

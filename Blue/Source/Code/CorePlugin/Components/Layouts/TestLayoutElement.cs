@@ -18,11 +18,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
         private int _order;
         private bool _ignoreParentLayout, _ignoreSiblingLayout, _stretchVertical, _stretchHorizontal;
         private OptionalField<Vector2> _customMaxSize, _customMinSize, _customPreferredSize;
+        private OptionalField<float> _customDepth;
 
         private OptionalField<Bounds> _customBounds;
 
-        private Vector2 _layoutPosition;
-        private Vector2 _layoutSize;
+        private Vector2 _layoutPosition, _layoutSize;
 
         public int Order
         {
@@ -151,6 +151,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
             }
         }
 
+        public OptionalField<float> CustomDepth
+        {
+            get => _customDepth;
+
+            set
+            {
+                _customDepth = value;
+                if (Active) UpdateLayoutTree();
+            }
+        }
+
         public Vector2 MinimumSize
         {
             get
@@ -190,6 +201,20 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
                     return SiblingLayout.PreferredSize;
 
                 return new Vector2(200, 200);
+            }
+        }
+
+        public float Depth
+        {
+            get
+            {
+                if (_customDepth.Use)
+                    return _customDepth.Value;
+
+                if (SiblingLayout != null)
+                    return 1 + SiblingLayout.Depth;
+
+                return 1;
             }
         }
 
@@ -285,10 +310,13 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Layouts
             }
         }
 
-        public void ApplyDimensions(Vector3 position, Vector2 size)
+        public void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset)
         {
             _layoutPosition = position.Xy;
             _layoutSize = size;
+
+            DepthOffset = depthOffset;
+
             UpdateLayout();
         }
 
