@@ -11,6 +11,7 @@ namespace Soulstone.Duality.Plugins.Blue
         public const string Components  =   "Blue",
                             Layout      =   "Blue\\Layout",
                             Renderers   =   "Blue\\Renderers",
-                            Basic       =   "Blue";
+                            Basic       =   "Blue",
+                            Testing     =   "Blue\\Testing";
     }
 }

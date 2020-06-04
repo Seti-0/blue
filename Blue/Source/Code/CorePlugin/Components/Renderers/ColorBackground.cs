@@ -61,5 +61,10 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
         {
             DepthOffset = offset;
         }
+
+        public void ApplyColor(ColorRgba color)
+        {
+            ColorTint = color;
+        }
     }
 }

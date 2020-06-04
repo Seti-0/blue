@@ -471,7 +471,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             GameObj.Transform.Pos = Position;
             Background.ApplyDimensions(BackgroundPosition, BackgroundSize);
 
-            Background.ApplyDepthOffset(1);
+            //Background.ApplyDepthOffset(1);
         }
 
         protected abstract Vector2 ComputePreferredSize();

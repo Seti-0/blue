@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
+    <Compile Include="Components\Basic\Button.cs" />
     <Compile Include="Components\Basic\TextArea.cs" />
     <Compile Include="Components\Renderers\ColorBackground.cs" />
     <None Include="Components\Renderers\DualityCopy\MyFormattedText.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Components\UIComponent.cs" />
     <Compile Include="Interface\ICmpBackground.cs" />
     <Compile Include="Interface\ICmpTextRenderer.cs" />
+    <Compile Include="Testing\ButtonTestContext.cs" />
+    <Compile Include="Testing\InputDebug.cs" />
     <Compile Include="Utility\Bounds.cs" />
     <Compile Include="Utility\LayoutEventHelper.cs" />
     <Compile Include="Utility\OptionalField.cs" />

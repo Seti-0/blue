@@ -996,7 +996,7 @@
                             </item>
                           </fonts>
                           <icons />
-                          <lineAlign dataType="Enum" type="Duality.Alignment" name="Left" value="1" />
+                          <lineAlign dataType="Enum" type="Duality.Alignment" name="Center" value="0" />
                           <maxHeight dataType="Int">33</maxHeight>
                           <maxWidth dataType="Int">48</maxWidth>
                           <sourceText dataType="String">Hello World</sourceText>

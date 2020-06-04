@@ -15,14 +15,14 @@ namespace Soulstone.Duality.Plugins.Blue
     {
         // TODO: provide a mechanism for contexts not usually in scope to peek at events
 
-        public static void SendEventToParents<T>(T sender, string eventID) where T : Component
+        public static void SendEventToParents<T>(T sender, string eventID, string name = null) where T : Component
         {
-            if (Warnings.NullOrDisposed(sender)) return;
+            if (Warnings.Null(sender)) return;
             if (Warnings.Null(eventID)) return;
 
             var contexts = GetParentContexts(sender);
             foreach (var context in contexts)
-                context.HandleEvent(eventID, sender, sender?.GameObj?.Name);
+                context.HandleEvent(eventID, sender, name);
         }
 
         public static void SendEventToRoots<T>(T sender, string eventID, string name = null)

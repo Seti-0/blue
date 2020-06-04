@@ -11,6 +11,8 @@ namespace Soulstone.Duality.Plugins.Blue.Interface
 {
     public interface ICmpBackground
     {
+        void ApplyColor(ColorRgba color);
+
         void ApplyDepthOffset(float offset);
 
         void ApplyDimensions(Vector3 position, Vector2 size);
