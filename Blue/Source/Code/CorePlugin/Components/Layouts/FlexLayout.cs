@@ -385,6 +385,9 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
             // Determine target row dimensions
 
+            if (_wrap == FlexWrap.WrapReverse)
+                rows.Reverse();
+
             LayoutHints[] rowHints = new LayoutHints[nRows];
 
             for (int i = 0; i < nRows; i++)
@@ -410,11 +413,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                     if (currentRowHints.PreferredSize.X < elementHints.PreferredSize.Y)
                         currentRowHints.PreferredSize.X = elementHints.PreferredSize.Y;
                 }
-            }
-
-            if (_wrap == FlexWrap.WrapReverse)
-            {
-                rows.Reverse();
             }
 
             // Layout rows
