@@ -290,7 +290,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 if (_customBounds.Use)
                     return _customBounds.Value.DepthOffset;
 
-                return 0;
+                // As default, give it enough space to render fully
+                return Depth - 1;
             }
         }
 
