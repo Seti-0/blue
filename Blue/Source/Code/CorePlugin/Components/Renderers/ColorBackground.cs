@@ -19,6 +19,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Renderers
     {
         private OptionalField<ContentRef<Material>> _customMaterial;
 
+        public ColorRgba Color
+        {
+            get => ColorTint;
+        }
+
         public OptionalField<ContentRef<Material>> CustomSharedMaterial
         {
             get => _customMaterial;

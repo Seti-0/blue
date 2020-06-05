@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 using Duality;
 using Duality.Drawing;
+using Duality.Resources;
 
 namespace Soulstone.Duality.Plugins.Blue.Interface
 {
-    public interface ICmpBackground
+    public interface ICmpImageRenderer
     {
-        ColorRgba Color { get; }
+        ContentRef<Material> SharedMaterial { get; }
 
-        void ApplyColor(ColorRgba color);
+        BatchInfo CustomMaterial { get; }
+
+        void ApplyCustomMaterial(BatchInfo info);
+
+        void ApplySharedMaterial(ContentRef<Material> material);
 
         void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
     }
