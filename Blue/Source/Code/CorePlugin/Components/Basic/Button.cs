@@ -1,13 +1,17 @@
-﻿using Duality;
-using Duality.Drawing;
-using Duality.Editor;
-using Duality.Input;
-using Soulstone.Duality.Plugins.Blue.Input;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Duality;
+using Duality.Drawing;
+using Duality.Editor;
+using Duality.Input;
+
+using Soulstone.Duality.Plugins.Blue.Components.Renderers;
+using Soulstone.Duality.Plugins.Blue.Input;
+using Soulstone.Duality.Plugins.Blue.Interface;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 {
@@ -17,7 +21,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
     }
 
     [EditorHintCategory(CategoryNames.Basic)]
-    public class Button : UIComponent, ICmpMouseListener
+    [RequiredComponent(typeof(ICmpBackground), typeof(ColorBackground))]
+    public class Button : Component, ICmpMouseListener
     {
         public OptionalField<string> CustomName { get; set; }
 
@@ -110,14 +115,12 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
         public void UpdateStyle()
         {
-            if (Pressed) Background.ApplyColor(ActiveColor);
-            else if (Hover) Background.ApplyColor(HoverColor);
-            else Background.ApplyColor(NormalColor);
-        }
+            var background = GameObj?.GetComponent<ICmpBackground>();
+            if (background == null) return;
 
-        protected override Vector2 ComputePreferredSize()
-        {
-            return Vector2.Zero;
+            if (Pressed) background.ApplyColor(ActiveColor);
+            else if (Hover) background.ApplyColor(HoverColor);
+            else background.ApplyColor(NormalColor);
         }
     }
 }

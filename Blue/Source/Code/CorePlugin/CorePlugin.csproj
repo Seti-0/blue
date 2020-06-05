@@ -57,7 +57,9 @@
     <Compile Include="BlueConfig.cs" />
     <Compile Include="Components\Basic\Button.cs" />
     <Compile Include="Components\Basic\TextArea.cs" />
+    <Compile Include="Components\Basic\TextButton.cs" />
     <Compile Include="Components\Renderers\ColorBackground.cs" />
+    <Compile Include="Utility\TextAreaHelper.cs" />
     <None Include="Components\Renderers\DualityCopy\MyFormattedText.cs" />
     <Compile Include="Components\Renderers\DualityCopy\MyTextRenderer.cs" />
     <Compile Include="Components\Renderers\SimpleTextRenderer.cs" />
