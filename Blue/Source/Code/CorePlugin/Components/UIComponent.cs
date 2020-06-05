@@ -364,15 +364,16 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             get
             {
                 var position = Position;
+                var size = Size;
 
-                var backgroundSize = Size;
+                var backgroundSize = size;
                 var backgroundPosition = BackgroundPosition;
 
                 backgroundSize.X -= _margin.Left + _margin.Right;
                 backgroundSize.Y -= _margin.Top + _margin.Bottom;
 
-                backgroundSize.X = MathF.Clamp(backgroundSize.X, 0, backgroundSize.X - (backgroundPosition.X - position.X));
-                backgroundSize.Y = MathF.Clamp(backgroundSize.Y, 0, backgroundSize.Y - (backgroundPosition.Y - position.Y));
+                backgroundSize.X = MathF.Clamp(backgroundSize.X, 0, size.X - (backgroundPosition.X - position.X));
+                backgroundSize.Y = MathF.Clamp(backgroundSize.Y, 0, size.Y - (backgroundPosition.Y - position.Y));
 
                 return backgroundSize;
             }
