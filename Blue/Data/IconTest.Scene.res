@@ -86,8 +86,16 @@
                   <angleAbs dataType="Float">0</angleAbs>
                   <gameobj dataType="ObjectRef">1801667561</gameobj>
                   <ignoreParent dataType="Bool">false</ignoreParent>
-                  <pos dataType="Struct" type="Duality.Vector3" />
-                  <posAbs dataType="Struct" type="Duality.Vector3" />
+                  <pos dataType="Struct" type="Duality.Vector3">
+                    <X dataType="Float">0</X>
+                    <Y dataType="Float">154</Y>
+                    <Z dataType="Float">0</Z>
+                  </pos>
+                  <posAbs dataType="Struct" type="Duality.Vector3">
+                    <X dataType="Float">0</X>
+                    <Y dataType="Float">154</Y>
+                    <Z dataType="Float">0</Z>
+                  </posAbs>
                   <scale dataType="Float">1</scale>
                   <scaleAbs dataType="Float">1</scaleAbs>
                 </item>
@@ -107,7 +115,7 @@
                   <pixelGrid dataType="Bool">false</pixelGrid>
                   <rect dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">256</H>
-                    <W dataType="Float">1061</W>
+                    <W dataType="Float">256</W>
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
                   </rect>
@@ -134,7 +142,7 @@
                   <rect dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">256</H>
                     <W dataType="Float">256</W>
-                    <X dataType="Float">402.5</X>
+                    <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
                   </rect>
                   <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
@@ -154,9 +162,12 @@
                   <_customStretchContent dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                   <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
                   <_layoutDepthOffset dataType="Float">1</_layoutDepthOffset>
-                  <_layoutPosition dataType="Struct" type="Duality.Vector2" />
+                  <_layoutPosition dataType="Struct" type="Duality.Vector2">
+                    <X dataType="Float">0</X>
+                    <Y dataType="Float">154</Y>
+                  </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">1061</X>
+                    <X dataType="Float">256</X>
                     <Y dataType="Float">256</Y>
                   </_layoutSize>
                   <_margin dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
@@ -212,12 +223,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">256</Y>
+                    <Y dataType="Float">410</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">256</Y>
+                    <Y dataType="Float">410</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -239,7 +250,7 @@
                   <pixelGrid dataType="Bool">false</pixelGrid>
                   <rect dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">507</H>
-                    <W dataType="Float">1061</W>
+                    <W dataType="Float">1024</W>
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
                   </rect>
@@ -266,7 +277,7 @@
                   <rect dataType="Struct" type="Duality.Rect">
                     <H dataType="Float">507</H>
                     <W dataType="Float">1024</W>
-                    <X dataType="Float">18.5</X>
+                    <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
                   </rect>
                   <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
@@ -288,10 +299,10 @@
                   <_layoutDepthOffset dataType="Float">1</_layoutDepthOffset>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">256</Y>
+                    <Y dataType="Float">410</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
-                    <X dataType="Float">1061</X>
+                    <X dataType="Float">1024</X>
                     <Y dataType="Float">507</Y>
                   </_layoutSize>
                   <_margin dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
@@ -346,9 +357,9 @@
             <_ignoreSibling dataType="Bool">false</_ignoreSibling>
             <_mainAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexGroupAlignment" name="Default" value="0" />
             <_stretchCross dataType="Bool">false</_stretchCross>
-            <_stretchMain dataType="Bool">true</_stretchMain>
+            <_stretchMain dataType="Bool">false</_stretchMain>
             <_stretchRows dataType="Bool">false</_stretchRows>
-            <_wrap dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexWrap" name="Wrap" value="1" />
+            <_wrap dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexWrap" name="WrapReverse" value="2" />
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">3877392575</gameobj>
           </item>

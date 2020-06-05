@@ -105,7 +105,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">330.5</X>
-                          <Y dataType="Float">247</Y>
+                          <Y dataType="Float">258.5</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -113,6 +113,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="1477431878">
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -126,7 +127,7 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">330.5</X>
-                          <Y dataType="Float">247</Y>
+                          <Y dataType="Float">258.5</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">400</X>
@@ -206,7 +207,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">430.5</X>
-                          <Y dataType="Float">397</Y>
+                          <Y dataType="Float">408.5</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -214,6 +215,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="88214955">
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -227,7 +229,7 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">430.5</X>
-                          <Y dataType="Float">397</Y>
+                          <Y dataType="Float">408.5</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">200</X>
@@ -307,7 +309,7 @@
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">380.5</X>
-                          <Y dataType="Float">547</Y>
+                          <Y dataType="Float">558.5</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -315,6 +317,7 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="2976078611">
                         <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                        <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                         <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                         <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -328,7 +331,7 @@
                         <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                         <_layoutPosition dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">380.5</X>
-                          <Y dataType="Float">547</Y>
+                          <Y dataType="Float">558.5</Y>
                         </_layoutPosition>
                         <_layoutSize dataType="Struct" type="Duality.Vector2">
                           <X dataType="Float">300</X>
@@ -403,12 +406,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">280.5</X>
-                    <Y dataType="Float">197</Y>
+                    <Y dataType="Float">208.5</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">280.5</X>
-                    <Y dataType="Float">197</Y>
+                    <Y dataType="Float">208.5</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -429,6 +432,7 @@
                 </item>
                 <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Layouts.TestLayoutElement" id="702053338">
                   <_customBounds dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
+                  <_customDepth dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
                   <_customMaxSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                   <_customMinSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]" />
                   <_customPreferredSize dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Vector2]]">
@@ -442,7 +446,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">280.5</X>
-                    <Y dataType="Float">197</Y>
+                    <Y dataType="Float">208.5</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">500</X>
@@ -520,7 +524,7 @@
             <_stretchCross dataType="Bool">false</_stretchCross>
             <_stretchMain dataType="Bool">false</_stretchMain>
             <_stretchRows dataType="Bool">true</_stretchRows>
-            <_wrap dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexWrap" name="NoWrap" value="0" />
+            <_wrap dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexWrap" name="Wrap" value="1" />
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">148267885</gameobj>
           </item>
