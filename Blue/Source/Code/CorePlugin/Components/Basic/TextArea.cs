@@ -11,6 +11,7 @@ using Duality.Resources;
 
 using Soulstone.Duality.Plugins.Blue.Components.Renderers;
 using Soulstone.Duality.Plugins.Blue.Interface;
+using Soulstone.Duality.Plugins.Blue.Parameters;
 using Soulstone.Duality.Plugins.Blue.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Basic
@@ -21,11 +22,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
     public class TextArea : UIComponent
     {
         private FormattedText _text = new FormattedText("Hello World");
-
-        protected override bool StretchContentDefault
-        {
-            get => false;
-        }
 
         public string Text
         {
@@ -122,23 +118,22 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             if (text != null)
             {
                 text.ApplyText(_text);
-                text.ApplyDimensions(ContentPosition, ContentSize, ContentDepthOffset);
+                text.ApplyDimensions(
+                    Dimensions.ContentPosition,
+                    Dimensions.ContentSize,
+                    Dimensions.ContentDepthOffset
+                    );
             }
         }
 
-        protected override Vector2 ComputePreferredSize()
+        protected override void OnComputeContentHints(ContentLayoutHints hints)
         {
-            return TextAreaHelper.ComputePreferredSize(_text);
-        }
+            base.OnComputeContentHints(hints);
 
-        protected override Vector2 ComputePreferredSize(Vector2 maxSize)
-        {
-            return TextAreaHelper.ComputePreferredSize(_text, maxSize);
-        }
+            hints.Stretch = false;
+            hints.Depth = 1;
 
-        protected override float ComputeContentDepth()
-        {
-            return 1;
+            hints.PreferredSize = TextAreaHelper.ComputePreferredSize(_text);
         }
 
         private ICmpTextRenderer GetTextRenderer()

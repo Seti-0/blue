@@ -11,6 +11,7 @@ using Duality.Resources;
 
 using Soulstone.Duality.Plugins.Blue.Components.Renderers;
 using Soulstone.Duality.Plugins.Blue.Interface;
+using Soulstone.Duality.Plugins.Blue.Parameters;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 {
@@ -18,8 +19,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
     [RequiredComponent(typeof(ICmpImageRenderer), typeof(ImageRenderer))]
     public class Icon : UIComponent
     {
-        protected override bool StretchContentDefault => false;
-
         public ContentRef<Material> SharedMaterial
         {
             get
@@ -62,30 +61,28 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             }
         }
 
-        protected override Vector2 ComputePreferredSize()
+        protected override void OnComputeContentHints(ContentLayoutHints hints)
         {
-            var renderer = GetImageRenderer();
+            base.OnComputeContentHints(hints);
 
-            Texture tex = null;
+            hints.Stretch = false;
+            hints.Depth = 1;
+
+            var renderer = GetImageRenderer();
 
             if (renderer != null)
             {
+                Texture tex = null;
+
                 if (renderer.CustomMaterial != null)
                     tex = renderer.CustomMaterial.MainTexture.Res;
 
                 else if (renderer.SharedMaterial != null)
                     tex = renderer.SharedMaterial.Res?.MainTexture.Res;
+
+                if (tex != null)
+                    hints.PreferredSize = tex.ContentSize;
             }
-
-            if (tex == null)
-                return Vector2.Zero;
-
-            return tex.ContentSize;
-        }
-
-        protected override float ComputeContentDepth()
-        {
-            return 1;
         }
 
         public override void UpdateLayout()
@@ -95,7 +92,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             var renderer = GetImageRenderer();
 
             if (renderer != null)
-                renderer.ApplyDimensions(ContentPosition, ContentSize, ContentDepthOffset);
+                renderer.ApplyDimensions(
+                    Dimensions.ContentPosition, 
+                    Dimensions.ContentSize, 
+                    Dimensions.ContentDepthOffset
+                    );
         }
 
         private ICmpImageRenderer GetImageRenderer()

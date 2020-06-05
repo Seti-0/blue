@@ -12,14 +12,6 @@ namespace Soulstone.Duality.Plugins.Blue
     {
         bool Active { get; }
 
-        Vector2 MinimumSize { get; }
-
-        Vector2 MaximumSize { get; }
-
-        Vector2 PreferredSize { get; }
-
-        float Depth { get; }
-
         void UpdateLayout();
     }
 }

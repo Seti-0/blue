@@ -36,7 +36,12 @@ namespace Soulstone.Duality.Plugins.Blue
 
         public override string ToString()
         {
-            return Use ? (Value?.ToString() ?? "null") : "inactive";
+            var text = Value?.ToString() ?? "null";
+
+            if (!Use)
+                text += " (inactive)";
+
+            return text;
         }
     }
 }

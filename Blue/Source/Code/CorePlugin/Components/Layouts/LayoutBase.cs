@@ -9,97 +9,13 @@ using Duality;
 using Soulstone.Duality.Utility;
 
 using Soulstone.Duality.Plugins.BlueInput;
+using Soulstone.Duality.Plugins.Blue.Components.Basic;
+using Soulstone.Duality.Plugins.Blue.Parameters;
 
 namespace Soulstone.Duality.Plugins.Blue.Components
 {
-    public abstract class LayoutBase : Component, ICmpInitializable, ICmpLayout, ICmpResizeListener
+    public abstract class LayoutBase : Panel, ICmpInitializable, ICmpLayout, ICmpResizeListener
     {
-        private bool _ignoreSibling;
-
-        public bool IgnoreSibling
-        {
-            get => _ignoreSibling;
-
-            set
-            {
-                _ignoreSibling = value;
-                if (Active) UpdateLayoutTree();
-            }
-        }
-
-        public Vector2 Size
-        {
-            get
-            {
-                var sibling = Sibling;
-                if (sibling == null) 
-                    return DualityApp.WindowSize;
-
-                return sibling.Size;
-            }
-        }
-
-        public Vector3 Position
-        {
-            get
-            {
-                var sibling = Sibling;
-                if (sibling == null) return Vector3.Zero;
-
-                return sibling.Position;
-            }
-        }
-
-        public float DepthOffset
-        {
-            get
-            {
-                var sibling = Sibling;
-                if (sibling == null) return Depth;
-
-                // This isn't quite right. In general, though, the sibling
-                // thing is awkward, LayoutBase may as well inherit from UIComponent
-                return sibling.DepthOffset;
-            }
-        }
-
-        public ICmpLayoutElement Sibling
-        {
-            get
-            {
-                if (_ignoreSibling) return null;
-
-                var sibling = GameObj?.GetComponent<ICmpLayoutElement>();
-
-                // Ideally we'd ignore an inactive compoent, but the usual problem with initialization applies
-
-                if (sibling?.Component == null/* || !sibling.Component.Active*/) 
-                    return null;
-
-                return sibling;
-            }
-        }
-
-        public Vector2 MinimumSize
-        {
-            get => ComputeMinimumSize();
-        }
-
-        public Vector2 MaximumSize
-        {
-            get => ComputeMaximumSize();
-        }
-
-        public Vector2 PreferredSize
-        {
-            get => ComputePreferredSize();
-        }
-
-        public float Depth
-        {
-            get => ComputeDepth();
-        }
-
         public virtual void OnActivate()
         {
             UpdateLayoutTree();
@@ -109,7 +25,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public virtual void OnWindowSizeChanged(ResizeEventArgs e)
         {
-            if (Sibling?.ParentLayout == null)
+            if (Dimensions.UseLayoutInfo)
                 UpdateLayout();
         }
 
@@ -127,30 +43,10 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 foreach (var item in child.GetComponents<ICmpLayoutElement>())
                 {
                     // Ignoring inactive components will cause inconsistencies on init. This will need another look.
-                    if (item.Component == null || (!item.Component.Active) || item.IgnoreParentLayout) continue;
+                    if ((!item.Active) || item.IgnoreParentLayout) continue;
                     yield return item;
                 }
             }
-        }
-
-        protected abstract Vector2 ComputePreferredSize();
-
-        protected abstract Vector2 ComputeMinimumSize();
-
-        protected abstract Vector2 ComputeMaximumSize();
-
-        protected abstract float ComputeDepth();
-
-        public abstract void UpdateLayout();
-
-        public void UpdateLayoutTree()
-        {
-            var sibling = Sibling;
-
-            if (sibling == null)
-                UpdateLayout();
-
-            else sibling.UpdateLayoutTree();
         }
     }
 }

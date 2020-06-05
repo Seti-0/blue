@@ -1,4 +1,5 @@
 ﻿using Duality;
+using Duality.Editor;
 
 namespace Soulstone.Duality.Plugins.Blue
 {
@@ -12,12 +13,67 @@ namespace Soulstone.Duality.Plugins.Blue
 
         public float Top, Bottom, Right, Left;
 
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 TotalSize
+        {
+            get => new Vector2(Left + Right, Top + Bottom);
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 BottomLeft
+        {
+            get => new Vector2(Left, Bottom);
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 BottomRight
+        {
+            get => new Vector2(Right, Bottom);
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 TopLeft
+        {
+            get => new Vector2(Left, Top);
+        }
+
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public Vector2 TopRight
+        {
+            get => new Vector2(Right, Top);
+        }
+
+        [EditorHintFlags(MemberFlags.AffectsOthers)]
+        public float All
+        {
+            get
+            {
+                if (Top == Bottom && Bottom == Right && Right == Left)
+                    return Top;
+
+                return 0;
+            }
+
+            set
+            {
+                Top = value;
+                Bottom = value;
+                Right = value;
+                Left = value;
+            }
+        }
+
         public Margins(float top, float right, float bottom, float left)
         {
             Top = top;
             Right = right;
             Bottom = bottom;
             Left = left;
+        }
+
+        public override string ToString()
+        {
+            return $"({Top}, {Right}, {Bottom}, {Left})";
         }
 
         #region Scaling
