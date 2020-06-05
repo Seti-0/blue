@@ -96,12 +96,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -117,7 +117,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">0</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">200</X>
@@ -192,12 +192,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">200</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">200</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -219,7 +219,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">200</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">100</X>
@@ -294,12 +294,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">300</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">300</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -321,7 +321,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">300</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">150</X>
@@ -396,12 +396,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">450</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">450</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -423,7 +423,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">450</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">200</X>
@@ -498,12 +498,12 @@
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">650</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
                     <X dataType="Float">650</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -525,7 +525,7 @@
                   <_ignoreSiblingLayout dataType="Bool">false</_ignoreSiblingLayout>
                   <_layoutPosition dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">650</X>
-                    <Y dataType="Float">622</Y>
+                    <Y dataType="Float">667</Y>
                   </_layoutPosition>
                   <_layoutSize dataType="Struct" type="Duality.Vector2">
                     <X dataType="Float">250</X>

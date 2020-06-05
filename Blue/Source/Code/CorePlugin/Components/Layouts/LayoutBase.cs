@@ -8,7 +8,7 @@ using Duality;
 
 using Soulstone.Duality.Utility;
 
-using Soulstone.Duality.Plugins.Blue.Input;
+using Soulstone.Duality.Plugins.BlueInput;
 
 namespace Soulstone.Duality.Plugins.Blue.Components
 {

@@ -11,6 +11,13 @@ namespace Soulstone.Duality.Plugins.Blue
 {
     public static class BlueConfig
     {
+        // For now, this configuration does not persist. This should be changed later for the sake
+        // of a config component.
+
+        public static bool AutoGenerateSelectionComponents { get; set; } = true;
+
+        public static string DefaultGeneratedObjName { get; set; } = "BlueComponents";
+
         public static VisibilityFlag DefaultUIVisibilityFlag { get; set; }  = VisibilityFlag.Group1;
 
         // This is currently to avoid some undesirable behaviour with text wrapping

@@ -10,7 +10,6 @@ using Duality.Editor;
 using Duality.Input;
 
 using Soulstone.Duality.Plugins.Blue.Components.Renderers;
-using Soulstone.Duality.Plugins.Blue.Input;
 using Soulstone.Duality.Plugins.Blue.Interface;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Basic
@@ -22,7 +21,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
     [EditorHintCategory(CategoryNames.Basic)]
     [RequiredComponent(typeof(ICmpBackground), typeof(ColorBackground))]
-    public class Button : Component, ICmpMouseListener
+    public class Button : Component, ICmpButton
     {
         public OptionalField<string> CustomName { get; set; }
 
@@ -69,21 +68,16 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             }
         }
 
-        public void OnButtonDown(MouseButtonEventArgs args) => Press();
-        public void OnButtonUp(MouseButtonEventArgs args) => Release();
-        public void OnGainedFocus(EventArgs args) => StartHover();
-        public void OnLostFocus(EventArgs args) => EndHover();
-
         public void OnMove(MouseMoveEventArgs args){}
 
-        public void StartHover()
+        public void Enter()
         {
             _hover = true;
 
             UpdateStyle();
         }
 
-        public void EndHover()
+        public void Exit()
         {
             _hover = false;
             _pressed = false;

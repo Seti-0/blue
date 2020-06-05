@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Duality;
 using Duality.Editor;
 
-using Soulstone.Duality.Plugins.Blue.Input;
+using Soulstone.Duality.Plugins.BlueInput;
 
 namespace Soulstone.Duality.Plugins.Blue.Testing
 {

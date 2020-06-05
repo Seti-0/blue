@@ -61,6 +61,8 @@
     <Compile Include="Components\Basic\TextButton.cs" />
     <Compile Include="Components\Renderers\ColorBackground.cs" />
     <Compile Include="Components\Renderers\ImageRenderer.cs" />
+    <Compile Include="Components\Selection\ButtonPusher.cs" />
+    <Compile Include="Interface\ICmpButton.cs" />
     <Compile Include="Interface\ICmpImageRenderer.cs" />
     <Compile Include="Utility\TextAreaHelper.cs" />
     <None Include="Components\Renderers\DualityCopy\MyFormattedText.cs" />
