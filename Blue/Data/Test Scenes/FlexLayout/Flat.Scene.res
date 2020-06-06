@@ -79,153 +79,6 @@
       <parent />
       <prefabLink />
     </item>
-    <item dataType="Struct" type="Duality.GameObject" id="3853060993">
-      <active dataType="Bool">true</active>
-      <children />
-      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2797822339">
-        <_items dataType="Array" type="Duality.Component[]" id="317060902" length="4">
-          <item dataType="Struct" type="Duality.Components.Transform" id="3910338211">
-            <active dataType="Bool">true</active>
-            <angle dataType="Float">0</angle>
-            <angleAbs dataType="Float">0</angleAbs>
-            <gameobj dataType="ObjectRef">3853060993</gameobj>
-            <ignoreParent dataType="Bool">false</ignoreParent>
-            <pos dataType="Struct" type="Duality.Vector3" />
-            <posAbs dataType="Struct" type="Duality.Vector3" />
-            <scale dataType="Float">1</scale>
-            <scaleAbs dataType="Float">1</scaleAbs>
-          </item>
-          <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.ColorBackground" id="993175348">
-            <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
-            <active dataType="Bool">true</active>
-            <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">255</B>
-              <G dataType="Byte">255</G>
-              <R dataType="Byte">255</R>
-            </colorTint>
-            <customMat />
-            <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
-            <gameobj dataType="ObjectRef">3853060993</gameobj>
-            <offset dataType="Float">0</offset>
-            <pixelGrid dataType="Bool">false</pixelGrid>
-            <rect dataType="Struct" type="Duality.Rect">
-              <H dataType="Float">256</H>
-              <W dataType="Float">256</W>
-              <X dataType="Float">-128</X>
-              <Y dataType="Float">-128</Y>
-            </rect>
-            <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-            <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-              <contentPath dataType="String">Default:Material:SolidWhite</contentPath>
-            </sharedMat>
-            <spriteIndex dataType="Int">-1</spriteIndex>
-            <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
-          </item>
-          <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.FlexLayout" id="3778219250">
-            <_crossGroupAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexGroupAlignment" name="Default" value="0" />
-            <_crossItemAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexSingleAlignment" name="Start" value="0" />
-            <_dimensions dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.Dimensions" id="1467100614">
-              <_layoutDepthOffset dataType="Float">0</_layoutDepthOffset>
-              <_layoutPosition dataType="Struct" type="Duality.Vector3" />
-              <_layoutSize dataType="Struct" type="Duality.Vector2" />
-              <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">0</_x003C_BackgroundDepth_x003E_k__BackingField>
-              <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">0</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
-              <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
-              <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-              <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">0</_x003C_ContentDepth_x003E_k__BackingField>
-              <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">0</_x003C_ContentDepthOffset_x003E_k__BackingField>
-              <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
-              <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-              <_x003C_Depth_x003E_k__BackingField dataType="Float">0</_x003C_Depth_x003E_k__BackingField>
-              <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">0</_x003C_DepthOffset_x003E_k__BackingField>
-              <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
-              <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-              <_x003C_UseLayoutInfo_x003E_k__BackingField dataType="Bool">false</_x003C_UseLayoutInfo_x003E_k__BackingField>
-            </_dimensions>
-            <_direction dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexDirection" name="Row" value="0" />
-            <_ignoreParentLayout dataType="Bool">false</_ignoreParentLayout>
-            <_layoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.LayoutHints" id="3807904442">
-              <_x003C_ContentHints_x003E_k__BackingField />
-              <_x003C_Depth_x003E_k__BackingField dataType="Float">0</_x003C_Depth_x003E_k__BackingField>
-              <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
-              <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-              <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-              <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
-              <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
-              <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-              <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
-              <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
-            </_layoutHints>
-            <_mainAlignment dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexGroupAlignment" name="Default" value="0" />
-            <_reactiveLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.ReactiveUserLayoutHints" id="2950190790">
-              <_action dataType="Delegate" type="System.Action" id="1329167872" multi="true">
-                <method dataType="MemberInfo" id="4172729500" value="M:Soulstone.Duality.Plugins.Blue.Components.UIComponent:React" />
-                <target dataType="ObjectRef">3778219250</target>
-                <invocationList dataType="Array" type="System.Delegate[]" id="2305624598">
-                  <item dataType="ObjectRef">1329167872</item>
-                </invocationList>
-              </_action>
-              <_parent dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="665599950">
-                <_x003C_ContentAlignment_x003E_k__BackingField dataType="Enum" type="Duality.Alignment" name="Right" value="2" />
-                <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
-                <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
-                <_x003C_MaxHeight_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_MaxWidth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_MinHeight_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_MinWidth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
-                <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
-                <_x003C_PreferredHeight_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_PreferredWidth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
-                <_x003C_StretchHorizontal_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
-                <_x003C_StretchVertical_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
-              </_parent>
-              <_sizeHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.ReactiveSizeHints" id="823557788">
-                <_action dataType="ObjectRef">1329167872</_action>
-                <_parent dataType="ObjectRef">665599950</_parent>
-              </_sizeHints>
-            </_reactiveLayoutHints>
-            <_stretchCross dataType="Bool">false</_stretchCross>
-            <_stretchMain dataType="Bool">false</_stretchMain>
-            <_stretchRows dataType="Bool">false</_stretchRows>
-            <_userLayoutHints dataType="ObjectRef">665599950</_userLayoutHints>
-            <_wrap dataType="Enum" type="Soulstone.Duality.Plugins.Blue.Components.FlexWrap" name="NoWrap" value="0" />
-            <active dataType="Bool">true</active>
-            <gameobj dataType="ObjectRef">3853060993</gameobj>
-          </item>
-        </_items>
-        <_size dataType="Int">3</_size>
-      </compList>
-      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="129094072" surrogate="true">
-        <header />
-        <body>
-          <keys dataType="Array" type="System.Object[]" id="3768882409">
-            <item dataType="ObjectRef">2646970518</item>
-            <item dataType="Type" id="3727152910" value="Soulstone.Duality.Plugins.Blue.Components.Renderers.ColorBackground" />
-            <item dataType="Type" id="3426236746" value="Soulstone.Duality.Plugins.Blue.Components.FlexLayout" />
-          </keys>
-          <values dataType="Array" type="System.Object[]" id="243105984">
-            <item dataType="ObjectRef">3910338211</item>
-            <item dataType="ObjectRef">993175348</item>
-            <item dataType="ObjectRef">3778219250</item>
-          </values>
-        </body>
-      </compMap>
-      <compTransform dataType="ObjectRef">3910338211</compTransform>
-      <identifier dataType="Struct" type="System.Guid" surrogate="true">
-        <header>
-          <data dataType="Array" type="System.Byte[]" id="2594391371">UxXTwZ3LKkepbI49UTynWA==</data>
-        </header>
-        <body />
-      </identifier>
-      <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-      <name dataType="String">FlexLayout</name>
-      <parent />
-      <prefabLink />
-    </item>
     <item dataType="Struct" type="Duality.GameObject" id="1977460926">
       <active dataType="Bool">true</active>
       <children />
@@ -349,9 +202,9 @@
             </_layoutHints>
             <_reactiveLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.ReactiveUserLayoutHints" id="3170940617">
               <_action dataType="Delegate" type="System.Action" id="1378230804" multi="true">
-                <method dataType="ObjectRef">4172729500</method>
+                <method dataType="MemberInfo" id="4166701668" value="M:Soulstone.Duality.Plugins.Blue.Components.UIComponent:React" />
                 <target dataType="ObjectRef">4058766815</target>
-                <invocationList dataType="Array" type="System.Delegate[]" id="4166701668">
+                <invocationList dataType="Array" type="System.Delegate[]" id="3806574614">
                   <item dataType="ObjectRef">1378230804</item>
                 </invocationList>
               </_action>
@@ -390,8 +243,8 @@
           <keys dataType="Array" type="System.Object[]" id="2182262698">
             <item dataType="ObjectRef">2646970518</item>
             <item dataType="Type" id="633189408" value="Soulstone.Duality.Plugins.Blue.Components.Renderers.ImageRenderer" />
-            <item dataType="ObjectRef">3727152910</item>
-            <item dataType="Type" id="2185161614" value="Soulstone.Duality.Plugins.Blue.Components.Basic.Icon" />
+            <item dataType="Type" id="2185161614" value="Soulstone.Duality.Plugins.Blue.Components.Renderers.ColorBackground" />
+            <item dataType="Type" id="380743484" value="Soulstone.Duality.Plugins.Blue.Components.Basic.Icon" />
           </keys>
           <values dataType="Array" type="System.Object[]" id="2794447578">
             <item dataType="ObjectRef">2034738144</item>

@@ -8,10 +8,10 @@ using Duality;
 
 namespace Soulstone.Duality.Plugins.Blue
 {
-    public interface ICmpLayout
+    public interface ICmpLayout : IManageableObject
     {
-        bool Active { get; }
-
         void UpdateLayout();
+
+        void UpdateLayoutTree();
     }
 }

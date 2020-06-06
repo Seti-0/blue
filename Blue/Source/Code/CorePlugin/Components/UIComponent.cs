@@ -15,7 +15,7 @@ using Soulstone.Duality.Plugins.Blue.Parameters;
 namespace Soulstone.Duality.Plugins.Blue.Components
 {
     [RequiredComponent(typeof(ICmpBackground), typeof(ColorBackground))]
-    public abstract class UIComponent : Component, ICmpLayoutElement
+    public abstract class UIComponent : Component, ICmpInitializable, ICmpLayoutElement
     {
         private bool _ignoreParentLayout;
 
@@ -114,38 +114,28 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             UpdateLayoutTree(false);
         }
 
+        public virtual void OnActivate()
+        {
+            if (ParentLayout == null)
+                UpdateLayout();
+        }
+
+        public virtual void OnDeactivate(){}
+
         public void UpdateLayoutTree(bool updateTreeEvenIfIgnored)
         {
-            // If the layout element is the root of a tree, or 
-            // not part of one, it needs to be updated directly.
+            var parent = GameObj?.Parent?.GetComponent<ICmpLayout>();
 
-            if (ParentLayout == null)
+            if (parent != null)
             {
-                UpdateLayout();
-            }
-
-            // Otherwise, send the signal up the tree and start the update from the root.
-
-            // "updateTreeEvenIfIgnored" is for the case where this element has just ignored the tree it
-            // was part of. In that case, that tree should be updated even though this element is 
-            // not a part of it.
-
-            if (ParentLayout != null || updateTreeEvenIfIgnored)
-            {
-                // This is a tiny bit messy the way it is currently - there are two cases: either the layout is on it's own,
-                // or depedent on a neighbouring layout element. This should be changed.
-
-                var parentLayoutElement = GameObj?.Parent?
-                    .GetComponent<ICmpLayoutElement>();
-
-                if (parentLayoutElement == null)
+                if (updateTreeEvenIfIgnored || !IgnoreParentLayout)
                 {
-                    var parentLayout = GameObj?.Parent?.GetComponent<ICmpLayout>();
-                    parentLayout?.UpdateLayout();
+                    parent.UpdateLayoutTree();
+                    return;
                 }
-
-                else parentLayoutElement.UpdateLayoutTree();
             }
+
+            UpdateLayout();
         }
 
         public void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset)
@@ -165,13 +155,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public virtual void UpdateLayout()
         {
-            if (_layoutHints == null)
-                _layoutHints = new LayoutHints();
-
             var backgroundDepth = 1;
             var useParentInfo = ParentLayout != null;
-
-            _layoutHints.Update(UserLayoutHints, ComputeContentHints(), backgroundDepth);
 
             Dimensions.Update(_layoutHints, useParentInfo, backgroundDepth);
 
@@ -182,6 +167,20 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 Dimensions.BackgroundSize, 
                 Dimensions.BackgroundDepthOffset
                 );
+        }
+
+        public void OnBeforeLayout()
+        {
+            UpdateLayoutHints();
+        }
+
+        public void UpdateLayoutHints()
+        {
+            if (_layoutHints == null)
+                _layoutHints = new LayoutHints();
+
+            var backgroundDepth = 1;
+            _layoutHints.Update(UserLayoutHints, ComputeContentHints(), backgroundDepth);
         }
 
         private ContentLayoutHints ComputeContentHints()

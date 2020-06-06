@@ -35,7 +35,8 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
 
         public Vector3 ContentPosition { get; set; }
 
-        public Vector2 ContentSize { get; set; }
+        public Vector2 ContentSize { get; set;
+        }
 
         public float ContentDepth { get; set; }
 
@@ -78,8 +79,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
                 Size = Vector2.Max(min, Vector2.Min(hints.PreferredSize, max));
 
                 DepthOffset = Depth - 1;
-            }
-
+            } 
 
             // Calculate background area dimensions
             
@@ -138,7 +138,8 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             // Align content within contentArea
 
             var alignment = hints.ContentHints.Alignment;
-            var alignmentOffset = alignment.ApplyTo(Vector2.Zero, ContentSize) - alignment.ApplyTo(Vector2.Zero, contentAreaSize);
+            var alignmentOffset = alignment.ApplyTo(Vector2.Zero, ContentSize) 
+                - alignment.ApplyTo(Vector2.Zero, contentAreaSize);
 
             ContentPosition = contentAreaPosition + new Vector3(alignmentOffset);
         }

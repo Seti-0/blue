@@ -22,11 +22,12 @@ namespace Soulstone.Duality.Plugins.Blue
         // elements separate from Duality's component system?
         GameObject GameObj { get; }
 
-        void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
-
-        // Currently not needed, but perhaps should be a natural part of this?
-        //void UpdateLayout();
+        void UpdateLayout();
 
         void UpdateLayoutTree();
+
+        void OnBeforeLayout();
+
+        void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
     }
 }

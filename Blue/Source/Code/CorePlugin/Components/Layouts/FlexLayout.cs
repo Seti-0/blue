@@ -285,6 +285,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         public override void UpdateLayout()
         {
+            base.UpdateLayout();
+
             Vector2 position = Dimensions.ContentPosition.Xy;
             Vector2 totalSize = Dimensions.ContentSize;
 
