@@ -86,5 +86,16 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters.EditorSupport
                 _action();
             }
         }
+
+        public Alignment TextAlignment
+        {
+            get => _parent.TextAlignment;
+
+            set
+            {
+                _parent.TextAlignment = value;
+                _action();
+            }
+        }
     }
 }

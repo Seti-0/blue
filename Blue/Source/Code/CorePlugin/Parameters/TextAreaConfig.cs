@@ -58,6 +58,12 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             set => _text.WordWrap = value;
         }
 
+        public Alignment TextAlignment
+        {
+            get => _text.LineAlign;
+            set => _text.LineAlign = value;
+        }
+
         public FormattedText FormattedText
         {
             get => _text;

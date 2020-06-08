@@ -310,8 +310,10 @@
                           <G dataType="Byte">119</G>
                           <R dataType="Byte">65</R>
                         </_normalColor>
+                        <_x003C_BlinkLength_x003E_k__BackingField dataType="Float">1</_x003C_BlinkLength_x003E_k__BackingField>
                         <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
-                        <_x003C_TickLength_x003E_k__BackingField dataType="Float">1</_x003C_TickLength_x003E_k__BackingField>
+                        <_x003C_DeleteAscentRate_x003E_k__BackingField dataType="Float">0.5</_x003C_DeleteAscentRate_x003E_k__BackingField>
+                        <_x003C_DeleteRate_x003E_k__BackingField dataType="Float">2</_x003C_DeleteRate_x003E_k__BackingField>
                         <active dataType="Bool">true</active>
                         <gameobj dataType="ObjectRef">477163027</gameobj>
                       </item>
@@ -588,8 +590,10 @@
                           <G dataType="Byte">70</G>
                           <R dataType="Byte">255</R>
                         </_normalColor>
+                        <_x003C_BlinkLength_x003E_k__BackingField dataType="Float">1</_x003C_BlinkLength_x003E_k__BackingField>
                         <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
-                        <_x003C_TickLength_x003E_k__BackingField dataType="Float">1</_x003C_TickLength_x003E_k__BackingField>
+                        <_x003C_DeleteAscentRate_x003E_k__BackingField dataType="Float">0.5</_x003C_DeleteAscentRate_x003E_k__BackingField>
+                        <_x003C_DeleteRate_x003E_k__BackingField dataType="Float">2</_x003C_DeleteRate_x003E_k__BackingField>
                         <active dataType="Bool">true</active>
                         <gameobj dataType="ObjectRef">948734835</gameobj>
                       </item>
@@ -1025,8 +1029,10 @@
                     <G dataType="Byte">203</G>
                     <R dataType="Byte">65</R>
                   </_normalColor>
+                  <_x003C_BlinkLength_x003E_k__BackingField dataType="Float">1</_x003C_BlinkLength_x003E_k__BackingField>
                   <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
-                  <_x003C_TickLength_x003E_k__BackingField dataType="Float">1</_x003C_TickLength_x003E_k__BackingField>
+                  <_x003C_DeleteAscentRate_x003E_k__BackingField dataType="Float">0.5</_x003C_DeleteAscentRate_x003E_k__BackingField>
+                  <_x003C_DeleteRate_x003E_k__BackingField dataType="Float">2</_x003C_DeleteRate_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">1547341633</gameobj>
                 </item>
@@ -1165,8 +1171,8 @@
                     <lineAlign dataType="Enum" type="Duality.Alignment" name="Left" value="1" />
                     <maxHeight dataType="Int">120</maxHeight>
                     <maxWidth dataType="Int">220</maxWidth>
-                    <sourceText dataType="String">A long, long time ago, in a gala/i[0]xy far, far away, there lived a hermit on a sandy planet. His student once spoke of sand, of it's coarse, ubiquitous nature. It is said that his hatred for the </sourceText>
-                    <wrapMode dataType="Enum" type="Duality.Drawing.FormattedText+WrapMode" name="Word" value="1" />
+                    <sourceText dataType="String">A long, long time ago, in a galaxy far, far away, there lived a hermit on a sandy planet. His student once spoke of sand, of it's coarse, ubiquitous nature. It is said that his hatred for the </sourceText>
+                    <wrapMode dataType="Enum" type="Duality.Drawing.FormattedText+WrapMode" name="Glyph" value="0" />
                   </text>
                   <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
                 </item>
@@ -1322,8 +1328,10 @@
                     <G dataType="Byte">217</G>
                     <R dataType="Byte">52</R>
                   </_normalColor>
+                  <_x003C_BlinkLength_x003E_k__BackingField dataType="Float">1</_x003C_BlinkLength_x003E_k__BackingField>
                   <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
-                  <_x003C_TickLength_x003E_k__BackingField dataType="Float">1</_x003C_TickLength_x003E_k__BackingField>
+                  <_x003C_DeleteAscentRate_x003E_k__BackingField dataType="Float">0.5</_x003C_DeleteAscentRate_x003E_k__BackingField>
+                  <_x003C_DeleteRate_x003E_k__BackingField dataType="Float">2</_x003C_DeleteRate_x003E_k__BackingField>
                   <active dataType="Bool">true</active>
                   <gameobj dataType="ObjectRef">2523370971</gameobj>
                 </item>
