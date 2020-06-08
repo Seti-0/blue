@@ -55,19 +55,9 @@ namespace Soulstone.Duality.Plugins.Blue
 
         private static void UpdateLayout(GameObject obj)
         {
-            if (obj == null) return;
-
-            var layoutElement = obj.GetComponent<ICmpLayoutElement>();
-            
-            if (layoutElement != null)
-            {
-                layoutElement.UpdateLayoutTree();
-            }
-            else
-            {
-                var layout = obj.GetComponent<ICmpLayout>();
-                layout?.UpdateLayout();
-            }
+            obj
+                ?.GetComponent<ICmpLayoutElement>()
+                ?.UpdateLayoutTree();
         }
     }
 }

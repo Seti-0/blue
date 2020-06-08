@@ -73,11 +73,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             else
             {
                 Position = Vector3.Zero;
-
-                var min = Vector2.Zero;
-                var max = DualityApp.WindowSize;
-                Size = Vector2.Max(min, Vector2.Min(hints.PreferredSize, max));
-
+                Size = DualityApp.WindowSize;
                 DepthOffset = Depth - 1;
             } 
 
@@ -100,7 +96,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             var maxBackgroundSize = Size - (backgroundPosition.Xy - Position.Xy);
 
             backgroundSize -= hints.Margin.TotalSize;
-            backgroundSize = Vector2.Max(backgroundSize, Vector2.Zero);
+            backgroundSize = Vector2Helper.Clamp(backgroundSize, Vector2.Zero, maxBackgroundSize);
 
             BackgroundPosition = backgroundPosition;
             BackgroundSize = backgroundSize;
@@ -111,14 +107,14 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             ContentDepth = hints.ContentHints.Depth;
             ContentDepthOffset = BackgroundDepthOffset - BackgroundDepth;
 
-            var maxSize = hints.MaxSize;
-            var minSize = hints.MinSize;
+            var maxSize = hints.ContentHints.MaxSize;
+            var minSize = hints.ContentHints.MinSize;
 
             maxSize = Vector2.Max(Vector2.Zero, maxSize);
 
             if (!hints.ContentHints.Stretch)
             {
-                var prefSize = hints.MinSize;
+                var prefSize = hints.ContentHints.PreferredSize;
                 prefSize = Vector2.Max(prefSize, Vector2.Zero);
                 maxSize = Vector2.Min(prefSize, maxSize);
             }
@@ -138,7 +134,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             // Align content within contentArea
 
             var alignment = hints.ContentHints.Alignment;
-            var alignmentOffset = alignment.ApplyTo(Vector2.Zero, ContentSize) 
+            var alignmentOffset = alignment.ApplyTo(Vector2.Zero, ContentSize)
                 - alignment.ApplyTo(Vector2.Zero, contentAreaSize);
 
             ContentPosition = contentAreaPosition + new Vector3(alignmentOffset);

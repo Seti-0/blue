@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Soulstone.Duality.Plugins.Blue.Interface
+namespace Soulstone.Duality.Plugins.Blue.Interface.Components.Input
 {
-    public interface ICmpButton
+    public interface ICmpPressListener
     {
-        void Enter();
-
-        void Exit();
-
         void Press();
 
         void Release();

@@ -29,7 +29,9 @@ namespace Soulstone.Duality.Plugins.Blue
 		private void Scene_Entered(object sender, EventArgs e)
 		{
 			if (BlueConfig.AutoGenerateSelectionComponents && DualityApp.ExecContext == DualityApp.ExecutionContext.Game)
+            {
 				EnsureExistence<ButtonPusher>();
+			}
 		}
 
 		private static void EnsureExistence<T>() where T : Component, new()

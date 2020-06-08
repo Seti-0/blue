@@ -14,21 +14,8 @@ using Soulstone.Duality.Plugins.Blue.Parameters;
 
 namespace Soulstone.Duality.Plugins.Blue.Components
 {
-    public abstract class LayoutBase : Panel, ICmpInitializable, ICmpLayout, ICmpResizeListener
+    public abstract class LayoutBase : Panel, ICmpLayout
     {
-        public virtual void OnActivate()
-        {
-            UpdateLayoutTree();
-        }
-
-        public virtual void OnDeactivate(){}
-
-        public virtual void OnWindowSizeChanged(ResizeEventArgs e)
-        {
-            if (Dimensions.UseLayoutInfo)
-                UpdateLayout();
-        }
-
         protected IEnumerable<ICmpLayoutElement> GetChildLayoutElements()
         {
             if (Warnings.NullOrDisposed(GameObj)) yield break;

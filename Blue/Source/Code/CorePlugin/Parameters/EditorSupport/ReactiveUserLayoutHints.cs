@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Duality;
 using Soulstone.Duality.Plugins.Blue.Components;
+using Soulstone.Duality.Plugins.Blue.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue.Parameters
 {
@@ -17,16 +18,14 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
 
         private UserLayoutHints _parent;
         private Action _action;
-        private ReactiveSizeHints _sizeHints;
 
         public ReactiveUserLayoutHints(UserLayoutHints parent, Action action)
         {
             _parent = parent;
             _action = action;
-            _sizeHints = new ReactiveSizeHints(parent, action);
         }
 
-        public Alignment ContentAlignment
+        public OptionalField<Alignment> ContentAlignment
         {
             get => _parent.ContentAlignment;
 
@@ -35,11 +34,6 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
                 _parent.ContentAlignment = value;
                 _action();
             }
-        }
-
-        public ReactiveSizeHints SizeHints
-        {
-            get => _sizeHints;
         }
 
         public OptionalField<bool> StretchContent
@@ -75,7 +69,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             }
         }
 
-        public Margins MarginInterior
+        public Margins Padding
         {
             get => _parent.Padding;
 
@@ -86,7 +80,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             }
         }
 
-        public Margins MarginExterior
+        public Margins Margin
         {
             get => _parent.Margin;
 
@@ -104,6 +98,50 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             set
             {
                 _parent.Order = value;
+                _action();
+            }
+        }
+
+        public OptionalVector2 MinSize
+        {
+            get => _parent.MinSize;
+
+            set
+            {
+                _parent.MinSize = value;
+                _action();
+            }
+        }
+
+        public OptionalVector2 MaxSize
+        {
+            get => _parent.MaxSize;
+
+            set
+            {
+                _parent.MaxSize = value;
+                _action();
+            }
+        }
+
+        public OptionalVector2 PreferredSize
+        {
+            get => _parent.PreferredSize;
+
+            set
+            {
+                _parent.PreferredSize = value;
+                _action();
+            }
+        }
+
+        public OptionalField<float> Depth
+        {
+            get => _parent.Depth;
+
+            set
+            {
+                _parent.Depth = value;
                 _action();
             }
         }

@@ -11,11 +11,12 @@ using Duality.Editor;
 using Soulstone.Duality.Plugins.Blue.Interface;
 using Soulstone.Duality.Plugins.Blue.Components.Renderers;
 using Soulstone.Duality.Plugins.Blue.Parameters;
+using Soulstone.Duality.Plugins.BlueInput;
 
 namespace Soulstone.Duality.Plugins.Blue.Components
 {
     [RequiredComponent(typeof(ICmpBackground), typeof(ColorBackground))]
-    public abstract class UIComponent : Component, ICmpInitializable, ICmpLayoutElement
+    public abstract class UIComponent : Component, ICmpInitializable, ICmpLayoutElement, ICmpResizeListener
     {
         private bool _ignoreParentLayout;
 
@@ -23,7 +24,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         private LayoutHints _layoutHints;
         private Dimensions _dimensions;
 
-        private ReactiveUserLayoutHints _reactiveLayoutHints;
+        [DontSerialize] private ReactiveUserLayoutHints _reactiveLayoutHints;
 
         public bool IgnoreParentLayout
         {
@@ -73,10 +74,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 return _reactiveLayoutHints;
             }
 
-            set
-            {
-                _reactiveLayoutHints = value;
-            }
+            set => _reactiveLayoutHints = value;
         }
 
         public ILayoutHints LayoutHints
@@ -117,10 +115,19 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         public virtual void OnActivate()
         {
             if (ParentLayout == null)
+            {
+                UpdateLayoutHints();
                 UpdateLayout();
+            }
         }
 
         public virtual void OnDeactivate(){}
+
+        public virtual void OnWindowSizeChanged(ResizeEventArgs e)
+        {
+            if (ParentLayout == null)
+                UpdateLayout();
+        }
 
         public void UpdateLayoutTree(bool updateTreeEvenIfIgnored)
         {
@@ -135,6 +142,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 }
             }
 
+            UpdateLayoutHints();
             UpdateLayout();
         }
 
@@ -144,7 +152,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             UpdateLayout();
         }
 
-        private void React()
+        protected void React()
         {
             // "React" in the above refers to reacting to user input 
             // in the editor.
@@ -167,11 +175,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 Dimensions.BackgroundSize, 
                 Dimensions.BackgroundDepthOffset
                 );
-        }
-
-        public void OnBeforeLayout()
-        {
-            UpdateLayoutHints();
         }
 
         public void UpdateLayoutHints()

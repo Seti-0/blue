@@ -140,7 +140,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
             var childElements = GetChildLayoutElements();
 
-            hints.Depth = childElements.Select(x => x.LayoutHints.Depth).Max();
+            foreach (var child in childElements)
+                child.UpdateLayoutHints();
+
+            if (childElements.Any())
+                hints.Depth = childElements.Select(x => x.LayoutHints.Depth).Max();
 
             var preferredSize = Vector2.Zero;
 
@@ -155,7 +159,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
             else
             {
-                foreach (var element in GetChildLayoutElements())
+                foreach (var element in childElements)
                 {
                     preferredSize.Y += element.LayoutHints.PreferredSize.Y;
                     if (preferredSize.X < element.LayoutHints.PreferredSize.X)
@@ -174,9 +178,9 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
             // Extra optional configuration
             public OptionalField<FlexSingleAlignment> AlignSelf;
-            public OptionalField<bool> CrossStretch;
-            public OptionalField<float> Grow;
-            public OptionalField<float> Shrink;
+            public bool CrossStretch;
+            public float Grow;
+            public float Shrink;
         }
 
         private class LayoutTarget
@@ -190,48 +194,54 @@ namespace Soulstone.Duality.Plugins.Blue.Components
         }
 
         private LayoutTarget Parse(ICmpLayoutElement element)
-        { 
-            var Grow = OptionalField.Unused<float>();
-            var Shrink = OptionalField.Unused<float>();
-            var AlignSelf = OptionalField.Unused<FlexSingleAlignment>();
-            var StretchCross = OptionalField.Unused<bool>();
+        {
+            var alignSelf = OptionalField.Unused<FlexSingleAlignment>();
+
+            bool useX = element.LayoutHints.StretchX.Use;
+            bool stretchX = element.LayoutHints.StretchX.Value;
+
+            bool useY = element.LayoutHints.StretchY.Use;
+            bool stretchY = element.LayoutHints.StretchY.Value;
+
+            bool stretchMain;
+            bool stretchCross;
+            bool useMain;
+            bool useCross;
 
             bool horizontal = _direction == FlexDirection.Row || _direction == FlexDirection.RowReverse;
-            bool vertical = _direction == FlexDirection.Column || _direction == FlexDirection.ColumnReverse;
 
-            bool stretchX = element.LayoutHints.StretchX.Use && element.LayoutHints.StretchX.Value;
-            bool stretchY = element.LayoutHints.StretchY.Use && element.LayoutHints.StretchY.Value;
+            if (horizontal)
+            {
+                stretchMain = stretchX;
+                stretchCross = stretchY;
+                useMain = useX;
+                useCross = useY;
+            }
+            else
+            {
+                stretchMain = stretchY;
+                stretchCross = stretchX;
+                useMain = useY;
+                useCross = useX;
+            }
 
-            bool stretchMain = (horizontal && stretchX) || (vertical && stretchY);
-            bool stretchCross = (vertical && stretchX) || (horizontal && stretchY);
+            stretchMain = useMain ? stretchMain : StretchMain;
+            stretchCross = useCross ? stretchCross : this.StretchCross;
 
             ICmpFlexLayoutElement config = element.GameObj
                 ?.GetComponent<ICmpFlexLayoutElement>();
 
+            float grow = stretchMain ? 1 : 0;
+            float shrink = stretchMain ? 1 : 0;
+
             if (config != null)
             {
-                Grow = config.Grow;
-                Shrink = config.Shrink;
-                AlignSelf = config.AlignSelf;
-                StretchCross = config.StretchCross;
-            }
 
-            if ((!Grow.Use) && stretchMain)
-            {
-                Grow.Use = true;
-                Grow.Value = 1;
-            }
+                if (config.Grow.Use) grow = config.Grow.Value;
+                if (config.Shrink.Use) shrink = config.Shrink.Value;
+                if (config.StretchCross.Use) stretchCross = config.StretchCross.Value;
 
-            if ((!Shrink.Use) && stretchMain)
-            {
-                Shrink.Use = true;
-                Shrink.Value = 1;
-            }
-
-            if ((!StretchCross.Use) && stretchCross)
-            {
-                StretchCross.Use = true;
-                StretchCross.Value = true;
+                alignSelf = config.AlignSelf;
             }
 
             return new LayoutTarget
@@ -242,10 +252,10 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                     MaximumSize = element.LayoutHints.MaxSize,
                     MinimumSize = element.LayoutHints.MinSize,
 
-                    AlignSelf = AlignSelf,
-                    CrossStretch = StretchCross,
-                    Grow = Grow,
-                    Shrink = Shrink
+                    AlignSelf = alignSelf,
+                    CrossStretch = stretchCross,
+                    Grow = grow,
+                    Shrink = shrink
                 },
 
                 Target = element
@@ -291,13 +301,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             Vector2 totalSize = Dimensions.ContentSize;
 
             ICmpLayoutElement[] targets;
-            
+
+            var layoutElements = GetChildLayoutElements();
+            foreach (var element in layoutElements)
+                element.UpdateLayoutHints();
+
             if (_direction == FlexDirection.ColumnReverse || _direction == FlexDirection.RowReverse)
-                targets = GetChildLayoutElements()
+                targets = layoutElements
                 .OrderByDescending(x => x.LayoutHints.Order)
                 .ToArray();
 
-            else targets = GetChildLayoutElements()
+            else targets = layoutElements
                 .OrderBy(x => x.LayoutHints.Order)
                 .ToArray();
 
@@ -393,6 +407,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 };
 
                 rowHints[i] = currentRowHints;
+                currentRowHints.Grow = currentRowHints.Shrink = StretchRows ? 1 : 0;
+                currentRowHints.CrossStretch = true;
 
                 foreach (ElementLayoutHints elementHints in rows[i].Select(x => x.Hints))
                 {
@@ -415,8 +431,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             ComputeDestinationsParams parameters = new ComputeDestinationsParams
             {
                 ReverseAlignment = _wrap == FlexWrap.WrapReverse,
-                StretchCross = true,
-                StretchMain = StretchRows,
 
                 GroupAlignment = _crossGroupAlignment,
                 ItemAlignment = FlexSingleAlignment.Start,
@@ -471,9 +485,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             {
                 ReverseAlignment = _direction == FlexDirection.RowReverse || _direction == FlexDirection.ColumnReverse,
 
-                StretchCross = StretchCross,
-                StretchMain = StretchMain,
-
                 GroupAlignment = _mainAlignment,
                 ItemAlignment = _crossItemAlignment
             };
@@ -490,7 +501,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         private class ComputeDestinationsParams
         {
-            public bool ReverseAlignment, StretchMain, StretchCross;
+            public bool ReverseAlignment;
             public Vector2 Position;
             public Vector2 AvailableSize;
 
@@ -596,7 +607,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
                 // Any Y-related size component can be handled straight away
 
-                if (parameters.StretchCross || (hints.CrossStretch.Use && hints.CrossStretch.Value))
+                if (hints.CrossStretch)
                     dest.Size.Y = parameters.AvailableSize.Y;
 
                 else dest.Size.Y = MathF.Min(dest.Size.Y, parameters.AvailableSize.Y);
@@ -647,11 +658,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 {
                     foreach (LayoutElement element in elements)
                     {
-                        if (element.Hints.Grow.Use)
-                            element.stretch = element.Hints.Grow.Value;
-
-                        else if (parameters.StretchMain)
-                            element.stretch = 1;
+                       element.stretch = element.Hints.Grow;
 
                         if (element.stretch > 0)
                             nextRound.Enqueue(element);
@@ -662,11 +669,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 {
                     foreach (LayoutElement element in elements)
                     {
-                        if (element.Hints.Shrink.Use)
-                            element.stretch = element.Hints.Shrink.Value;
-
-                        else if (parameters.StretchMain)
-                            element.stretch = 1;
+                        element.stretch = element.Hints.Shrink;
 
                         if (element.stretch > 0)
                             nextRound.Enqueue(element);

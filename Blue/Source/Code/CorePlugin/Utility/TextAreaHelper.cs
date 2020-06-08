@@ -13,6 +13,9 @@ namespace Soulstone.Duality.Plugins.Blue.Utility
     {
         public static Vector2 ComputePreferredSize(FormattedText text, Vector2 maxSize)
         {
+            bool empty = text.IsEmpty;
+            if (empty) text.ApplySource(" ");
+
             // This is far from perfect, I don't understand the precise behaviour of FormattedText.MaxWidth/Height
             // It seems inconsistent.
 
@@ -35,11 +38,16 @@ namespace Soulstone.Duality.Plugins.Blue.Utility
             text.MaxWidth = width;
             text.MaxHeight = height;
 
+            if (empty) text.ApplySource("");
+
             return size;
         }
 
         public static Vector2 ComputePreferredSize(FormattedText text)
         {
+            bool empty = text.IsEmpty;
+            if (empty) text.ApplySource(" ");
+
             var wrap = text.WordWrap;
             var alignment = text.LineAlign;
             var width = text.MaxWidth;
@@ -56,6 +64,8 @@ namespace Soulstone.Duality.Plugins.Blue.Utility
             text.LineAlign = alignment;
             text.MaxWidth = width;
             text.MaxHeight = height;
+
+            if (empty) text.ApplySource("");
 
             return size;
         }

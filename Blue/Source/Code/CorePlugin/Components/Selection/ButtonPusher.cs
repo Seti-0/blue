@@ -7,6 +7,7 @@ using Duality;
 using Duality.Editor;
 using Duality.Input;
 using Soulstone.Duality.Plugins.Blue.Interface;
+using Soulstone.Duality.Plugins.Blue.Interface.Components.Input;
 using Soulstone.Duality.Plugins.BlueInput;
 using Soulstone.Duality.Plugins.BlueInput.Selection;
 
@@ -14,7 +15,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Selection
 {
     [EditorHintCategory(CategoryNames.Selection)]
     // I'm not convinced this is the best way to do this either.
-    public class ButtonPusher : Selection<ICmpButton>, ICmpMouseListener
+    public class ButtonPusher : Selection<ICmpHoverListener>, ICmpMouseListener
     {
         public ButtonPusher()
         {
@@ -23,27 +24,27 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Selection
 
         public void OnButtonDown(MouseButtonEventArgs args)
         {
-            if (Value != null)
-                Value.Press();
+            if (Value is ICmpPressListener pressListener)
+                pressListener.Press();
         }
 
         public void OnButtonUp(MouseButtonEventArgs args)
         {
-            if (Value != null)
-                Value.Release();
+            if (Value is ICmpPressListener pressListener)
+                pressListener.Release();
         }
 
         public void OnMouseEnter(EventArgs args){}
         public void OnMouseExit(EventArgs args){}
         public void OnMove(MouseMoveEventArgs args){}
 
-        protected override void OnValueChanged(SelectionChangedEventArgs<ICmpButton> e)
+        protected override void OnValueChanged(SelectionChangedEventArgs<ICmpHoverListener> e)
         {
             if (e.OldSelection != null)
-                e.OldSelection.Exit();
+                e.OldSelection.EndHover();
 
             if (e.NewSelection != null)
-                e.NewSelection.Enter();
+                e.NewSelection.StartHover();
         }
     }
 }

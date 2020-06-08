@@ -26,7 +26,7 @@ namespace Soulstone.Duality.Plugins.Blue
 
         void UpdateLayoutTree();
 
-        void OnBeforeLayout();
+        void UpdateLayoutHints();
 
         void ApplyDimensions(Vector3 position, Vector2 size, float depthOffset);
     }

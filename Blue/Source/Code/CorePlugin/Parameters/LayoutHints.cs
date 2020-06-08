@@ -67,18 +67,20 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             // It would be nice to have shrinkable margins and padding, but for now it's fixed.
             minSize += Padding.TotalSize + Margin.TotalSize;
 
-            if (userHints.MaxWidth.Use) maxSize.X = userHints.MaxWidth.Value;
-            if (userHints.MaxHeight.Use) maxSize.Y = userHints.MaxHeight.Value;
-            if (userHints.MinWidth.Use) maxSize.X = userHints.MinWidth.Value;
-            if (userHints.MinHeight.Use) maxSize.Y = userHints.MinHeight.Value;
-            if (userHints.PreferredWidth.Use) maxSize.X = userHints.PreferredWidth.Value;
-            if (userHints.PreferredHeight.Use) maxSize.Y = userHints.PreferredHeight.Value;
+            if (userHints.MaxSize.UseX) maxSize.X = userHints.MaxSize.Value.X;
+            if (userHints.MaxSize.UseY) maxSize.Y = userHints.MaxSize.Value.Y;
+            if (userHints.MinSize.UseX) minSize.X = userHints.MinSize.Value.X;
+            if (userHints.MinSize.UseY) minSize.Y = userHints.MinSize.Value.Y;
+            if (userHints.PreferredSize.UseX) prefSize.X = userHints.PreferredSize.Value.X;
+            if (userHints.PreferredSize.UseY) prefSize.Y = userHints.PreferredSize.Value.Y;
 
             MaxSize = maxSize;
             MinSize = minSize;
             PreferredSize = prefSize;
 
             ContentHints = contentHints;
+            if (userHints.ContentAlignment.Use) ContentHints.Alignment = userHints.ContentAlignment.Value;
+            if (userHints.StretchContent.Use) contentHints.Stretch = userHints.StretchContent.Value;
         }
     }
 }

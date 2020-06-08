@@ -1,5 +1,7 @@
 ﻿
 using Duality;
+using Soulstone.Duality.Plugins.Blue.Utility;
+using System.Dynamic;
 
 namespace Soulstone.Duality.Plugins.Blue.Parameters
 {
@@ -7,19 +9,13 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
     {
         public OptionalField<Bounds> CustomBounds { get; set; }
 
-        public Alignment ContentAlignment { get; set; }
+        public OptionalField<Alignment> ContentAlignment { get; set; }
 
-        public OptionalField<float> MaxWidth { get; set; }
+        public OptionalVector2 MaxSize { get; set; }
 
-        public OptionalField<float> MaxHeight { get; set; }
+        public OptionalVector2 MinSize { get; set; }
 
-        public OptionalField<float> MinWidth { get; set; }
-
-        public OptionalField<float> MinHeight { get; set; }
-
-        public OptionalField<float> PreferredWidth { get; set; }
-
-        public OptionalField<float> PreferredHeight { get; set; }
+        public OptionalVector2 PreferredSize { get; set; }
 
         public OptionalField<float> Depth { get; set; }
 
