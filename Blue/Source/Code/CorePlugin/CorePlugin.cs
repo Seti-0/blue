@@ -31,6 +31,7 @@ namespace Soulstone.Duality.Plugins.Blue
 			if (BlueConfig.AutoGenerateSelectionComponents && DualityApp.ExecContext == DualityApp.ExecutionContext.Game)
             {
 				EnsureExistence<ButtonPusher>();
+				EnsureExistence<FocusKeeper>();
 			}
 		}
 
