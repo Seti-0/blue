@@ -13,6 +13,7 @@ using Soulstone.Duality.Plugins.Blue.Components.Renderers;
 using Soulstone.Duality.Plugins.Blue.Interface;
 using Soulstone.Duality.Plugins.Blue.Parameters;
 using Soulstone.Duality.Plugins.Blue.Parameters.EditorSupport;
+using Soulstone.Duality.Plugins.Blue.Resources;
 using Soulstone.Duality.Plugins.Blue.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Basic
@@ -23,6 +24,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
     public class TextArea : UIComponent
     {
         private TextAreaConfig _parameters;
+        private ContentRef<Style<TextArea>> _style;
 
         [DontSerialize] private ReactiveTextAreaConfig _reactiveConfig;
 
@@ -49,6 +51,23 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             }
 
             set => _reactiveConfig = value;
+        }
+
+         public ContentRef<Style<TextArea>> Style
+        {
+            get => _style;
+            set => ApplyStyle(value);
+        }
+
+        public override void ApplyStyle()
+        {
+            ApplyStyle(_style);
+        }
+
+        public void ApplyStyle(ContentRef<Style<TextArea>> style)
+        {
+            _style = style;
+            _style.Res?.OnApply(this);
         }
 
         public override void UpdateLayout()

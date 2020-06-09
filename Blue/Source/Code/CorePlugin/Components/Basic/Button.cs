@@ -12,6 +12,8 @@ using Duality.Input;
 using Soulstone.Duality.Plugins.Blue.Components.Renderers;
 using Soulstone.Duality.Plugins.Blue.Interface;
 using Soulstone.Duality.Plugins.Blue.Interface.Components.Input;
+using Soulstone.Duality.Plugins.Blue.Resources;
+using Soulstone.Duality.Plugins.Blue.Testing;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 {
@@ -22,11 +24,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
     [EditorHintCategory(CategoryNames.Basic)]
     [RequiredComponent(typeof(ICmpBackground), typeof(ColorBackground))]
-    public class Button : Component, ICmpHoverListener, ICmpPressListener
+    public class Button : Component, ICmpHoverListener, ICmpPressListener, IStyled<Button>, ICmpInitializable
     {
         public OptionalField<string> CustomName { get; set; }
 
-        private ColorRgba _normalColor, _hoverColor, _activeColor;
+        private ContentRef<Style<Button>> _style = Resources.Style.GetDefault<Button>();
 
         [DontSerialize] private bool _hover, _pressed;
 
@@ -36,37 +38,16 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
         public bool Pressed => _pressed;
 
-        public ColorRgba NormalColor
+        [EditorHintFlags(MemberFlags.AffectsOthers)]
+        public ContentRef<Style<Button>> Style
         {
-            get => _normalColor;
-
-            set
-            {
-                _normalColor = value;
-                UpdateStyle();
-            }
+            get => _style;
+            set => ApplyStyle(value);
         }
 
-        public ColorRgba HoverColor
+        public ICmpBackground Background
         {
-            get => _hoverColor;
-
-            set
-            {
-                _hoverColor = value;
-                UpdateStyle();
-            }
-        }
-
-        public ColorRgba ActiveColor
-        {
-            get => _activeColor;
-
-            set
-            {
-                _activeColor = value;
-                UpdateStyle();
-            }
+            get => GameObj?.GetComponent<ICmpBackground>();
         }
 
         public void StartHover()
@@ -108,12 +89,20 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
         public void UpdateStyle()
         {
-            var background = GameObj?.GetComponent<ICmpBackground>();
-            if (background == null) return;
-
-            if (Pressed) background.ApplyColor(ActiveColor);
-            else if (Hover) background.ApplyColor(HoverColor);
-            else background.ApplyColor(NormalColor);
+            _style.Res?.OnChange(this);
         }
+
+        public void ApplyStyle(ContentRef<Style<Button>> style)
+        {
+            _style = style;
+            _style.Res?.OnApply(this);
+        }
+
+        public void OnActivate()
+        {
+            ApplyStyle(_style);
+        }
+
+        public void OnDeactivate(){}
     }
 }

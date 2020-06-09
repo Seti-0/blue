@@ -69,7 +69,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             }
         }
 
-        public Margins Padding
+        public OptionalField<Margins> Padding
         {
             get => _parent.Padding;
 
@@ -80,7 +80,7 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             }
         }
 
-        public Margins Margin
+        public OptionalField<Margins> Margin
         {
             get => _parent.Margin;
 

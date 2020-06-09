@@ -19,11 +19,17 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
     [RequiredComponent(typeof(ICmpImageRenderer), typeof(ImageRenderer))]
     public class Icon : UIComponent
     {
+        [EditorHintFlags(MemberFlags.Invisible)]
+        public ICmpImageRenderer ImageRenderer
+        {
+            get => GameObj?.GetComponent<ImageRenderer>();
+        }
+
         public ContentRef<Material> SharedMaterial
         {
             get
             {
-                var renderer = GetImageRenderer();
+                var renderer = ImageRenderer;
                 if (renderer == null) return null;
 
                 return renderer.SharedMaterial;
@@ -31,7 +37,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
             set
             {
-                var renderer = GetImageRenderer();
+                var renderer = ImageRenderer;
 
                 if (renderer != null)
                     renderer.ApplySharedMaterial(value);
@@ -44,7 +50,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
         {
             get
             {
-                var renderer = GetImageRenderer();
+                var renderer = ImageRenderer;
                 if (renderer == null) return null;
 
                 return renderer.CustomMaterial;
@@ -52,7 +58,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
 
             set
             {
-                var renderer = GetImageRenderer();
+                var renderer = ImageRenderer;
 
                 if (renderer != null)
                     renderer.ApplyCustomMaterial(value);
@@ -68,7 +74,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
             hints.Stretch = false;
             hints.Depth = 1;
 
-            var renderer = GetImageRenderer();
+            var renderer = ImageRenderer;
 
             if (renderer != null)
             {
@@ -89,7 +95,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
         {
             base.UpdateLayout();
 
-            var renderer = GetImageRenderer();
+            var renderer = ImageRenderer;
 
             if (renderer != null)
                 renderer.ApplyDimensions(
@@ -99,9 +105,8 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
                     );
         }
 
-        private ICmpImageRenderer GetImageRenderer()
+        public override void ApplyStyle()
         {
-            return GameObj?.GetComponent<ICmpImageRenderer>();
         }
     }
 }

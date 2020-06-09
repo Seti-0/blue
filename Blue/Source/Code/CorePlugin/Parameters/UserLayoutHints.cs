@@ -19,9 +19,9 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
 
         public OptionalField<float> Depth { get; set; }
 
-        public Margins Padding { get; set; }
+        public OptionalField<Margins> Padding { get; set; }
 
-        public Margins Margin { get; set; }
+        public OptionalField<Margins> Margin { get; set; }
 
         public int Order { get; set; }
 

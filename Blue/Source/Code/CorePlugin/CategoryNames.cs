@@ -13,6 +13,9 @@ namespace Soulstone.Duality.Plugins.Blue
                             Renderers   =   "Blue\\Renderers",
                             Basic       =   "Blue",
                             Testing     =   "Blue\\Testing",
-                            Selection   =   "Blue\\Selection";
+                            Selection   =   "Blue\\Selection",
+                            Resources   =   "Blue",
+                            Styles      =   "Blue",
+                            ColorStyles =   "Blue";
     }
 }

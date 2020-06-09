@@ -108,9 +108,9 @@
             <active dataType="Bool">true</active>
             <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
-              <B dataType="Byte">109</B>
-              <G dataType="Byte">109</G>
-              <R dataType="Byte">109</R>
+              <B dataType="Byte">97</B>
+              <G dataType="Byte">97</G>
+              <R dataType="Byte">97</R>
             </colorTint>
             <customMat />
             <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -131,24 +131,9 @@
             <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
           </item>
           <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.Button" id="1964720603">
-            <_activeColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">25</B>
-              <G dataType="Byte">25</G>
-              <R dataType="Byte">243</R>
-            </_activeColor>
-            <_hoverColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">225</B>
-              <G dataType="Byte">58</G>
-              <R dataType="Byte">114</R>
-            </_hoverColor>
-            <_normalColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">109</B>
-              <G dataType="Byte">109</G>
-              <R dataType="Byte">109</R>
-            </_normalColor>
+            <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+              <contentPath dataType="String">Data\ColorStyles\Default\Button.ButtonStyle.res</contentPath>
+            </_style>
             <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">2012704633</gameobj>
@@ -212,9 +197,9 @@
             <active dataType="Bool">true</active>
             <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
-              <B dataType="Byte">109</B>
-              <G dataType="Byte">109</G>
-              <R dataType="Byte">109</R>
+              <B dataType="Byte">97</B>
+              <G dataType="Byte">97</G>
+              <R dataType="Byte">97</R>
             </colorTint>
             <customMat />
             <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -235,24 +220,9 @@
             <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
           </item>
           <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.Button" id="2594291968">
-            <_activeColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">25</B>
-              <G dataType="Byte">25</G>
-              <R dataType="Byte">243</R>
-            </_activeColor>
-            <_hoverColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">225</B>
-              <G dataType="Byte">58</G>
-              <R dataType="Byte">114</R>
-            </_hoverColor>
-            <_normalColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">109</B>
-              <G dataType="Byte">109</G>
-              <R dataType="Byte">109</R>
-            </_normalColor>
+            <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+              <contentPath dataType="String">Data\ColorStyles\Default\Button.ButtonStyle.res</contentPath>
+            </_style>
             <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">2642275998</gameobj>
@@ -279,6 +249,87 @@
       <identifier dataType="Struct" type="System.Guid" surrogate="true">
         <header>
           <data dataType="Array" type="System.Byte[]" id="2648952874">pSxXHX/d5k6cUvn67Qs36Q==</data>
+        </header>
+        <body />
+      </identifier>
+      <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+      <name dataType="String">Button</name>
+      <parent />
+      <prefabLink />
+    </item>
+    <item dataType="Struct" type="Duality.GameObject" id="2820706737">
+      <active dataType="Bool">true</active>
+      <children />
+      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2690145235">
+        <_items dataType="Array" type="Duality.Component[]" id="2872441446" length="4">
+          <item dataType="Struct" type="Duality.Components.Transform" id="2877983955">
+            <active dataType="Bool">true</active>
+            <angle dataType="Float">0</angle>
+            <angleAbs dataType="Float">0</angleAbs>
+            <gameobj dataType="ObjectRef">2820706737</gameobj>
+            <ignoreParent dataType="Bool">false</ignoreParent>
+            <pos dataType="Struct" type="Duality.Vector3" />
+            <posAbs dataType="Struct" type="Duality.Vector3" />
+            <scale dataType="Float">1</scale>
+            <scaleAbs dataType="Float">1</scaleAbs>
+          </item>
+          <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.ColorBackground" id="4255788388">
+            <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
+            <active dataType="Bool">true</active>
+            <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
+              <A dataType="Byte">255</A>
+              <B dataType="Byte">97</B>
+              <G dataType="Byte">97</G>
+              <R dataType="Byte">97</R>
+            </colorTint>
+            <customMat />
+            <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
+            <gameobj dataType="ObjectRef">2820706737</gameobj>
+            <offset dataType="Float">0</offset>
+            <pixelGrid dataType="Bool">false</pixelGrid>
+            <rect dataType="Struct" type="Duality.Rect">
+              <H dataType="Float">256</H>
+              <W dataType="Float">256</W>
+              <X dataType="Float">-128</X>
+              <Y dataType="Float">-128</Y>
+            </rect>
+            <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
+            <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+              <contentPath dataType="String">Default:Material:SolidWhite</contentPath>
+            </sharedMat>
+            <spriteIndex dataType="Int">-1</spriteIndex>
+            <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group1" value="2" />
+          </item>
+          <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.Button" id="2772722707">
+            <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+              <contentPath dataType="String">Data\ColorStyles\Default\Button.ButtonStyle.res</contentPath>
+            </_style>
+            <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
+            <active dataType="Bool">true</active>
+            <gameobj dataType="ObjectRef">2820706737</gameobj>
+          </item>
+        </_items>
+        <_size dataType="Int">3</_size>
+      </compList>
+      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3017989752" surrogate="true">
+        <header />
+        <body>
+          <keys dataType="Array" type="System.Object[]" id="2918400185">
+            <item dataType="ObjectRef">3060856636</item>
+            <item dataType="ObjectRef">703389230</item>
+            <item dataType="ObjectRef">3708388554</item>
+          </keys>
+          <values dataType="Array" type="System.Object[]" id="3397745408">
+            <item dataType="ObjectRef">2877983955</item>
+            <item dataType="ObjectRef">4255788388</item>
+            <item dataType="ObjectRef">2772722707</item>
+          </values>
+        </body>
+      </compMap>
+      <compTransform dataType="ObjectRef">2877983955</compTransform>
+      <identifier dataType="Struct" type="System.Guid" surrogate="true">
+        <header>
+          <data dataType="Array" type="System.Byte[]" id="3938060603">1FaonYGFr02A7xBp5f8iLg==</data>
         </header>
         <body />
       </identifier>

@@ -98,14 +98,10 @@
                         <angleAbs dataType="Float">0</angleAbs>
                         <gameobj dataType="ObjectRef">2026107146</gameobj>
                         <ignoreParent dataType="Bool">false</ignoreParent>
-                        <pos dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">0</X>
-                          <Y dataType="Float">-34</Y>
-                          <Z dataType="Float">0</Z>
-                        </pos>
+                        <pos dataType="Struct" type="Duality.Vector3" />
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-138</X>
-                          <Y dataType="Float">-34</Y>
+                          <X dataType="Float">278.5</X>
+                          <Y dataType="Float">226</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -115,10 +111,10 @@
                         <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
                         <active dataType="Bool">true</active>
                         <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
+                          <A dataType="Byte">0</A>
+                          <B dataType="Byte">255</B>
+                          <G dataType="Byte">11</G>
+                          <R dataType="Byte">145</R>
                         </colorTint>
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -126,8 +122,8 @@
                         <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">57</H>
-                          <W dataType="Float">256</W>
+                          <H dataType="Float">37</H>
+                          <W dataType="Float">280</W>
                           <X dataType="Float">10</X>
                           <Y dataType="Float">10</Y>
                         </rect>
@@ -140,8 +136,8 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="679443818">
                         <_offset dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">122</X>
-                          <Y dataType="Float">30</Y>
+                          <X dataType="Float">134</X>
+                          <Y dataType="Float">20</Y>
                           <Z dataType="Float">0</Z>
                         </_offset>
                         <_render dataType="Bool">true</_render>
@@ -181,30 +177,30 @@
                         <_dimensions dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.Dimensions" id="718849718">
                           <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                           <_layoutPosition dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">-34</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">226</Y>
                             <Z dataType="Float">0</Z>
                           </_layoutPosition>
                           <_layoutSize dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_layoutSize>
                           <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">1</_x003C_BackgroundDepth_x003E_k__BackingField>
                           <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
                           <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-128</X>
-                            <Y dataType="Float">-24</Y>
+                            <X dataType="Float">288.5</X>
+                            <Y dataType="Float">236</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_BackgroundPosition_x003E_k__BackingField>
                           <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">256</X>
-                            <Y dataType="Float">57</Y>
+                            <X dataType="Float">280</X>
+                            <Y dataType="Float">37</Y>
                           </_x003C_BackgroundSize_x003E_k__BackingField>
                           <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepth_x003E_k__BackingField>
                           <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepthOffset_x003E_k__BackingField>
                           <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-16</X>
-                            <Y dataType="Float">-4</Y>
+                            <X dataType="Float">412.5</X>
+                            <Y dataType="Float">246</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_ContentPosition_x003E_k__BackingField>
                           <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -214,13 +210,13 @@
                           <_x003C_Depth_x003E_k__BackingField dataType="Float">2</_x003C_Depth_x003E_k__BackingField>
                           <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_DepthOffset_x003E_k__BackingField>
                           <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">-34</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">226</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_Position_x003E_k__BackingField>
                           <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_Size_x003E_k__BackingField>
                           <_x003C_UseLayoutInfo_x003E_k__BackingField dataType="Bool">true</_x003C_UseLayoutInfo_x003E_k__BackingField>
                         </_dimensions>
@@ -252,19 +248,19 @@
                             <Y dataType="Float">3.40282347E+38</Y>
                           </_x003C_MaxSize_x003E_k__BackingField>
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">60</X>
-                            <Y dataType="Float">60</Y>
+                            <X dataType="Float">40</X>
+                            <Y dataType="Float">40</Y>
                           </_x003C_MinSize_x003E_k__BackingField>
                           <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
                           <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">20</Left>
-                            <Right dataType="Float">20</Right>
-                            <Top dataType="Float">20</Top>
+                            <Bottom dataType="Float">10</Bottom>
+                            <Left dataType="Float">10</Left>
+                            <Right dataType="Float">10</Right>
+                            <Top dataType="Float">10</Top>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">92</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">72</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_PreferredSize_x003E_k__BackingField>
                           <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                           <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -272,6 +268,9 @@
                         <_parameters dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.TextAreaConfig" id="1386096982">
                           <_text dataType="ObjectRef">3304405602</_text>
                         </_parameters>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\ButtonText.TextAreaStyle.res</contentPath>
+                        </_style>
                         <_userLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="4223918458">
                           <_x003C_ContentAlignment_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Alignment]]">
                             <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
@@ -279,20 +278,26 @@
                           </_x003C_ContentAlignment_x003E_k__BackingField>
                           <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                           <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">10</Bottom>
-                            <Left dataType="Float">10</Left>
-                            <Right dataType="Float">10</Right>
-                            <Top dataType="Float">10</Top>
+                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Margin_x003E_k__BackingField>
                           <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
-                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">20</Left>
-                            <Right dataType="Float">20</Right>
-                            <Top dataType="Float">20</Top>
+                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -303,24 +308,9 @@
                         <gameobj dataType="ObjectRef">2026107146</gameobj>
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextButton" id="302097839">
-                        <_activeColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">74</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">227</R>
-                        </_activeColor>
-                        <_hoverColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">212</R>
-                        </_hoverColor>
-                        <_normalColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
-                        </_normalColor>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\Button.ButtonStyle.res</contentPath>
+                        </_style>
                         <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
                         <active dataType="Bool">true</active>
                         <gameobj dataType="ObjectRef">2026107146</gameobj>
@@ -372,12 +362,12 @@
                         <ignoreParent dataType="Bool">false</ignoreParent>
                         <pos dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">43</Y>
+                          <Y dataType="Float">57</Y>
                           <Z dataType="Float">0</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-138</X>
-                          <Y dataType="Float">43</Y>
+                          <X dataType="Float">278.5</X>
+                          <Y dataType="Float">283</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -387,10 +377,10 @@
                         <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
                         <active dataType="Bool">true</active>
                         <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
+                          <A dataType="Byte">0</A>
+                          <B dataType="Byte">255</B>
+                          <G dataType="Byte">11</G>
+                          <R dataType="Byte">145</R>
                         </colorTint>
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -398,8 +388,8 @@
                         <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">57</H>
-                          <W dataType="Float">256</W>
+                          <H dataType="Float">37</H>
+                          <W dataType="Float">280</W>
                           <X dataType="Float">10</X>
                           <Y dataType="Float">10</Y>
                         </rect>
@@ -412,8 +402,8 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="3527121391">
                         <_offset dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">114</X>
-                          <Y dataType="Float">30</Y>
+                          <X dataType="Float">126</X>
+                          <Y dataType="Float">20</Y>
                           <Z dataType="Float">0</Z>
                         </_offset>
                         <_render dataType="Bool">true</_render>
@@ -453,30 +443,30 @@
                         <_dimensions dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.Dimensions" id="3404755883">
                           <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                           <_layoutPosition dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">43</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">283</Y>
                             <Z dataType="Float">0</Z>
                           </_layoutPosition>
                           <_layoutSize dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_layoutSize>
                           <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">1</_x003C_BackgroundDepth_x003E_k__BackingField>
                           <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
                           <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-128</X>
-                            <Y dataType="Float">53</Y>
+                            <X dataType="Float">288.5</X>
+                            <Y dataType="Float">293</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_BackgroundPosition_x003E_k__BackingField>
                           <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">256</X>
-                            <Y dataType="Float">57</Y>
+                            <X dataType="Float">280</X>
+                            <Y dataType="Float">37</Y>
                           </_x003C_BackgroundSize_x003E_k__BackingField>
                           <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepth_x003E_k__BackingField>
                           <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepthOffset_x003E_k__BackingField>
                           <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-24</X>
-                            <Y dataType="Float">73</Y>
+                            <X dataType="Float">404.5</X>
+                            <Y dataType="Float">303</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_ContentPosition_x003E_k__BackingField>
                           <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -486,13 +476,13 @@
                           <_x003C_Depth_x003E_k__BackingField dataType="Float">2</_x003C_Depth_x003E_k__BackingField>
                           <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_DepthOffset_x003E_k__BackingField>
                           <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">43</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">283</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_Position_x003E_k__BackingField>
                           <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_Size_x003E_k__BackingField>
                           <_x003C_UseLayoutInfo_x003E_k__BackingField dataType="Bool">true</_x003C_UseLayoutInfo_x003E_k__BackingField>
                         </_dimensions>
@@ -524,19 +514,19 @@
                             <Y dataType="Float">3.40282347E+38</Y>
                           </_x003C_MaxSize_x003E_k__BackingField>
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">60</X>
-                            <Y dataType="Float">60</Y>
+                            <X dataType="Float">40</X>
+                            <Y dataType="Float">40</Y>
                           </_x003C_MinSize_x003E_k__BackingField>
                           <_x003C_Order_x003E_k__BackingField dataType="Int">1</_x003C_Order_x003E_k__BackingField>
                           <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">20</Left>
-                            <Right dataType="Float">20</Right>
-                            <Top dataType="Float">20</Top>
+                            <Bottom dataType="Float">10</Bottom>
+                            <Left dataType="Float">10</Left>
+                            <Right dataType="Float">10</Right>
+                            <Top dataType="Float">10</Top>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">108</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">88</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_PreferredSize_x003E_k__BackingField>
                           <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                           <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -544,6 +534,9 @@
                         <_parameters dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.TextAreaConfig" id="3474161057">
                           <_text dataType="ObjectRef">3578334511</_text>
                         </_parameters>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\ButtonText.TextAreaStyle.res</contentPath>
+                        </_style>
                         <_userLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="558846422">
                           <_x003C_ContentAlignment_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Alignment]]">
                             <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
@@ -551,20 +544,26 @@
                           </_x003C_ContentAlignment_x003E_k__BackingField>
                           <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                           <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">10</Bottom>
-                            <Left dataType="Float">10</Left>
-                            <Right dataType="Float">10</Right>
-                            <Top dataType="Float">10</Top>
+                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Margin_x003E_k__BackingField>
                           <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_Order_x003E_k__BackingField dataType="Int">1</_x003C_Order_x003E_k__BackingField>
-                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">20</Left>
-                            <Right dataType="Float">20</Right>
-                            <Top dataType="Float">20</Top>
+                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -575,24 +574,9 @@
                         <gameobj dataType="ObjectRef">578817423</gameobj>
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextButton" id="3149775412">
-                        <_activeColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">74</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">227</R>
-                        </_activeColor>
-                        <_hoverColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">212</R>
-                        </_hoverColor>
-                        <_normalColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
-                        </_normalColor>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\Button.ButtonStyle.res</contentPath>
+                        </_style>
                         <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
                         <active dataType="Bool">true</active>
                         <gameobj dataType="ObjectRef">578817423</gameobj>
@@ -644,12 +628,12 @@
                         <ignoreParent dataType="Bool">false</ignoreParent>
                         <pos dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">120</Y>
+                          <Y dataType="Float">114</Y>
                           <Z dataType="Float">0</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-138</X>
-                          <Y dataType="Float">120</Y>
+                          <X dataType="Float">278.5</X>
+                          <Y dataType="Float">340</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -659,10 +643,10 @@
                         <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
                         <active dataType="Bool">true</active>
                         <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
+                          <A dataType="Byte">0</A>
+                          <B dataType="Byte">255</B>
+                          <G dataType="Byte">11</G>
+                          <R dataType="Byte">145</R>
                         </colorTint>
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -670,8 +654,8 @@
                         <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">57</H>
-                          <W dataType="Float">256</W>
+                          <H dataType="Float">37</H>
+                          <W dataType="Float">280</W>
                           <X dataType="Float">10</X>
                           <Y dataType="Float">10</Y>
                         </rect>
@@ -684,8 +668,8 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="3408735739">
                         <_offset dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">110</X>
-                          <Y dataType="Float">30</Y>
+                          <X dataType="Float">122</X>
+                          <Y dataType="Float">20</Y>
                           <Z dataType="Float">0</Z>
                         </_offset>
                         <_render dataType="Bool">true</_render>
@@ -725,30 +709,30 @@
                         <_dimensions dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.Dimensions" id="3831711127">
                           <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                           <_layoutPosition dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">120</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">340</Y>
                             <Z dataType="Float">0</Z>
                           </_layoutPosition>
                           <_layoutSize dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_layoutSize>
                           <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">1</_x003C_BackgroundDepth_x003E_k__BackingField>
                           <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
                           <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-128</X>
-                            <Y dataType="Float">130</Y>
+                            <X dataType="Float">288.5</X>
+                            <Y dataType="Float">350</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_BackgroundPosition_x003E_k__BackingField>
                           <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">256</X>
-                            <Y dataType="Float">57</Y>
+                            <X dataType="Float">280</X>
+                            <Y dataType="Float">37</Y>
                           </_x003C_BackgroundSize_x003E_k__BackingField>
                           <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepth_x003E_k__BackingField>
                           <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepthOffset_x003E_k__BackingField>
                           <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-28</X>
-                            <Y dataType="Float">150</Y>
+                            <X dataType="Float">400.5</X>
+                            <Y dataType="Float">360</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_ContentPosition_x003E_k__BackingField>
                           <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -758,13 +742,13 @@
                           <_x003C_Depth_x003E_k__BackingField dataType="Float">2</_x003C_Depth_x003E_k__BackingField>
                           <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_DepthOffset_x003E_k__BackingField>
                           <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">120</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">340</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_Position_x003E_k__BackingField>
                           <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_Size_x003E_k__BackingField>
                           <_x003C_UseLayoutInfo_x003E_k__BackingField dataType="Bool">true</_x003C_UseLayoutInfo_x003E_k__BackingField>
                         </_dimensions>
@@ -796,19 +780,19 @@
                             <Y dataType="Float">3.40282347E+38</Y>
                           </_x003C_MaxSize_x003E_k__BackingField>
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">60</X>
-                            <Y dataType="Float">60</Y>
+                            <X dataType="Float">40</X>
+                            <Y dataType="Float">40</Y>
                           </_x003C_MinSize_x003E_k__BackingField>
                           <_x003C_Order_x003E_k__BackingField dataType="Int">2</_x003C_Order_x003E_k__BackingField>
                           <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">20</Left>
-                            <Right dataType="Float">20</Right>
-                            <Top dataType="Float">20</Top>
+                            <Bottom dataType="Float">10</Bottom>
+                            <Left dataType="Float">10</Left>
+                            <Right dataType="Float">10</Right>
+                            <Top dataType="Float">10</Top>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">116</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">96</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_PreferredSize_x003E_k__BackingField>
                           <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                           <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -816,6 +800,9 @@
                         <_parameters dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.TextAreaConfig" id="3933860661">
                           <_text dataType="ObjectRef">2155442011</_text>
                         </_parameters>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\ButtonText.TextAreaStyle.res</contentPath>
+                        </_style>
                         <_userLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="1662534598">
                           <_x003C_ContentAlignment_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Alignment]]">
                             <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
@@ -823,20 +810,26 @@
                           </_x003C_ContentAlignment_x003E_k__BackingField>
                           <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                           <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">10</Bottom>
-                            <Left dataType="Float">10</Left>
-                            <Right dataType="Float">10</Right>
-                            <Top dataType="Float">10</Top>
+                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Margin_x003E_k__BackingField>
                           <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_Order_x003E_k__BackingField dataType="Int">2</_x003C_Order_x003E_k__BackingField>
-                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">20</Left>
-                            <Right dataType="Float">20</Right>
-                            <Top dataType="Float">20</Top>
+                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -847,24 +840,9 @@
                         <gameobj dataType="ObjectRef">460431771</gameobj>
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextButton" id="3031389760">
-                        <_activeColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">74</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">227</R>
-                        </_activeColor>
-                        <_hoverColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">212</R>
-                        </_hoverColor>
-                        <_normalColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
-                        </_normalColor>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\Button.ButtonStyle.res</contentPath>
+                        </_style>
                         <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
                         <active dataType="Bool">true</active>
                         <gameobj dataType="ObjectRef">460431771</gameobj>
@@ -916,12 +894,12 @@
                         <ignoreParent dataType="Bool">false</ignoreParent>
                         <pos dataType="Struct" type="Duality.Vector3">
                           <X dataType="Float">0</X>
-                          <Y dataType="Float">197</Y>
+                          <Y dataType="Float">171</Y>
                           <Z dataType="Float">0</Z>
                         </pos>
                         <posAbs dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">-138</X>
-                          <Y dataType="Float">197</Y>
+                          <X dataType="Float">278.5</X>
+                          <Y dataType="Float">397</Y>
                           <Z dataType="Float">0</Z>
                         </posAbs>
                         <scale dataType="Float">1</scale>
@@ -931,10 +909,10 @@
                         <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
                         <active dataType="Bool">true</active>
                         <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
+                          <A dataType="Byte">0</A>
+                          <B dataType="Byte">255</B>
+                          <G dataType="Byte">11</G>
+                          <R dataType="Byte">145</R>
                         </colorTint>
                         <customMat />
                         <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -942,8 +920,8 @@
                         <offset dataType="Float">2</offset>
                         <pixelGrid dataType="Bool">false</pixelGrid>
                         <rect dataType="Struct" type="Duality.Rect">
-                          <H dataType="Float">57</H>
-                          <W dataType="Float">256</W>
+                          <H dataType="Float">37</H>
+                          <W dataType="Float">280</W>
                           <X dataType="Float">10</X>
                           <Y dataType="Float">10</Y>
                         </rect>
@@ -956,8 +934,8 @@
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Renderers.SimpleTextRenderer" id="1836843326">
                         <_offset dataType="Struct" type="Duality.Vector3">
-                          <X dataType="Float">110</X>
-                          <Y dataType="Float">30</Y>
+                          <X dataType="Float">122</X>
+                          <Y dataType="Float">20</Y>
                           <Z dataType="Float">0</Z>
                         </_offset>
                         <_render dataType="Bool">true</_render>
@@ -997,30 +975,30 @@
                         <_dimensions dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.Dimensions" id="2086253538">
                           <_layoutDepthOffset dataType="Float">2</_layoutDepthOffset>
                           <_layoutPosition dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">197</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">397</Y>
                             <Z dataType="Float">0</Z>
                           </_layoutPosition>
                           <_layoutSize dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_layoutSize>
                           <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">1</_x003C_BackgroundDepth_x003E_k__BackingField>
                           <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
                           <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-128</X>
-                            <Y dataType="Float">207</Y>
+                            <X dataType="Float">288.5</X>
+                            <Y dataType="Float">407</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_BackgroundPosition_x003E_k__BackingField>
                           <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">256</X>
-                            <Y dataType="Float">57</Y>
+                            <X dataType="Float">280</X>
+                            <Y dataType="Float">37</Y>
                           </_x003C_BackgroundSize_x003E_k__BackingField>
                           <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepth_x003E_k__BackingField>
                           <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">1</_x003C_ContentDepthOffset_x003E_k__BackingField>
                           <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-28</X>
-                            <Y dataType="Float">227</Y>
+                            <X dataType="Float">400.5</X>
+                            <Y dataType="Float">417</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_ContentPosition_x003E_k__BackingField>
                           <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
@@ -1030,13 +1008,13 @@
                           <_x003C_Depth_x003E_k__BackingField dataType="Float">2</_x003C_Depth_x003E_k__BackingField>
                           <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_DepthOffset_x003E_k__BackingField>
                           <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                            <X dataType="Float">-138</X>
-                            <Y dataType="Float">197</Y>
+                            <X dataType="Float">278.5</X>
+                            <Y dataType="Float">397</Y>
                             <Z dataType="Float">0</Z>
                           </_x003C_Position_x003E_k__BackingField>
                           <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">300</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_Size_x003E_k__BackingField>
                           <_x003C_UseLayoutInfo_x003E_k__BackingField dataType="Bool">true</_x003C_UseLayoutInfo_x003E_k__BackingField>
                         </_dimensions>
@@ -1068,19 +1046,19 @@
                             <Y dataType="Float">3.40282347E+38</Y>
                           </_x003C_MaxSize_x003E_k__BackingField>
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">220</X>
-                            <Y dataType="Float">60</Y>
+                            <X dataType="Float">40</X>
+                            <Y dataType="Float">40</Y>
                           </_x003C_MinSize_x003E_k__BackingField>
                           <_x003C_Order_x003E_k__BackingField dataType="Int">3</_x003C_Order_x003E_k__BackingField>
                           <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">100</Left>
-                            <Right dataType="Float">100</Right>
-                            <Top dataType="Float">20</Top>
+                            <Bottom dataType="Float">10</Bottom>
+                            <Left dataType="Float">10</Left>
+                            <Right dataType="Float">10</Right>
+                            <Top dataType="Float">10</Top>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                            <X dataType="Float">276</X>
-                            <Y dataType="Float">77</Y>
+                            <X dataType="Float">96</X>
+                            <Y dataType="Float">57</Y>
                           </_x003C_PreferredSize_x003E_k__BackingField>
                           <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                           <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -1088,6 +1066,9 @@
                         <_parameters dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.TextAreaConfig" id="1127557650">
                           <_text dataType="ObjectRef">2539368670</_text>
                         </_parameters>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.TextArea]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\ButtonText.TextAreaStyle.res</contentPath>
+                        </_style>
                         <_userLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="3094497370">
                           <_x003C_ContentAlignment_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Alignment]]">
                             <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
@@ -1095,20 +1076,26 @@
                           </_x003C_ContentAlignment_x003E_k__BackingField>
                           <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                           <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">10</Bottom>
-                            <Left dataType="Float">10</Left>
-                            <Right dataType="Float">10</Right>
-                            <Top dataType="Float">10</Top>
+                          <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Margin_x003E_k__BackingField>
                           <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_Order_x003E_k__BackingField dataType="Int">3</_x003C_Order_x003E_k__BackingField>
-                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
-                            <Bottom dataType="Float">20</Bottom>
-                            <Left dataType="Float">100</Left>
-                            <Right dataType="Float">100</Right>
-                            <Top dataType="Float">20</Top>
+                          <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                            <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                            <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins">
+                              <Bottom dataType="Float">10</Bottom>
+                              <Left dataType="Float">10</Left>
+                              <Right dataType="Float">10</Right>
+                              <Top dataType="Float">10</Top>
+                            </_x003C_Value_x003E_k__BackingField>
                           </_x003C_Padding_x003E_k__BackingField>
                           <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                           <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -1119,24 +1106,9 @@
                         <gameobj dataType="ObjectRef">3183506654</gameobj>
                       </item>
                       <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Basic.TextButton" id="1459497347">
-                        <_activeColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">74</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">227</R>
-                        </_activeColor>
-                        <_hoverColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">212</R>
-                        </_hoverColor>
-                        <_normalColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                          <A dataType="Byte">255</A>
-                          <B dataType="Byte">227</B>
-                          <G dataType="Byte">74</G>
-                          <R dataType="Byte">88</R>
-                        </_normalColor>
+                        <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Button]]]]">
+                          <contentPath dataType="String">Data\ColorStyles\Blue\Button.ButtonStyle.res</contentPath>
+                        </_style>
                         <_x003C_CustomName_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.String]]" />
                         <active dataType="Bool">true</active>
                         <gameobj dataType="ObjectRef">3183506654</gameobj>
@@ -1187,13 +1159,13 @@
                   <gameobj dataType="ObjectRef">3980488212</gameobj>
                   <ignoreParent dataType="Bool">false</ignoreParent>
                   <pos dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">-138</X>
-                    <Y dataType="Float">0</Y>
+                    <X dataType="Float">278.5</X>
+                    <Y dataType="Float">226</Y>
                     <Z dataType="Float">0</Z>
                   </pos>
                   <posAbs dataType="Struct" type="Duality.Vector3">
-                    <X dataType="Float">-138</X>
-                    <Y dataType="Float">0</Y>
+                    <X dataType="Float">278.5</X>
+                    <Y dataType="Float">226</Y>
                     <Z dataType="Float">0</Z>
                   </posAbs>
                   <scale dataType="Float">1</scale>
@@ -1204,9 +1176,9 @@
                   <active dataType="Bool">true</active>
                   <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
                     <A dataType="Byte">255</A>
-                    <B dataType="Byte">238</B>
-                    <G dataType="Byte">60</G>
-                    <R dataType="Byte">82</R>
+                    <B dataType="Byte">240</B>
+                    <G dataType="Byte">102</G>
+                    <R dataType="Byte">99</R>
                   </colorTint>
                   <customMat />
                   <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
@@ -1214,8 +1186,8 @@
                   <offset dataType="Float">3</offset>
                   <pixelGrid dataType="Bool">false</pixelGrid>
                   <rect dataType="Struct" type="Duality.Rect">
-                    <H dataType="Float">0</H>
-                    <W dataType="Float">276</W>
+                    <H dataType="Float">228</H>
+                    <W dataType="Float">300</W>
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
                   </rect>
@@ -1232,46 +1204,46 @@
                   <_dimensions dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.Dimensions" id="1842051045">
                     <_layoutDepthOffset dataType="Float">3</_layoutDepthOffset>
                     <_layoutPosition dataType="Struct" type="Duality.Vector3">
-                      <X dataType="Float">-138</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">278.5</X>
+                      <Y dataType="Float">226</Y>
                       <Z dataType="Float">0</Z>
                     </_layoutPosition>
                     <_layoutSize dataType="Struct" type="Duality.Vector2">
-                      <X dataType="Float">276</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">300</X>
+                      <Y dataType="Float">228</Y>
                     </_layoutSize>
                     <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">1</_x003C_BackgroundDepth_x003E_k__BackingField>
                     <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">3</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
                     <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                      <X dataType="Float">-138</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">278.5</X>
+                      <Y dataType="Float">226</Y>
                       <Z dataType="Float">0</Z>
                     </_x003C_BackgroundPosition_x003E_k__BackingField>
                     <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                      <X dataType="Float">276</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">300</X>
+                      <Y dataType="Float">228</Y>
                     </_x003C_BackgroundSize_x003E_k__BackingField>
                     <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">2</_x003C_ContentDepth_x003E_k__BackingField>
                     <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_ContentDepthOffset_x003E_k__BackingField>
                     <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                      <X dataType="Float">-138</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">278.5</X>
+                      <Y dataType="Float">226</Y>
                       <Z dataType="Float">0</Z>
                     </_x003C_ContentPosition_x003E_k__BackingField>
                     <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                      <X dataType="Float">276</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">300</X>
+                      <Y dataType="Float">228</Y>
                     </_x003C_ContentSize_x003E_k__BackingField>
                     <_x003C_Depth_x003E_k__BackingField dataType="Float">3</_x003C_Depth_x003E_k__BackingField>
                     <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">3</_x003C_DepthOffset_x003E_k__BackingField>
                     <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3">
-                      <X dataType="Float">-138</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">278.5</X>
+                      <Y dataType="Float">226</Y>
                       <Z dataType="Float">0</Z>
                     </_x003C_Position_x003E_k__BackingField>
                     <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                      <X dataType="Float">276</X>
-                      <Y dataType="Float">0</Y>
+                      <X dataType="Float">300</X>
+                      <Y dataType="Float">228</Y>
                     </_x003C_Size_x003E_k__BackingField>
                     <_x003C_UseLayoutInfo_x003E_k__BackingField dataType="Bool">true</_x003C_UseLayoutInfo_x003E_k__BackingField>
                   </_dimensions>
@@ -1287,8 +1259,8 @@
                       </_x003C_MaxSize_x003E_k__BackingField>
                       <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
                       <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                        <X dataType="Float">276</X>
-                        <Y dataType="Float">308</Y>
+                        <X dataType="Float">96</X>
+                        <Y dataType="Float">228</Y>
                       </_x003C_PreferredSize_x003E_k__BackingField>
                       <_x003C_Stretch_x003E_k__BackingField dataType="Bool">true</_x003C_Stretch_x003E_k__BackingField>
                     </_x003C_ContentHints_x003E_k__BackingField>
@@ -1302,8 +1274,8 @@
                     <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
                     <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
                     <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
-                      <X dataType="Float">276</X>
-                      <Y dataType="Float">308</Y>
+                      <X dataType="Float">300</X>
+                      <Y dataType="Float">228</Y>
                     </_x003C_PreferredSize_x003E_k__BackingField>
                     <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                     <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -1312,16 +1284,32 @@
                   <_stretchCross dataType="Bool">true</_stretchCross>
                   <_stretchMain dataType="Bool">false</_stretchMain>
                   <_stretchRows dataType="Bool">true</_stretchRows>
+                  <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Panel]]]]">
+                    <contentPath dataType="String">Data\ColorStyles\Blue\Content.PanelStyle.res</contentPath>
+                  </_style>
                   <_userLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="3353834799">
                     <_x003C_ContentAlignment_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Alignment]]" />
                     <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
                     <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-                    <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+                    <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                      <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                      <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+                    </_x003C_Margin_x003E_k__BackingField>
                     <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                     <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
                     <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
-                    <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
-                    <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
+                    <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                      <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                      <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+                    </_x003C_Padding_x003E_k__BackingField>
+                    <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2">
+                      <_x003C_UseX_x003E_k__BackingField dataType="Bool">true</_x003C_UseX_x003E_k__BackingField>
+                      <_x003C_UseY_x003E_k__BackingField dataType="Bool">false</_x003C_UseY_x003E_k__BackingField>
+                      <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                        <X dataType="Float">300</X>
+                        <Y dataType="Float">0</Y>
+                      </_x003C_Value_x003E_k__BackingField>
+                    </_x003C_PreferredSize_x003E_k__BackingField>
                     <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                     <_x003C_StretchHorizontal_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
                     <_x003C_StretchVertical_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
@@ -1380,15 +1368,15 @@
             <_customMaterial dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.ContentRef`1[[Duality.Resources.Material]]]]" />
             <active dataType="Bool">true</active>
             <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">242</B>
-              <G dataType="Byte">43</G>
-              <R dataType="Byte">81</R>
+              <A dataType="Byte">0</A>
+              <B dataType="Byte">227</B>
+              <G dataType="Byte">92</G>
+              <R dataType="Byte">56</R>
             </colorTint>
             <customMat />
             <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
             <gameobj dataType="ObjectRef">4053499334</gameobj>
-            <offset dataType="Float">0</offset>
+            <offset dataType="Float">3</offset>
             <pixelGrid dataType="Bool">false</pixelGrid>
             <rect dataType="Struct" type="Duality.Rect">
               <H dataType="Float">680</H>
@@ -1411,21 +1399,21 @@
               <_layoutPosition dataType="Struct" type="Duality.Vector3" />
               <_layoutSize dataType="Struct" type="Duality.Vector2" />
               <_x003C_BackgroundDepth_x003E_k__BackingField dataType="Float">1</_x003C_BackgroundDepth_x003E_k__BackingField>
-              <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">0</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
+              <_x003C_BackgroundDepthOffset_x003E_k__BackingField dataType="Float">3</_x003C_BackgroundDepthOffset_x003E_k__BackingField>
               <_x003C_BackgroundPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
               <_x003C_BackgroundSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                 <X dataType="Float">857</X>
                 <Y dataType="Float">680</Y>
               </_x003C_BackgroundSize_x003E_k__BackingField>
-              <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">0</_x003C_ContentDepth_x003E_k__BackingField>
-              <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">-1</_x003C_ContentDepthOffset_x003E_k__BackingField>
+              <_x003C_ContentDepth_x003E_k__BackingField dataType="Float">3</_x003C_ContentDepth_x003E_k__BackingField>
+              <_x003C_ContentDepthOffset_x003E_k__BackingField dataType="Float">2</_x003C_ContentDepthOffset_x003E_k__BackingField>
               <_x003C_ContentPosition_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
               <_x003C_ContentSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                 <X dataType="Float">857</X>
                 <Y dataType="Float">680</Y>
               </_x003C_ContentSize_x003E_k__BackingField>
-              <_x003C_Depth_x003E_k__BackingField dataType="Float">1</_x003C_Depth_x003E_k__BackingField>
-              <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">0</_x003C_DepthOffset_x003E_k__BackingField>
+              <_x003C_Depth_x003E_k__BackingField dataType="Float">4</_x003C_Depth_x003E_k__BackingField>
+              <_x003C_DepthOffset_x003E_k__BackingField dataType="Float">3</_x003C_DepthOffset_x003E_k__BackingField>
               <_x003C_Position_x003E_k__BackingField dataType="Struct" type="Duality.Vector3" />
               <_x003C_Size_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                 <X dataType="Float">857</X>
@@ -1438,16 +1426,19 @@
             <_layoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.LayoutHints" id="1119990912">
               <_x003C_ContentHints_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.ContentLayoutHints" id="2122698669">
                 <_x003C_Alignment_x003E_k__BackingField dataType="Enum" type="Duality.Alignment" name="TopLeft" value="5" />
-                <_x003C_Depth_x003E_k__BackingField dataType="Float">0</_x003C_Depth_x003E_k__BackingField>
+                <_x003C_Depth_x003E_k__BackingField dataType="Float">3</_x003C_Depth_x003E_k__BackingField>
                 <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                   <X dataType="Float">3.40282347E+38</X>
                   <Y dataType="Float">3.40282347E+38</Y>
                 </_x003C_MaxSize_x003E_k__BackingField>
                 <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
-                <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
+                <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                  <X dataType="Float">300</X>
+                  <Y dataType="Float">228</Y>
+                </_x003C_PreferredSize_x003E_k__BackingField>
                 <_x003C_Stretch_x003E_k__BackingField dataType="Bool">true</_x003C_Stretch_x003E_k__BackingField>
               </_x003C_ContentHints_x003E_k__BackingField>
-              <_x003C_Depth_x003E_k__BackingField dataType="Float">1</_x003C_Depth_x003E_k__BackingField>
+              <_x003C_Depth_x003E_k__BackingField dataType="Float">4</_x003C_Depth_x003E_k__BackingField>
               <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
               <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
                 <X dataType="Float">3.40282347E+38</X>
@@ -1456,7 +1447,10 @@
               <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
               <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
               <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
-              <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2" />
+              <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Duality.Vector2">
+                <X dataType="Float">300</X>
+                <Y dataType="Float">228</Y>
+              </_x003C_PreferredSize_x003E_k__BackingField>
               <_x003C_StretchX_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
               <_x003C_StretchY_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
             </_layoutHints>
@@ -1464,15 +1458,24 @@
             <_stretchCross dataType="Bool">false</_stretchCross>
             <_stretchMain dataType="Bool">false</_stretchMain>
             <_stretchRows dataType="Bool">true</_stretchRows>
+            <_style dataType="Struct" type="Duality.ContentRef`1[[Soulstone.Duality.Plugins.Blue.Resources.Style`1[[Soulstone.Duality.Plugins.Blue.Components.Basic.Panel]]]]">
+              <contentPath dataType="String">Data\ColorStyles\Blue\Background.PanelStyle.res</contentPath>
+            </_style>
             <_userLayoutHints dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Parameters.UserLayoutHints" id="2200034309">
               <_x003C_ContentAlignment_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Duality.Alignment]]" />
               <_x003C_CustomBounds_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Bounds]]" />
               <_x003C_Depth_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Single]]" />
-              <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+              <_x003C_Margin_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+              </_x003C_Margin_x003E_k__BackingField>
               <_x003C_MaxSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
               <_x003C_MinSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
               <_x003C_Order_x003E_k__BackingField dataType="Int">0</_x003C_Order_x003E_k__BackingField>
-              <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+              <_x003C_Padding_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[Soulstone.Duality.Plugins.Blue.Margins]]">
+                <_x003C_Use_x003E_k__BackingField dataType="Bool">true</_x003C_Use_x003E_k__BackingField>
+                <_x003C_Value_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Margins" />
+              </_x003C_Padding_x003E_k__BackingField>
               <_x003C_PreferredSize_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Utility.OptionalVector2" />
               <_x003C_StretchContent_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />
               <_x003C_StretchHorizontal_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.OptionalField`1[[System.Boolean]]" />

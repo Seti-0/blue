@@ -41,8 +41,8 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
 
             Depth = contentHints.Depth + backgroundDepth;
 
-            var margin = userHints.Margin;
-            var padding = userHints.Padding;
+            var margin = userHints.Margin.Value;
+            var padding = userHints.Padding.Value;
 
             if (margin.Left < 0) margin.Left = 0;
             if (margin.Right < 0) margin.Right = 0;

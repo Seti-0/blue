@@ -99,7 +99,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             }
         }
 
-        protected ICmpBackground Background
+        public ICmpBackground Background
         {
             get
             {
@@ -119,7 +119,11 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 UpdateLayoutHints();
                 UpdateLayout();
             }
+
+            ApplyStyle();
         }
+
+        public abstract void ApplyStyle();
 
         public virtual void OnDeactivate(){}
 
