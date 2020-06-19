@@ -141,7 +141,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Basic
         {
             if (DualityApp.Keyboard.KeyPressed(Key.BackSpace))
             {
-                var time = Time.GameTimer.TotalSeconds - _deleteStartTime;
+                var time = Time.MainTimer.TotalSeconds - _deleteStartTime;
                 var rate = DeleteRate * (1 + Math.Pow(time / DeleteAscentRate, 2));
 
                 if (time - (_deleteCount / rate) > 0)

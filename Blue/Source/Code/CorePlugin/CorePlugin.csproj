@@ -114,13 +114,15 @@
     <Compile Include="Interface\Components\ICmpFlexLayoutElement.cs" />
     <Compile Include="Interface\Components\ICmpLayout.cs" />
     <Compile Include="Interface\Components\ICmpLayoutElement.cs" />
-    <Compile Include="Margins.cs" />
+    <Compile Include="Utility\Margins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ContextHelper.cs" />
     <Compile Include="Utility\ListenerCollection.cs" />
     <None Include="Old\OldContext.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Components\Combo\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- Copy all plugin binaries to the plugin folder -->
   <Import Project="$(SolutionDir)AggregateUserPlugins.targets" />
