@@ -7,6 +7,8 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
 {
     public class UserLayoutHints
     {
+        public OptionalVector2 BackgroundSize { get; set; }
+
         public OptionalField<Bounds> CustomBounds { get; set; }
 
         public OptionalField<Alignment> ContentAlignment { get; set; }

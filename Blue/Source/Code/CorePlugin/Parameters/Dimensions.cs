@@ -86,7 +86,11 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             BackgroundDepthOffset = DepthOffset;
 
             var backgroundPosition = Position;
+
             var backgroundSize = Size;
+
+            if (hints.BackgroundSize.UseX) backgroundSize.X = hints.BackgroundSize.Value.X;
+            if (hints.BackgroundSize.UseY) backgroundSize.Y = hints.BackgroundSize.Value.Y;
 
             // Margins have already been checked for negatives in LayoutHints.Update()
 
@@ -95,12 +99,11 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
 
             var maxBackgroundSize = Size - (backgroundPosition.Xy - Position.Xy);
 
-            backgroundSize -= hints.Margin.TotalSize;
+            maxBackgroundSize -= hints.Margin.TopRight;
             backgroundSize = Vector2Helper.Clamp(backgroundSize, Vector2.Zero, maxBackgroundSize);
 
             BackgroundPosition = backgroundPosition;
             BackgroundSize = backgroundSize;
-
 
             // Calculate content dimensions
 

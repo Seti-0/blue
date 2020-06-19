@@ -135,6 +135,17 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             }
         }
 
+        public OptionalVector2 BackgroundSize
+        {
+            get => _parent.BackgroundSize;
+
+            set
+            {
+                _parent.BackgroundSize = value;
+                _action();
+            }
+        }
+
         public OptionalField<float> Depth
         {
             get => _parent.Depth;

@@ -65,6 +65,7 @@
     <Compile Include="Components\Renderers\ImageRenderer.cs" />
     <Compile Include="Components\Selection\ButtonPusher.cs" />
     <Compile Include="Components\Selection\FocusKeeper.cs" />
+    <Compile Include="Components\Sliders\Slider.cs" />
     <Compile Include="Interface\Components\Input\ICmpFocusListener.cs" />
     <Compile Include="Interface\Components\Input\ICmpHoverListener.cs" />
     <Compile Include="Interface\Components\Input\ICmpPressListener.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Interface\Components\ICmpImageRenderer.cs" />
     <Compile Include="Parameters\LayoutHints.cs" />
     <Compile Include="Resources\Color.cs" />
+    <Compile Include="Resources\ColorStyles\SliderStyle.cs" />
     <Compile Include="Resources\ColorStyles\UIComponentStyle.cs" />
     <Compile Include="Resources\ColorStyles\PanelStyle.cs" />
     <Compile Include="Resources\Style.cs" />

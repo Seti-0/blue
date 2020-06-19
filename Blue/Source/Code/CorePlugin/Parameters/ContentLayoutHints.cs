@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Duality;
+using Soulstone.Duality.Plugins.Blue.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue.Parameters
 {
@@ -13,6 +14,8 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
         public Vector2 MinSize { get; set; }
 
         public Vector2 MaxSize { get; set; }
+
+        public OptionalVector2 BackgroundSize { get; set; }
 
         public Vector2 PreferredSize { get; set; }
 

@@ -8,12 +8,15 @@ using Duality;
 using Duality.Input;
 using Soulstone.Duality.Plugins.Blue.Components;
 using Soulstone.Duality.Plugins.Blue.Interface;
+using Soulstone.Duality.Plugins.Blue.Utility;
 
 namespace Soulstone.Duality.Plugins.Blue.Parameters
 {
     public class LayoutHints : ILayoutHints
     {
         public int Order { get; private set; }
+
+        public OptionalVector2 BackgroundSize { get; private set; }
 
         public OptionalField<bool> StretchX { get; private set; }
 
@@ -81,6 +84,8 @@ namespace Soulstone.Duality.Plugins.Blue.Parameters
             ContentHints = contentHints;
             if (userHints.ContentAlignment.Use) ContentHints.Alignment = userHints.ContentAlignment.Value;
             if (userHints.StretchContent.Use) contentHints.Stretch = userHints.StretchContent.Value;
+
+            BackgroundSize = userHints.BackgroundSize;
         }
     }
 }
