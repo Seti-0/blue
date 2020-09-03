@@ -55,8 +55,52 @@
   <ItemGroup>
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
+    <Compile Include="Components\Basic\Button.cs" />
+    <Compile Include="Components\Basic\Icon.cs" />
+    <Compile Include="Components\Basic\Panel.cs" />
+    <Compile Include="Components\Basic\TextArea.cs" />
+    <Compile Include="Components\Basic\TextButton.cs" />
+    <Compile Include="Components\Basic\TextEditor.cs" />
+    <Compile Include="Components\Renderers\ColorBackground.cs" />
+    <Compile Include="Components\Renderers\ImageRenderer.cs" />
+    <Compile Include="Components\Selection\ButtonPusher.cs" />
+    <Compile Include="Components\Selection\FocusKeeper.cs" />
+    <Compile Include="Components\Sliders\Slider.cs" />
+    <Compile Include="Interface\Components\Input\ICmpFocusListener.cs" />
+    <Compile Include="Interface\Components\Input\ICmpHoverListener.cs" />
+    <Compile Include="Interface\Components\Input\ICmpPressListener.cs" />
+    <Compile Include="Interface\ILayoutInfo.cs" />
+    <Compile Include="Interface\IStyled.cs" />
+    <Compile Include="Parameters\ContentLayoutHints.cs" />
+    <Compile Include="Parameters\Dimensions.cs" />
+    <Compile Include="Parameters\EditorSupport\ReactiveTextAreaConfig.cs" />
+    <Compile Include="Parameters\TextAreaConfig.cs" />
+    <Compile Include="Parameters\UserLayoutHints.cs" />
+    <Compile Include="Parameters\EditorSupport\ReactiveUserLayoutHints.cs" />
+    <Compile Include="Interface\Components\ICmpImageRenderer.cs" />
+    <Compile Include="Parameters\LayoutHints.cs" />
+    <Compile Include="Resources\Color.cs" />
+    <Compile Include="Resources\ColorStyles\SliderStyle.cs" />
+    <Compile Include="Resources\ColorStyles\UIComponentStyle.cs" />
+    <Compile Include="Resources\ColorStyles\PanelStyle.cs" />
+    <Compile Include="Resources\Style.cs" />
+    <Compile Include="Resources\ColorStyles\ButtonStyle.cs" />
+    <Compile Include="Resources\ColorStyles\TextAreaStyle.cs" />
+    <Compile Include="Utility\Options\ColorReference.cs" />
+    <Compile Include="Utility\Options\OptionalVector2.cs" />
+    <Compile Include="Utility\TextAreaHelper.cs" />
+    <Compile Include="Utility\Vector2Helper.cs" />
+    <None Include="Components\Renderers\DualityCopy\MyFormattedText.cs" />
+    <Compile Include="Components\Renderers\DualityCopy\MyTextRenderer.cs" />
+    <Compile Include="Components\Renderers\SimpleTextRenderer.cs" />
+    <Compile Include="Components\UIComponent.cs" />
+    <Compile Include="Interface\Components\ICmpBackground.cs" />
+    <Compile Include="Interface\Components\ICmpTextRenderer.cs" />
+    <Compile Include="Testing\ButtonTestContext.cs" />
+    <Compile Include="Testing\InputDebug.cs" />
+    <Compile Include="Utility\Bounds.cs" />
     <Compile Include="Utility\LayoutEventHelper.cs" />
-    <Compile Include="Utility\OptionalField.cs" />
+    <Compile Include="Utility\Options\OptionalField.cs" />
     <None Include="Old\AlphaGlider.cs" />
     <None Include="Old\Background.cs" />
     <None Include="Old\Button.cs" />
@@ -68,16 +112,18 @@
     <Compile Include="Components\Layouts\FlexLayout.cs" />
     <Compile Include="Components\Layouts\FlexLayoutElement.cs" />
     <Compile Include="Components\Layouts\LayoutBase.cs" />
-    <Compile Include="Components\Layouts\TestLayoutElement.cs" />
     <Compile Include="CorePlugin.cs" />
-    <Compile Include="Interface\ICmpFlexLayoutElement.cs" />
-    <Compile Include="Interface\ICmpLayout.cs" />
-    <Compile Include="Interface\ICmpLayoutElement.cs" />
-    <Compile Include="Margins.cs" />
+    <Compile Include="Interface\Components\ICmpFlexLayoutElement.cs" />
+    <Compile Include="Interface\Components\ICmpLayout.cs" />
+    <Compile Include="Interface\Components\ICmpLayoutElement.cs" />
+    <Compile Include="Utility\Margins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ContextHelper.cs" />
     <Compile Include="Utility\ListenerCollection.cs" />
     <None Include="Old\OldContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Combo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- Copy all plugin binaries to the plugin folder -->

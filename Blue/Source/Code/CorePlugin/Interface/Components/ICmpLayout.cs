@@ -8,16 +8,10 @@ using Duality;
 
 namespace Soulstone.Duality.Plugins.Blue
 {
-    public interface ICmpLayout
+    public interface ICmpLayout : IManageableObject
     {
-        bool Active { get; }
-
-        Vector2 MinimumSize { get; }
-
-        Vector2 MaximumSize { get; }
-
-        Vector2 PreferredSize { get; }
-
         void UpdateLayout();
+
+        void UpdateLayoutTree();
     }
 }
