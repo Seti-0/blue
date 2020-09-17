@@ -11,7 +11,6 @@ using Duality.Editor;
 
 using Soulstone.Duality.Plugins.Blue;
 using Soulstone.Duality.Plugins.Blue.Components;
-using Soulstone.Duality.Plugins.Blue.Support;
 
 namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {

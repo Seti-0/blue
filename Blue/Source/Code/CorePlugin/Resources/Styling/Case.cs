@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Duality;
-
+using Soulstone.Duality.Plugins.Blue.Collections;
 using Soulstone.Duality.Plugins.Blue.Components;
-using Soulstone.Duality.Plugins.Blue.Support;
-using Soulstone.Duality.Plugins.Blue.Support.Collections;
 
 namespace Soulstone.Duality.Plugins.Blue.Resources.Styling
 {

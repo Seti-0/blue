@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Duality;
 
-namespace Soulstone.Duality.Plugins.Blue.Support.Collections
+namespace Soulstone.Duality.Plugins.Blue.Collections
 {
     public class ObservableList<T> : IList<T>, IDisposable
     {

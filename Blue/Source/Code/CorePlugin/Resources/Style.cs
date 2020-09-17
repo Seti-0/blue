@@ -7,11 +7,9 @@ using System.Diagnostics;
 
 using Duality;
 using Duality.Editor;
-
-using Soulstone.Duality.Plugins.Blue.Support;
-using Soulstone.Duality.Plugins.Blue.Support.Collections;
 using Soulstone.Duality.Plugins.Blue.Components;
 using Soulstone.Duality.Plugins.Blue.Resources.Styling;
+using Soulstone.Duality.Plugins.Blue.Collections;
 
 namespace Soulstone.Duality.Plugins.Blue.Resources
 {

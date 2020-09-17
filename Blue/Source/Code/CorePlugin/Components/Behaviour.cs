@@ -8,8 +8,6 @@ using System.Reflection;
 using Duality;
 using Duality.Editor;
 
-using Soulstone.Duality.Plugins.Blue.Support;
-
 namespace Soulstone.Duality.Plugins.Blue.Components
 {
     [EditorHintCategory(CategoryNames.Behaviour)]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Soulstone.Duality.Plugins.Blue.Support.Collections
+namespace Soulstone.Duality.Plugins.Blue.Collections
 {
     public class ListChangedEventArgs<T>
     {
@@ -16,7 +16,7 @@ namespace Soulstone.Duality.Plugins.Blue.Support.Collections
 
         public EventArgs ElementEvent { get; }
 
-        public ListChangedEventArgs(ListChangeType type, T currentItem = default, 
+        public ListChangedEventArgs(ListChangeType type, T currentItem = default,
             EventArgs elementEvent = null, T oldItem = default)
         {
             ChangeType = type;

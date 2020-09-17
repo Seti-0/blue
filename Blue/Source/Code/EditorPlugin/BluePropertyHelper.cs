@@ -9,7 +9,6 @@ using Duality;
 using Duality.Editor;
 
 using Soulstone.Duality.Plugins.Blue;
-using Soulstone.Duality.Plugins.Blue.Support;
 
 namespace Soulstone.Duality.Editor.Blue
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Soulstone.Duality.Plugins.Blue.Support
+namespace Soulstone.Duality.Plugins.Blue.Collections
 {
     public class DictionaryChangedEventArgs<TKey>
     {

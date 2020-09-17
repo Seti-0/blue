@@ -4,7 +4,7 @@ using System.Linq;
 
 using Duality;
 
-namespace Soulstone.Duality.Plugins.Blue.Support
+namespace Soulstone.Duality.Plugins.Blue
 {
     public static class BluePropertyManager
     {

@@ -2,27 +2,22 @@
 
 using Duality;
 
-namespace Soulstone.Duality.Plugins.Blue.Support.Collections
+namespace Soulstone.Duality.Plugins.Blue.Collections
 {
-    internal class ObservableDictionaryEntry<TKey, TValue> : IDisposable
+    internal class ObservableListEntry<T> : IDisposable
     {
-        public TKey Key;
-        public TValue Value;
+        public T Value;
+        private Action<T, EventArgs> _onChange;
 
-        private Action<TKey, TValue, EventArgs> _onChanged;
-
-        public ObservableDictionaryEntry(TKey key, TValue value, 
-            Action<TKey, TValue, EventArgs> onChanged)
+        public ObservableListEntry(T value, Action<T, EventArgs> onChange)
         {
-            Key = key;
             Value = value;
-
-            _onChanged = onChanged;
+            _onChange = onChange;
 
             Attach();
         }
 
-        public void ChangeValue(TValue value)
+        public void ChangeValue(T value)
         {
             Detatch();
             Value = value;
@@ -31,7 +26,7 @@ namespace Soulstone.Duality.Plugins.Blue.Support.Collections
 
         private void Handle(object sender, EventArgs elementEvent)
         {
-            _onChanged(Key, Value, elementEvent);
+            _onChange(Value, elementEvent);
         }
 
         public void Dispose()

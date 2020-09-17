@@ -114,9 +114,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Reset.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Properties\icons8-reply-arrow-50-resize-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

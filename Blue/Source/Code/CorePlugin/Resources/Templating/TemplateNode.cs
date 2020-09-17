@@ -4,10 +4,8 @@ using System.Linq;
 using System.Reflection;
 
 using Duality;
-
+using Soulstone.Duality.Plugins.Blue.Collections;
 using Soulstone.Duality.Plugins.Blue.Components;
-using Soulstone.Duality.Plugins.Blue.Support;
-using Soulstone.Duality.Plugins.Blue.Support.Collections;
 
 namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
 {

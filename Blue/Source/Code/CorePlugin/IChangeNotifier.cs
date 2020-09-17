@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Soulstone.Duality.Plugins.Blue.Support
+namespace Soulstone.Duality.Plugins.Blue
 {
     public interface IChangeNotifier
     {

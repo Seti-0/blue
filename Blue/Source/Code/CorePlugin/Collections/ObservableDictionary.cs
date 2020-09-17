@@ -8,13 +8,13 @@ using System.Diagnostics;
 
 using Duality;
 
-namespace Soulstone.Duality.Plugins.Blue.Support.Collections
+namespace Soulstone.Duality.Plugins.Blue.Collections
 {
     public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, IDisposable
     {
-        private IDictionary<TKey, ObservableDictionaryEntry<TKey, TValue>> _innerDictionary 
+        private IDictionary<TKey, ObservableDictionaryEntry<TKey, TValue>> _innerDictionary
             = new Dictionary<TKey, ObservableDictionaryEntry<TKey, TValue>>();
-        
+
         [DontSerialize] private EventHandler<DictionaryChangedEventArgs<TKey>> _changed;
         [DontSerialize] private EventHandler<DictionaryClearedEventArgs<TKey>> _cleared;
 
@@ -105,7 +105,7 @@ namespace Soulstone.Duality.Plugins.Blue.Support.Collections
             }
 
             return false;
-         }
+        }
 
         public bool TryGetValue(TKey key, out TValue value)
         {
@@ -137,7 +137,7 @@ namespace Soulstone.Duality.Plugins.Blue.Support.Collections
             IEnumerable<TKey> oldKeys = Keys.ToList();
 
             RemoveAndDisposeAll();
-            
+
             OnCleared(new DictionaryClearedEventArgs<TKey>(oldKeys));
         }
 

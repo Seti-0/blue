@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 using Duality;
 
-using Soulstone.Duality.Plugins.Blue.Support;
-
 namespace Soulstone.Duality.Plugins.Blue.Resources
 {
     public class NotifierRef<T> : IChangeNotifier, IDisposable

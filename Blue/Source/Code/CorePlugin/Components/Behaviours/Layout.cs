@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using Duality;
 using Duality.Editor;
 
-using Soulstone.Duality.Plugins.Blue.Support;
-
 namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
 {
     /// <summary>
