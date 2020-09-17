@@ -56,6 +56,9 @@
     <Compile Include="IconNames.cs" />
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
+    <Compile Include="Resources\Templating\TemplateNode.cs" />
+    <Compile Include="Resources\Templating\TemplateChangedEvent.cs" />
+    <Compile Include="Resources\Templating\TemplateChangeEffect.cs" />
     <Compile Include="Testing\PropertyEditorTargets\A.cs" />
     <Compile Include="Components\Behaviour.cs" />
     <Compile Include="Components\Element.cs" />

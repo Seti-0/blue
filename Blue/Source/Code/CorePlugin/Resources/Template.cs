@@ -1,35 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 using Duality;
 using Duality.Editor;
+
+using Soulstone.Duality.Plugins.Blue.Components;
+using Soulstone.Duality.Plugins.Blue.Resources.Templating;
 
 namespace Soulstone.Duality.Plugins.Blue.Resources
 {
     [EditorHintCategory(CategoryNames.Resources)]
     public class Template : Resource
     {
+        public Type TargetType => Root?.Element;
+
         public TemplateNode Root { get; set; }
-    }
 
-    public class TemplateNode
-    {
-        public string Name { get; set; } = "GameObject";
-
-        public Dictionary<BlueProperty, object> Values { get; } = new Dictionary<BlueProperty, object>();
-
-        public List<Type> Components { get; } = new List<Type>();
-
-        public List<TemplateNode> Children { get; } = new List<TemplateNode>();
-
-        public Style Style { get; set; }
-
-        public bool TryGetValue(BlueProperty property, out object result)
+        public Template(Type targetType)
         {
-            return Values.TryGetValue(property, out result);
+            if (targetType == null) throw new ArgumentNullException(nameof(targetType));
+
+            if (!typeof(Element).GetTypeInfo().IsAssignableFrom(targetType.GetTypeInfo()))
+            {
+                string message = $"{nameof(targetType)} should be assignable to {nameof(Element)}";
+                throw new ArgumentException(message);
+            }
+
+            Root = new TemplateNode(targetType);
         }
     }
 }

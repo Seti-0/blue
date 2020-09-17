@@ -11,6 +11,7 @@ using Duality.Properties;
 
 using Soulstone.Duality.Plugins.Blue.Resources;
 using Soulstone.Duality.Plugins.Blue.Resources.Styling;
+using Soulstone.Duality.Plugins.Blue.Resources.Templating;
 using Soulstone.Duality.Plugins.Blue.Support;
 
 namespace Soulstone.Duality.Plugins.Blue.Components
