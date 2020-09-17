@@ -15,6 +15,8 @@ namespace Soulstone.Duality.Plugins.Blue.Support
 
     public class BluePropertyMetadata
     {
+        public Type OwnerType { get; }
+
         public BluePropertyFlags Flags { get; }
 
         public Type ValueType { get; }
@@ -23,8 +25,9 @@ namespace Soulstone.Duality.Plugins.Blue.Support
 
         public string Description { get; set; }
 
-        public BluePropertyMetadata(Type valueType, object defaultValue, BluePropertyFlags flags)
+        public BluePropertyMetadata(Type ownerType, Type valueType, object defaultValue, BluePropertyFlags flags)
         {
+            if (ownerType == null) throw new ArgumentNullException(nameof(ownerType));
             if (valueType == null) throw new ArgumentNullException(nameof(valueType));
 
             if (defaultValue == null && valueType.GetTypeInfo().IsValueType)
@@ -33,6 +36,7 @@ namespace Soulstone.Duality.Plugins.Blue.Support
             else if (defaultValue != null && !valueType.GetTypeInfo().IsAssignableFrom(defaultValue.GetType().GetTypeInfo()))
                 throw new ArgumentException($"Default value \"{defaultValue}\" is not assignable to value type \"{valueType.Name}\"");
 
+            OwnerType = ownerType;
             ValueType = valueType;
             DefaultValue = defaultValue;
             Flags = flags;

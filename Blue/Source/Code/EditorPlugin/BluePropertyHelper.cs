@@ -33,7 +33,6 @@ namespace Soulstone.Duality.Editor.Blue
         private static HelpInfo CheckInfo(BlueProperty property)
         {
             string name = property.Name;
-            Type owner = property.OwnerType;
 
             BluePropertyMetadata metadata;
             if (!BluePropertyManager.TryGetMetadata(property, out metadata))
@@ -44,7 +43,7 @@ namespace Soulstone.Duality.Editor.Blue
 
             string expectedFieldName = name + "Property";
 
-            TypeInfo info = owner.GetTypeInfo();
+            TypeInfo info = metadata.OwnerType.GetTypeInfo();
 
             FieldInfo staticDeclaration = info.GetDeclaredField(expectedFieldName);
             HelpInfo staticHelp = null;
@@ -52,7 +51,7 @@ namespace Soulstone.Duality.Editor.Blue
             if (staticDeclaration == null)
             {
                 string message = $"No field of name \"{expectedFieldName}\"found " +
-                    $"for property \"{name}\" in its owner type \"{owner.Name}\"";
+                    $"for property \"{name}\" in its owner type \"{metadata.OwnerType.Name}\"";
 
                 Logs.Editor.WriteWarning(message);
             }
@@ -81,7 +80,7 @@ namespace Soulstone.Duality.Editor.Blue
             if (propertyDeclaration == null)
             {
                 string message = $"No C# property found for property \"{name}\" in " +
-                    $"its owner type \"{owner.Name}\"";
+                    $"its owner type \"{metadata.OwnerType.Name}\"";
 
                 Logs.Editor.WriteWarning(message);
             }

@@ -11,30 +11,27 @@ namespace Soulstone.Duality.Plugins.Blue
     {
         public string Name { get; }
 
-        public Type OwnerType { get; }
+        public string FullName { get; }
 
-        public BlueProperty(string name, Type ownerType)
+        public BlueProperty(string name, string fullName)
         {
-            if (name == null) throw new ArgumentNullException(nameof(name));
-            if (ownerType == null) throw new ArgumentNullException(nameof(ownerType));
-
             Name = name;
-            OwnerType = ownerType;
+            FullName = fullName;
         }
 
         public override string ToString()
         {
-            return OwnerType.Name + "." + Name;
+            return Name;
         }
 
         public override int GetHashCode()
         {
-            return (OwnerType.Name + Name).GetHashCode();
+            return FullName?.GetHashCode() ?? 0;
         }
 
         public bool Equals(BlueProperty other)
         {
-            return other.Name == Name && other.OwnerType == OwnerType;
+            return other?.FullName == FullName;
         }
 
         public override bool Equals(object obj)
