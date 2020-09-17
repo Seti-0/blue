@@ -45,6 +45,8 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
             {
                 if (_elementType != value)
                 {
+                    CheckTargetType(value);
+
                     _elementType = value;
                     OnChanged(TemplateChangedEvent.Target);
                 }
@@ -69,18 +71,18 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
             remove => _changed -= value;
         }
 
-        public TemplateNode(Type element)
+        public TemplateNode()
         {
-            if (element == null) throw new ArgumentNullException(nameof(element));
-            
-            if (!typeof(Element).GetTypeInfo().IsAssignableFrom(element.GetTypeInfo()))
+            RegisterListeners();
+        }
+
+        private void CheckTargetType(Type target)
+        {
+            if (target != null && !typeof(Element).GetTypeInfo().IsAssignableFrom(target.GetTypeInfo()))
             {
-                string message = $"{nameof(element)} should be assignable to {nameof(Element)}";
+                string message = $"{nameof(target)} should be assignable to {nameof(Element)}";
                 throw new ArgumentException(message);
             }
-
-            Element = element;
-            RegisterListeners();
         }
 
         public bool TryGetValue(BlueProperty property, out object result)

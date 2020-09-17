@@ -103,26 +103,12 @@
               <body>
                 <keys dataType="Array" type="System.Object[]" id="2327291168">
                   <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.BlueProperty" id="3841976284">
-                    <_x003C_Name_x003E_k__BackingField dataType="String">Test2</_x003C_Name_x003E_k__BackingField>
-                    <_x003C_OwnerType_x003E_k__BackingField dataType="Type" id="3795548868" value="Soulstone.Duality.Plugins.Blue.Components.Behaviours.Layout" />
-                  </item>
-                  <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.BlueProperty" id="766773526">
-                    <_x003C_Name_x003E_k__BackingField dataType="String">Background</_x003C_Name_x003E_k__BackingField>
-                    <_x003C_OwnerType_x003E_k__BackingField dataType="Type" id="2374078710" value="Soulstone.Duality.Plugins.Blue.Components.Behaviours.Background" />
+                    <_x003C_FullName_x003E_k__BackingField />
+                    <_x003C_Name_x003E_k__BackingField />
                   </item>
                 </keys>
                 <values dataType="Array" type="System.Object[]" id="1898758030">
-                  <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Testing.PropertyEditorTargets.A" id="471602674">
-                    <_x003C_X_x003E_k__BackingField dataType="Int">0</_x003C_X_x003E_k__BackingField>
-                    <_x003C_Y_x003E_k__BackingField />
-                    <_x003C_Z_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Testing.PropertyEditorTargets.B" id="1238024144">
-                      <_x003C_Descriptor_x003E_k__BackingField />
-                      <_x003C_W_x003E_k__BackingField dataType="Int">0</_x003C_W_x003E_k__BackingField>
-                    </_x003C_Z_x003E_k__BackingField>
-                  </item>
-                  <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-                    <contentPath dataType="String">Default:Material:InvertWhite</contentPath>
-                  </item>
+                  <item dataType="Int">246</item>
                 </values>
               </body>
             </_locals>
@@ -141,14 +127,6 @@
           </item>
           <item dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Components.Behaviours.Layout" id="1103275101">
             <_x003C_BlueObj_x003E_k__BackingField dataType="ObjectRef">568364594</_x003C_BlueObj_x003E_k__BackingField>
-            <_x003C_Test_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Testing.PropertyEditorTargets.A" id="2793419293">
-              <_x003C_X_x003E_k__BackingField dataType="Int">0</_x003C_X_x003E_k__BackingField>
-              <_x003C_Y_x003E_k__BackingField />
-              <_x003C_Z_x003E_k__BackingField dataType="Struct" type="Soulstone.Duality.Plugins.Blue.Testing.PropertyEditorTargets.B" id="701013222">
-                <_x003C_Descriptor_x003E_k__BackingField />
-                <_x003C_W_x003E_k__BackingField dataType="Int">0</_x003C_W_x003E_k__BackingField>
-              </_x003C_Z_x003E_k__BackingField>
-            </_x003C_Test_x003E_k__BackingField>
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">476004491</gameobj>
           </item>
@@ -160,8 +138,8 @@
         <body>
           <keys dataType="Array" type="System.Object[]" id="2746061139">
             <item dataType="Type" id="1359503206" value="Soulstone.Duality.Plugins.Blue.Components.BlueObject" />
-            <item dataType="ObjectRef">2374078710</item>
-            <item dataType="ObjectRef">3795548868</item>
+            <item dataType="Type" id="1669752634" value="Soulstone.Duality.Plugins.Blue.Components.Behaviours.Background" />
+            <item dataType="Type" id="1788794854" value="Soulstone.Duality.Plugins.Blue.Components.Behaviours.Layout" />
           </keys>
           <values dataType="Array" type="System.Object[]" id="2385229688">
             <item dataType="ObjectRef">568364594</item>
