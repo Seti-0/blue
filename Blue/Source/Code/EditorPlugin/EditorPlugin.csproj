@@ -81,13 +81,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyEditing\BehaviourEditor.cs" />
     <Compile Include="PropertyEditing\BehaviourEditorItem.cs" />
-    <None Include="PropertyEditing\BluePropertyEditorByGrouped.cs" />
-    <None Include="PropertyEditing\BluePropertyEditorByWrapped.cs" />
     <Compile Include="PropertyEditing\BluePropertyEditor.cs" />
     <Compile Include="PropertyEditing\CustomComponentEditor.cs" />
-    <Compile Include="PropertyEditing\PropertyEditorWrapper.cs" />
+    <None Include="PropertyEditing\PropertyEditorWrapper.cs" />
     <Compile Include="PropertyEditing\IEditorItem.cs" />
-    <Compile Include="PropertyEditing\InternalFunctionWrapper.cs" />
+    <None Include="PropertyEditing\InternalFunctionWrapper.cs" />
     <Compile Include="PropertyEditing\PropertyEditorButton.cs" />
     <Compile Include="Properties\Icons.Designer.cs">
       <AutoGen>True</AutoGen>
