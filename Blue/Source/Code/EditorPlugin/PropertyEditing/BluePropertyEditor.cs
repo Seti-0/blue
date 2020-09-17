@@ -275,7 +275,9 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
             PropertySource referenceSource = Targets.First().BlueObj.GetSource(Key);
 
-            if (referenceSource == PropertySource.Local) return;
+            // I might come back to this, but for now it seems unhelpful
+            //if (referenceSource == PropertySource.Local) return;
+            
             if (Targets.Any(x => x.BlueObj.GetSource(Key) != referenceSource)) return;
 
             string text = Enum.GetName(typeof(PropertySource), referenceSource);
