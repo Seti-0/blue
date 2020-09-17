@@ -1,4 +1,4 @@
-﻿using Soulstone.Duality.Plugins.Blue.Components;
+﻿using Soulstone.Duality.Plugins.Blue.ComponentsOld;
 using System;
 using System.Collections.Generic;
 using System.Linq;

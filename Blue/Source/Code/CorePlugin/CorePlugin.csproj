@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>GamePlugin.core.xml</DocumentationFile>
+    <DocumentationFile>Blue.core.xml</DocumentationFile>
     <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -53,77 +53,59 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IconNames.cs" />
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
-    <Compile Include="Components\Basic\Button.cs" />
-    <Compile Include="Components\Basic\Icon.cs" />
-    <Compile Include="Components\Basic\Panel.cs" />
-    <Compile Include="Components\Basic\TextArea.cs" />
-    <Compile Include="Components\Basic\TextButton.cs" />
-    <Compile Include="Components\Basic\TextEditor.cs" />
-    <Compile Include="Components\Renderers\ColorBackground.cs" />
-    <Compile Include="Components\Renderers\ImageRenderer.cs" />
-    <Compile Include="Components\Selection\ButtonPusher.cs" />
-    <Compile Include="Components\Selection\FocusKeeper.cs" />
-    <Compile Include="Components\Sliders\Slider.cs" />
-    <Compile Include="Interface\Components\Input\ICmpFocusListener.cs" />
-    <Compile Include="Interface\Components\Input\ICmpHoverListener.cs" />
-    <Compile Include="Interface\Components\Input\ICmpPressListener.cs" />
-    <Compile Include="Interface\ILayoutInfo.cs" />
-    <Compile Include="Interface\IStyled.cs" />
-    <Compile Include="Parameters\ContentLayoutHints.cs" />
-    <Compile Include="Parameters\Dimensions.cs" />
-    <Compile Include="Parameters\EditorSupport\ReactiveTextAreaConfig.cs" />
-    <Compile Include="Parameters\TextAreaConfig.cs" />
-    <Compile Include="Parameters\UserLayoutHints.cs" />
-    <Compile Include="Parameters\EditorSupport\ReactiveUserLayoutHints.cs" />
-    <Compile Include="Interface\Components\ICmpImageRenderer.cs" />
-    <Compile Include="Parameters\LayoutHints.cs" />
-    <Compile Include="Resources\Color.cs" />
-    <Compile Include="Resources\ColorStyles\SliderStyle.cs" />
-    <Compile Include="Resources\ColorStyles\UIComponentStyle.cs" />
-    <Compile Include="Resources\ColorStyles\PanelStyle.cs" />
+    <Compile Include="Testing\PropertyEditorTargets\A.cs" />
+    <Compile Include="Components\Behaviour.cs" />
+    <Compile Include="Components\Element.cs" />
+    <Compile Include="Components\BlueObject.cs" />
+    <None Include="Interface\Components\Input\ICmpFocusListener.cs" />
+    <None Include="Interface\Components\Input\ICmpHoverListener.cs" />
+    <None Include="Interface\Components\Input\ICmpPressListener.cs" />
+    <None Include="Interface\ILayoutInfo.cs" />
+    <None Include="Interface\IStyled.cs" />
+    <None Include="Interface\Components\ICmpImageRenderer.cs" />
+    <Compile Include="Components\Behaviours\Background.cs" />
+    <Compile Include="Components\Behaviours\Layout.cs" />
+    <Compile Include="EmbeddedResources\EmbeddedResources.cs" />
+    <Compile Include="Resources\NotifierRef.cs" />
+    <Compile Include="Resources\Styling\StyleChangedEvent.cs" />
+    <Compile Include="Resources\Styling\StyleChangeEffect.cs" />
     <Compile Include="Resources\Style.cs" />
-    <Compile Include="Resources\ColorStyles\ButtonStyle.cs" />
-    <Compile Include="Resources\ColorStyles\TextAreaStyle.cs" />
-    <Compile Include="Utility\Options\ColorReference.cs" />
-    <Compile Include="Utility\Options\OptionalVector2.cs" />
-    <Compile Include="Utility\TextAreaHelper.cs" />
-    <Compile Include="Utility\Vector2Helper.cs" />
-    <None Include="Components\Renderers\DualityCopy\MyFormattedText.cs" />
-    <Compile Include="Components\Renderers\DualityCopy\MyTextRenderer.cs" />
-    <Compile Include="Components\Renderers\SimpleTextRenderer.cs" />
-    <Compile Include="Components\UIComponent.cs" />
-    <Compile Include="Interface\Components\ICmpBackground.cs" />
-    <Compile Include="Interface\Components\ICmpTextRenderer.cs" />
-    <Compile Include="Testing\ButtonTestContext.cs" />
-    <Compile Include="Testing\InputDebug.cs" />
-    <Compile Include="Utility\Bounds.cs" />
-    <Compile Include="Utility\LayoutEventHelper.cs" />
-    <Compile Include="Utility\Options\OptionalField.cs" />
-    <None Include="Old\AlphaGlider.cs" />
-    <None Include="Old\Background.cs" />
-    <None Include="Old\Button.cs" />
-    <Compile Include="Components\Context.cs" />
-    <None Include="Old\Layout.cs" />
-    <None Include="Old\NotificationsArea.cs" />
-    <None Include="Old\NotificationTest.cs" />
-    <None Include="Old\TextEditor.cs" />
-    <Compile Include="Components\Layouts\FlexLayout.cs" />
-    <Compile Include="Components\Layouts\FlexLayoutElement.cs" />
-    <Compile Include="Components\Layouts\LayoutBase.cs" />
+    <Compile Include="Resources\Styling\Case.cs" />
+    <Compile Include="Resources\Template.cs" />
+    <Compile Include="Resources\Theme.cs" />
+    <Compile Include="Support\BluePropertyBinding.cs" />
+    <Compile Include="BlueProperty.cs" />
+    <Compile Include="Support\BluePropertyManager.cs" />
+    <Compile Include="Support\BluePropertyMetadata.cs" />
+    <Compile Include="Support\Collections\DictionaryChangeType.cs" />
+    <Compile Include="Support\Collections\DictionaryChangedEventArgs.cs" />
+    <Compile Include="Support\Collections\DictionaryClearedEventArgs.cs" />
+    <Compile Include="Support\Collections\ListChangedEventArgs.cs" />
+    <Compile Include="Support\Collections\ListChangeType.cs" />
+    <Compile Include="Support\Collections\ListClearedEventArgs.cs" />
+    <Compile Include="Support\Collections\ObservableDictionary.cs" />
+    <Compile Include="Support\Collections\ObservableDictionaryEntry.cs" />
+    <Compile Include="Support\Collections\ObservableList.cs" />
+    <Compile Include="Support\Collections\ObservableListEntry.cs" />
+    <Compile Include="Support\IBinding.cs" />
+    <Compile Include="Support\IChangeNotifier.cs" />
+    <None Include="Testing\PropertyEditTest.cs" />
+    <None Include="Interface\Components\ICmpBackground.cs" />
+    <None Include="Interface\Components\ICmpTextRenderer.cs" />
     <Compile Include="CorePlugin.cs" />
-    <Compile Include="Interface\Components\ICmpFlexLayoutElement.cs" />
-    <Compile Include="Interface\Components\ICmpLayout.cs" />
-    <Compile Include="Interface\Components\ICmpLayoutElement.cs" />
-    <Compile Include="Utility\Margins.cs" />
+    <None Include="Interface\Components\ICmpFlexLayoutElement.cs" />
+    <None Include="Interface\Components\ICmpLayout.cs" />
+    <None Include="Interface\Components\ICmpLayoutElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\ContextHelper.cs" />
-    <Compile Include="Utility\ListenerCollection.cs" />
-    <None Include="Old\OldContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Combo\" />
+    <Folder Include="Components\Elements\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\icons8-plugin-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- Copy all plugin binaries to the plugin folder -->
