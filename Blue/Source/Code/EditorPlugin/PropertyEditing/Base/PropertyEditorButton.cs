@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 using ButtonState = AdamsLair.WinForms.Drawing.ButtonState;
 
-namespace Soulstone.Duality.Editor.Blue.PropertyEditing
+namespace Soulstone.Duality.Editor.Blue.PropertyEditing.Base
 {
     [Flags]
     public enum ButtonFlags
@@ -50,7 +50,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             Style = ButtonStyle.Beveled;
         }
 
-        public void Draw(Graphics g, PropertyEditor parent)
+        public void Draw(Graphics g, AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             if (Style == ButtonStyle.Beveled)
             {
@@ -70,7 +70,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
                 else state = ButtonState.Normal;
 
-                parent.ParentGrid.Renderer.DrawButton(g, Rect, state, Text, Icon);
+                parent.ParentGrid.Renderer.DrawButton(g, Rect, state, Text);
             }
             else
             {
@@ -117,7 +117,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             Clicked?.Invoke(this, e);
         }
 
-        public void OnMouseMove(MouseEventArgs e, PropertyEditor parent)
+        public void OnMouseMove(MouseEventArgs e, AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             if (Rect.Contains(e.Location))
                 SetFlags(ButtonFlags.Hover, parent);
@@ -126,7 +126,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
         }
 
-        public void OnMouseUp(PropertyEditor parent)
+        public void OnMouseUp(AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             if ((State & ButtonFlags.Pressed) != 0)
                 OnClicked(EventArgs.Empty);
@@ -134,18 +134,18 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             ClearFlags(ButtonFlags.Pressed, parent);
         }
 
-        public void OnMouseDown(MouseEventArgs e, PropertyEditor parent)
+        public void OnMouseDown(MouseEventArgs e, AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             if (Rect.Contains(e.Location))
                 SetFlags(ButtonFlags.Pressed, parent);
         }
 
-        public void OnMouseLeave(PropertyEditor parent)
+        public void OnMouseLeave(AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             ClearFlags(ButtonFlags.Pressed | ButtonFlags.Hover, parent);
         }
 
-        private void SetFlags(ButtonFlags flags, PropertyEditor parent)
+        private void SetFlags(ButtonFlags flags, AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             if ((State & flags) != flags)
             {
@@ -154,7 +154,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             }
         }
 
-        private void ClearFlags(ButtonFlags flags, PropertyEditor parent)
+        private void ClearFlags(ButtonFlags flags, AdamsLair.WinForms.PropertyEditing.PropertyEditor parent)
         {
             if ((State & flags) != 0)
             {

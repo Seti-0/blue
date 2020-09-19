@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BluePropertyExtMethods.cs" />
+    <Compile Include="Components\Elements\Button.cs" />
     <Compile Include="IconNames.cs" />
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
@@ -102,9 +104,7 @@
     <None Include="Interface\Components\ICmpLayoutElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\Elements\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="EmbeddedResources\icons8-plugin-16.png" />
   </ItemGroup>

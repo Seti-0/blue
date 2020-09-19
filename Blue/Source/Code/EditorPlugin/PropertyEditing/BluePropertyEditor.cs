@@ -20,24 +20,6 @@ using System.Drawing;
 
 namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {
-    public class LabelValue
-    {
-        public override string ToString()
-        {
-            return "Hello World";
-        }
-    }
-
-    public class EditorValue
-    {
-        public object Value { get; }
-
-        public override string ToString()
-        {
-            return "Hello World II";
-        }
-    }
-
     public class BluePropertyEditor : GroupedPropertyEditor, IHelpProvider
     {
         private const string
@@ -54,40 +36,62 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             
         private PropertyEditor _valueView;
         private string _mainDesc;
+        private bool _editing;
+
+        public Func<BlueProperty, IEnumerable<object>> KeyedGetter { get; set; }
+
+        public Action<BlueProperty, IEnumerable<object>> KeyedSetter { get; set; }
+
+        public Action<BlueProperty> Clearer { get; set; }
+
+        public Func<BlueProperty, string> Descriptor { get; set; }
 
         public BlueProperty Key { get; }
 
-        public IEnumerable<Behaviour> Targets { get; }
+        public bool Editing
+        {
+            get => _editing;
 
-        public BluePropertyMetadata Metadata { get; }
+            set
+            {
+                _editing = value;
 
-        // I don't think this means anything for the GroupedPropertyEditor, since it overrides OnSetValue. 
-        // It does not make sense here either, what this editor edits cannot be easily described as a 
-        // single value to be set or got.
-        public override object DisplayedValue => null;
+                if (ContentInitialized)
+                {
+                    if (_editing)
+                        SwitchToEditing();
+                    else
+                        SwitchToReading();
+                }
+            }
+        }
 
-        private bool _editingLocal;
+        public override object DisplayedValue => _valueView?.DisplayedValue;
 
-        public BluePropertyEditor(BlueProperty key, IEnumerable<Behaviour> targets)
+
+        public BluePropertyEditor(BlueProperty key)
         {
             Hints = HintFlags.HasButton | HintFlags.ButtonEnabled;
 
             Key = key;
-            Targets = targets;
-
-            BluePropertyMetadata metadata;
-            if (!BluePropertyManager.TryGetMetadata(Key, out metadata))
-                metadata = null;
-
-            Metadata = metadata;
-
-            Setter = DummySet;
-            Getter = DummyGet;
 
             _mainDesc = BluePropertyHelper.GetHelpInfo(Key).Description;
 
             PropertyName = Key.Name;
             PropertyDesc = _mainDesc;
+
+            Getter = GetWithKey;
+            Setter = SetWithKey;
+        }
+
+        private IEnumerable<object> GetWithKey()
+        {
+            return KeyedGetter?.Invoke(Key) ?? Enumerable.Empty<object>();
+        }
+
+        private void SetWithKey(IEnumerable<object> values)
+        {
+            KeyedSetter?.Invoke(Key, values);
         }
 
         protected override void OnGetValue()
@@ -102,16 +106,6 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             _valueView?.PerformSetValue();
         }
 
-        private IEnumerable<object> DummyGet()
-        {
-            return Enumerable.Empty<object>();
-        }
-
-        private void DummySet(IEnumerable<object> objs)
-        {
-            // Pass
-        }
-
         public override void InitContent()
         {
             BeginUpdate();
@@ -123,15 +117,10 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             AddPropertyEditor(_valueView);
             ParentGrid.ConfigureEditor(_valueView);
 
-            if (Targets.All(x => x.BlueObj.HasLocal(Key)))
-                EditLocal(force: true);
+            if (_editing)
+                SwitchToEditing();
 
-            else
-            {
-                _editingLocal = false;
-                PerformGetValue();
-                ButtonIcon = ResourcesCache.ImageAdd;
-            }
+            else SwitchToReading();
 
             Expanded = true;
 
@@ -141,161 +130,82 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
         private void CreateEditor()
         {
-            Type valueType = Metadata?.ValueType ?? typeof(object);
+            Type valueType = Key.GetMetadata()?.ValueType ?? typeof(object);
             _valueView = ParentGrid.CreateEditor(valueType, this);
-            _valueView.Getter = Get;
+            _valueView.Getter = ValueEditor_Get;
             _valueView.Setter = null;
             _valueView.PropertyDesc = _mainDesc;
             _valueView.PropertyName = "";
             ParentGrid.ConfigureEditor(_valueView);
         }
 
+        private IEnumerable<object> ValueEditor_Get()
+        {
+            return GetValue();
+        }
+
+        private void ValueEditor_Set(IEnumerable<object> values)
+        {
+            SetValues(values);
+        }
+
         protected override void OnButtonPressed()
         {
-            if (_editingLocal)
-                ClearLocal();
+            if (_editing)
+                ClearValue();
 
-            else
-                EditLocal();
+            else SwitchToEditing();
         }
 
-        private void EditLocal(bool force = false)
+        public void ClearValue()
         {
-            if (_editingLocal && !force)
-                return;
-
-            // Enable editing
-            _valueView.Setter = Set;
-
-            // This will not overwrite existing local values,
-            // but will create new local values in objects that do not have them
-            _editingLocal = true;
-            PerformGetValue();
-
-            ButtonIcon = Icons.Reset;
-            _editingLocal = true;
+            Clearer?.Invoke(Key);
+            SwitchToReading();
         }
 
-        private void ClearLocal(bool force = false)
+        private void SwitchToReading()
         {
-            if (!(_editingLocal || force))
-                return;
-
-            _editingLocal = false;
-
-            // Note that calling PerformSetValue isn't enough here.
-            // In the case of a value type, the setter will be called and the local cleared,
-            // but the setter is only called on the initial object creation in the reference type case
-            foreach (Behaviour target in Targets)
-                target.ClearValue(Key);
-
-            // Make the editor readonly
-            _valueView.Setter = null;
-
-            // Update the editor to reflect the non-local value
-            PerformGetValue();
-
+            _editing = false;
             ButtonIcon = ResourcesCache.ImageAdd;
+
+            _valueView.Setter = null;
+            PerformGetValue();
         }
 
-        private IEnumerable<object> Get()
+        private void SwitchToEditing()
         {
-            if (_editingLocal)
-            {
-                foreach (Behaviour target in Targets)
-                    if (!target.BlueObj.HasLocal(Key))
-                        target.BlueObj.SetLocal(Key, target.GetValue(Key));
-            }
+            _editing = true;
+            ButtonIcon = Images.Reset;
 
-            return Targets.Select(x => x.GetValue(Key));
-        }
-
-        private void Set(IEnumerable<object> values)
-        {
-            if (!Targets.Any())
-                return;
-
-            if (!_editingLocal)
-            {
-                foreach (Behaviour target in Targets)
-                    target.ClearValue(Key);
-
-                return;
-            }
-
-            values = values.Where(CheckValue);
-
-            if (!values.Any())
-                return;
-
-            IEnumerator<object> valueEnum = values.GetEnumerator();
-            IEnumerator<Behaviour> targetEnum = Targets.GetEnumerator();
-
-            object lastValue = null;
-
-            while (valueEnum.MoveNext() && targetEnum.MoveNext())
-            {
-                targetEnum.Current.SetValue(Key, valueEnum.Current);
-                lastValue = valueEnum.Current;
-            }
-
-            while (targetEnum.MoveNext())
-                targetEnum.Current.SetValue(Key, lastValue);
-        }
-
-        private bool CheckValue(object obj)
-        {
-            if (Metadata == null)
-                return false;
-
-            if (obj == null)
-            {
-                if (!Metadata.ValueType.IsValueType)
-                    return true;
-            }
-
-            else if (Metadata.ValueType.IsAssignableFrom(obj.GetType()))
-                return true;
-
-            Logs.Editor.WriteWarning($"Attempted to assign object of type \"{obj.GetType()}\"" +
-                $" to property \"{Key}\" of type \"{Metadata.ValueType}\"");
-
-            return false;
+            PerformGetValue();
+            _valueView.Setter = ValueEditor_Set;
+            PerformSetValue();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            if (!Targets.Any())
-                return;
+            string text = Descriptor?.Invoke(Key);
 
-            e.Graphics.FillRectangle(new SolidBrush(Color.Red), NameLabelRectangle);
+            if (text != null)
+            {
+                Rectangle headerRect = ClientRectangle;
+                headerRect.Height = HeaderHeight;
 
-            PropertySource referenceSource = Targets.First().BlueObj.GetSource(Key);
+                Color textColor = ControlRenderer.GetBackgroundColor(HeaderColor, Focused, Location.X + Indent * 10);
 
-            // I might come back to this, but for now it seems unhelpful
-            //if (referenceSource == PropertySource.Local) return;
-            
-            if (Targets.Any(x => x.BlueObj.GetSource(Key) != referenceSource)) return;
-
-            string text = Enum.GetName(typeof(PropertySource), referenceSource);
-
-            Rectangle headerRect = ClientRectangle;
-            headerRect.Height = HeaderHeight;
-
-            Color textColor = ControlRenderer.GetBackgroundColor(HeaderColor, Focused, Location.X + Indent * 10);
-
-            ControlRenderer.DrawStringLine(e.Graphics, text,
-                ParentGrid.Renderer.FontRegular, headerRect, textColor, StringAlignment.Center);
+                ControlRenderer.DrawStringLine(e.Graphics, text,
+                    ParentGrid.Renderer.FontRegular, headerRect, textColor, StringAlignment.Center);
+            }
         }
 
         protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
-            if (_editingLocal)
+            if (_editing)
                 base.OnMouseDoubleClick(e);
             else
-                EditLocal();
+                SwitchToEditing();
         }
 
         public HelpInfo ProvideHoverHelp(Point localPos, ref bool captured)
@@ -307,12 +217,19 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             bool main = !ButtonRectangle.Contains(localPos);
 
             PropertyDesc = main ? _mainDesc :
-                _editingLocal ? resetDesc : createDesc;
+                _editing ? resetDesc : createDesc;
 
             if (main)
-                PropertyDesc += _editingLocal ? resetSuffix : createSuffix;
+                PropertyDesc += _editing ? resetSuffix : createSuffix;
 
             return HelpInfo.FromText(PropertyName, PropertyDesc);
+        }
+
+        protected override void OnDisposing(bool manually)
+        {
+            base.OnDisposing(manually);
+
+            _valueView?.Dispose();
         }
     }
 }

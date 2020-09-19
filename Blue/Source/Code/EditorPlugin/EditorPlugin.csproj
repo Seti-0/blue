@@ -78,20 +78,41 @@
   <ItemGroup>
     <Compile Include="BluePropertyHelper.cs" />
     <Compile Include="EditorPlugin.cs" />
+    <Compile Include="Forms\SelectTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectTypeDialog.designer.cs">
+      <DependentUpon>SelectTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TreeModels\Base\SortedTreeItem.cs" />
+    <Compile Include="Forms\TreeModels\Base\SortedTreeModel.cs" />
+    <Compile Include="Forms\TreeModels\Base\SortedTreeNode.cs" />
+    <Compile Include="Forms\TreeModels\StringHelper.cs" />
+    <Compile Include="Forms\TreeModels\TypeTreeItem.cs" />
+    <Compile Include="Forms\TreeModels\TypeTreeModel.cs" />
+    <Compile Include="Forms\TreeModels\TypeTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyEditing\Base\ButtonEditor.cs" />
+    <Compile Include="PropertyEditing\Base\ButtonEditorItem.cs" />
+    <Compile Include="PropertyEditing\Base\CustomGroupedEditor.cs" />
+    <Compile Include="PropertyEditing\Base\EditorItem.cs" />
+    <Compile Include="PropertyEditing\Base\EditorItemList.cs" />
+    <Compile Include="PropertyEditing\Base\IEnumerableExtMethods.cs" />
     <Compile Include="PropertyEditing\BehaviourEditor.cs" />
-    <Compile Include="PropertyEditing\BehaviourEditorItem.cs" />
     <Compile Include="PropertyEditing\BluePropertyEditor.cs" />
-    <Compile Include="PropertyEditing\CustomComponentEditor.cs" />
-    <None Include="PropertyEditing\PropertyEditorWrapper.cs" />
-    <Compile Include="PropertyEditing\IEditorItem.cs" />
-    <None Include="PropertyEditing\InternalFunctionWrapper.cs" />
-    <Compile Include="PropertyEditing\PropertyEditorButton.cs" />
-    <Compile Include="Properties\Icons.Designer.cs">
+    <Compile Include="PropertyEditing\Base\CustomComponentEditor.cs" />
+    <Compile Include="PropertyEditing\Base\CustomResourceEditor.cs" />
+    <Compile Include="PropertyEditing\Base\PropertyEditorButton.cs" />
+    <Compile Include="Properties\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Icons.resx</DependentUpon>
+      <DependentUpon>Images.resx</DependentUpon>
     </Compile>
+    <Compile Include="PropertyEditing\TemplateEditorToolbar.cs" />
+    <Compile Include="PropertyEditing\TemplateNodeComponentEditor.cs" />
+    <Compile Include="PropertyEditing\TemplateEditor.cs" />
+    <Compile Include="PropertyEditing\TemplateNodeEditor.cs" />
+    <Compile Include="Utility\TypeExtMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CorePlugin\CorePlugin.csproj">
@@ -106,12 +127,17 @@
     <None Include="Properties\icons8-available-updates-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Icons.resx">
+    <EmbeddedResource Include="Forms\SelectTypeDialog.resx">
+      <DependentUpon>SelectTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\expand.png" />
+    <Content Include="Properties\expand_active.png" />
     <Content Include="Properties\icons8-reply-arrow-50-resize-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

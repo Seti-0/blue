@@ -12,7 +12,6 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
     public class TemplateNode : IChangeNotifier
     {
         private string _name = "GameObject";
-        private Type _elementType;
 
         private readonly ObservableDictionary<BlueProperty, object> _values = new ObservableDictionary<BlueProperty, object>();
         private readonly ObservableList<Type> _components = new ObservableList<Type>();
@@ -37,17 +36,13 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
 
         public Type Element
         {
-            get => _elementType;
-
-            set
+            get
             {
-                if (_elementType != value)
-                {
-                    CheckTargetType(value);
+                foreach (Type type in Components)
+                    if (typeof(Element).GetTypeInfo().IsAssignableFrom(type.GetTypeInfo()))
+                        return type;
 
-                    _elementType = value;
-                    OnChanged(TemplateChangedEvent.Target);
-                }
+                return null;
             }
         }
 
@@ -72,15 +67,6 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
         public TemplateNode()
         {
             RegisterListeners();
-        }
-
-        private void CheckTargetType(Type target)
-        {
-            if (target != null && !typeof(Element).GetTypeInfo().IsAssignableFrom(target.GetTypeInfo()))
-            {
-                string message = $"{nameof(target)} should be assignable to {nameof(Element)}";
-                throw new ArgumentException(message);
-            }
         }
 
         public bool TryGetValue(BlueProperty property, out object result)
@@ -129,7 +115,7 @@ namespace Soulstone.Duality.Plugins.Blue.Resources.Templating
         {
             // I'm not sure if IChangeNotifier components should be included in this yet
             //if (e.ChangeType == ListChangeType.ElementChange)
-                //return;
+            //return;
 
             OnChanged(TemplateChangedEvent.Structure);
         }
