@@ -47,16 +47,78 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             set => SetStyle(new NotifierRef<Style>(value));
         }
 
+        private void CheckKey(BlueProperty key)
+        {
+            if (key == null)
+                throw new ArgumentException("Key cannot be null");
+
+            if (!key.HasMetadata())
+            {
+                string error = $"Key \"{key}\" does not seem to have metadata registered for it.";
+                throw new ArgumentException(error);
+            }
+        }
+
+        private void CheckKey(BlueProperty key, object value)
+        {
+            CheckKey(key);
+
+            TypeInfo keyType = key.GetMetadata().ValueType.GetTypeInfo();
+
+            if (value == null && keyType.IsValueType)
+            {
+                string error = $"null is not a valid value for " +
+                    $"key \"{key}\" with value type \"{key.GetMetadata().ValueType}\"";
+
+                throw new ArgumentException(error);
+            }
+
+            else if (!keyType.IsAssignableFrom(value.GetType().GetTypeInfo()))
+            {
+                string error = $"\"{value}\" of type {value.GetType().Name} is not valid for " +
+                    $"key \"{key}\" with value type \"{key.GetMetadata().ValueType}\"";
+                throw new ArgumentException(error);
+            }
+        }
+
+        private bool TryGetValue<T>(
+            IDictionary<BlueProperty, object> source, string sourceName, BlueProperty key, out T value)
+        {
+            if (source.TryGetValue(key, out object result))
+            {
+                if (result is T t)
+                {
+                    value = t;
+                    return true;
+                }
+                else
+                {
+                    string error = $"Unexpected value type found in {source}";
+                    string name = $"{nameof(BlueObject)} \"{GameObj?.FullName}\"";
+                    string message = $"Error while retrieving value for property \"{key}\" from {name}: {error}";
+
+                    Logs.Core.WriteError(message);
+                }
+            }
+
+            value = default;
+            return false;
+        }
+
         // Values are cached so as to help with the goal of emitting events only when the final value
         // changes, rather than because PerformGet is to slow. 
         // I haven't thought much about performance within this class yet.
 
-        public object GetValue(BlueProperty property)
+        public object GetValue(BlueProperty key)
         {
-            if (_cachedValues.TryGetValue(property, out object result))
-                return result;
+            if (key == null) throw new ArgumentNullException(nameof(key));
 
-            return PerformGet(property);
+            if (_cachedValues.TryGetValue(key, out object value))
+                return value;
+
+            CheckKey(key);
+
+            return PerformGet(key);
         }
 
         public PropertySource GetSource(BlueProperty property)
@@ -104,23 +166,26 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 OnChange(property, PropertySource.Local);
         }
 
-        public void SetLocal(BlueProperty property, object newValue)
+        public void SetLocal(BlueProperty key, object newValue)
         {
+            CheckKey(key, newValue);
+
             if (_locals == null)
                 _locals = new Dictionary<BlueProperty, object>();
 
-            if (_locals.TryGetValue(property, out object oldValue))
+            if (_locals.TryGetValue(key, out object oldValue))
             {
-                if (newValue == oldValue)
+                if (oldValue == null)
+                {
+                    if (newValue == null)
+                        return;
+                }
+                else if (oldValue.Equals(newValue))
                     return;
-
-                _locals[property] = newValue;
             }
 
-            // This might not work. (Add vs Set)
-            else _locals[property] = newValue;
-
-            OnChange(property, PropertySource.Local);
+            _locals[key] = newValue;
+            OnChange(key, PropertySource.Local);
         }
 
         // 2) Styles 
@@ -181,7 +246,6 @@ namespace Soulstone.Duality.Plugins.Blue.Components
                 _localDefaults[property] = newValue;
             }
 
-            // This might not work. Add instead?
             else _localDefaults[property] = newValue;
 
             OnChange(property, PropertySource.LocalDefault);
@@ -297,16 +361,20 @@ namespace Soulstone.Duality.Plugins.Blue.Components
             if (!_cachedValues.TryGetValue(property, out oldValue))
                 oldValue = data.DefaultValue;
 
-            if (oldValue != newValue)
-            {
-                // This might not work - there might need to be a case for Add
-                _cachedValues[property] = newValue;
-                OnValueChanged(property);
-
-                Logs.Game.Write($"[{GameObj.Name}] {property.GetType().Name} set to {newValue}");
-            }
-
             _cachedSources[property] = newSource;
+
+            if (oldValue == null)
+            {
+                if (newValue == null)
+                    return;
+            }
+            else if (oldValue.Equals(newValue))
+                return;
+
+            _cachedValues[property] = newValue;
+            OnValueChanged(property);
+
+            Logs.Game.Write($"[{GameObj.Name}] {property.GetType().Name} set to {newValue}");
         }
 
         protected void OnValueChanged(BlueProperty property)
