@@ -27,48 +27,13 @@ namespace Soulstone.Duality.Editor.Blue.Forms
          * i.e. new CueTextBox in the auto-generated code.
          */
 
+        public static SelectTypeDialog Instance = new SelectTypeDialog();
 
         private TypeTreeModel _typeModel = new TypeTreeModel();
         private Type _selectedType = null;
 
         private bool _expandAll = true;
-
-        private string _infoText = "", _dataText = "", _helpText = "";
         private string _startingText = "";
-
-
-        public string InfoText
-        {
-            get => _infoText;
-
-            set
-            {
-                _infoText = value ?? "";
-                InfoLabel.Text = _infoText;
-            }
-        }
-
-        public string DataText
-        {
-            get => _dataText;
-
-            set
-            {
-                _dataText = value ?? "";
-                DataLabel.Text = _dataText;
-            }
-        }
-
-        public string HelpText
-        {
-            get => _helpText;
-
-            set
-            {
-                _helpText = value ?? "";
-                HelpLabel.Text = _helpText;
-            }
-        }
 
         public string StartingText
         {
@@ -80,21 +45,12 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             }
         }
 
-        public Type BaseType
-        {
-            get { return _typeModel.BaseType; }
-            set
-            {
-                _typeModel.BaseType = value;
-            }
-        }
-
         public Type SelectedType
         {
             get { return _selectedType; }
         }
 
-        public SelectTypeDialog()
+        private SelectTypeDialog()
         {
             InitializeComponent();
 
@@ -105,6 +61,8 @@ namespace Soulstone.Duality.Editor.Blue.Forms
 
             _typeModel.Init();
             _typeModel.Initialized += _typeModel_Initialized;
+
+            txtFilter.CueText = "Search";
         }
 
         private void _typeModel_Initialized(object sender, EventArgs e)

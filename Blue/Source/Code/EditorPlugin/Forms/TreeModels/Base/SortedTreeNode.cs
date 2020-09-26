@@ -17,20 +17,31 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels.Base
         where TNode : SortedTreeNode<TNode, TLeaf>
         where TLeaf : SortedTreeItem
     {
-        public TNode Parent { get; }
-        public IDictionary<string, TNode> ChildNodes { get; } = new Dictionary<string, TNode>();
-        public IDictionary<string, TLeaf> ChildLeaves { get; } = new Dictionary<string, TLeaf>();
+        public IDictionary<string, TNode> ChildNodes { get; set; } = new Dictionary<string, TNode>();
+        public IDictionary<string, TLeaf> ChildLeaves { get; set; } = new Dictionary<string, TLeaf>();
 
-        public string Path { get; }
+        public SortedTreeNode(string name, Image icon = null) : base(name, icon) { }
 
-        public SortedTreeNode(TNode parent, string name, Image icon = null) : base(name, icon)
+        protected override bool GetFilterHint()
         {
-            Parent = parent;
+            foreach (TLeaf child in ChildLeaves.Values)
+                child.UpdateFilterHint();
 
-            if (Parent == null)
-                Path = name;
-            else
-                Path = Parent.Path + "/" + name;
+            foreach (TNode child in ChildNodes.Values)
+                child.UpdateFilterHint();
+
+            return ChildLeaves.Values.Any(x => x.FilterHint)
+                || ChildNodes.Values.Any(x => x.FilterHint);
+        }
+
+        public IEnumerable<TLeaf> GetFilteredLeaves()
+        {
+            return ChildLeaves.Values.Where(x => x.FilterHint);
+        }
+
+        public IEnumerable<TNode> GetFilteredNodes()
+        {
+            return ChildNodes.Values.Where(x => x.FilterHint);
         }
 
         protected override int GetScore(string nameHint, int depthLimit)

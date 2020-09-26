@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -40,7 +41,7 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels.Base
 
         public event EventHandler<TreePathEventArgs> StructureChanged;
 
-        // These are currently never called. Perhaps they should be?
+        // These events are currently never called. Perhaps they should be?
         public event EventHandler<TreeModelEventArgs> NodesChanged;
         public event EventHandler<TreeModelEventArgs> NodesInserted;
         public event EventHandler<TreeModelEventArgs> NodesRemoved;
@@ -84,13 +85,13 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels.Base
 
             _roots = new List<TNode>();
 
-            var worker = new BackgroundWorker();
-            worker.DoWork += (s, e) => OnInit();
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (s, e) => OnInitializing();
             worker.RunWorkerCompleted += (s, e) =>
             {
                 _state = State.Ready;
 
-                OnStructureChanged(new TreePathEventArgs());
+                ApplyStructure();
                 OnInitialized(new EventArgs());
             };
 
@@ -102,24 +103,31 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels.Base
             StructureChanged?.Invoke(this, e);
         }
 
+        private void UpdateFilterHints()
+        {
+            if (_state != State.Ready)
+                return;
+
+            foreach (TNode node in _roots)
+                node.UpdateFilterHint();
+        }
+
+        protected virtual void OnInitializing() { }
+
         protected void OnInitialized(EventArgs e)
         {
             Initialized?.Invoke(this, e);
         }
 
-        protected virtual void OnInit() { }
-
         protected void ApplyStructure()
         {
-            //if (_state == State.Ready && invalidateFilterHints)
-            //    _root.InvalidateHintCache();
-
-            StructureChanged?.Invoke(this, new TreePathEventArgs());
+            UpdateFilterHints();
+            OnStructureChanged(new TreePathEventArgs());
         }
 
-        public System.Collections.IEnumerable GetChildren(TreePath treePath)
+        public IEnumerable GetChildren(TreePath treePath)
         {
-            var items = new List<SortedTreeItem>();
+            List<SortedTreeItem> items = new List<SortedTreeItem>();
 
             if (_state != State.Ready)
             {
@@ -129,30 +137,64 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels.Base
                 return items;
             }
 
-
             if (treePath.LastNode == null)
             {
                 foreach (var root in _roots)
-                {
-                    items.AddRange(root.ChildLeaves.Values);
-                    items.AddRange(root.ChildNodes.Values);
-                }
+                    AddNode(root, items);
             }
             else if (treePath.LastNode is TNode node)
             {
-                items.AddRange(node.ChildLeaves.Values);
-                items.AddRange(node.ChildNodes.Values);
+                AddNode(node, items);
+            }
+            else if (treePath.LastNode is CombinedNode<TNode, TLeaf> combination)
+            {
+                TNode lastNode = combination.Nodes.LastOrDefault();
+                if (lastNode != null)
+                {
+                    items.AddRange(lastNode.GetFilteredLeaves());
+                    items.AddRange(lastNode.GetFilteredNodes());
+                }
             }
 
+            string hint = NameHint ?? "";
+
             foreach (var item in items)
-                item.UpdateScore(NameHint);
+                item.UpdateScore(hint);
 
             items = items.OrderByDescending(x => x.Score).ToList();
 
-            if (!items.Any())
+            if (items.Count == 0)
                 items.Add(new SortedTreeItem(EmptyMessage, GeneralResCache.IconCog.ToBitmap()));
 
             return items;
+        }
+
+        private void AddNode(TNode node, List<SortedTreeItem> items)
+        {
+            int leafCount = node.GetFilteredLeaves().Count();
+            int nodeCount = node.GetFilteredNodes().Count();
+
+            if (leafCount == 0 && nodeCount == 1)
+            {
+                List<TNode> combination = new List<TNode>();
+
+                while (leafCount == 0 && nodeCount == 1)
+                {
+                    combination.Add(node);
+
+                    node = node.GetFilteredNodes().First();
+                    leafCount = node.GetFilteredLeaves().Count();
+                    nodeCount = node.GetFilteredNodes().Count();
+                }
+
+                combination.Add(node);
+                items.Add(new CombinedNode<TNode, TLeaf>(combination));
+            }
+            else
+            {
+                items.AddRange(node.GetFilteredLeaves());
+                items.AddRange(node.GetFilteredNodes());
+            }
         }
 
         public bool IsLeaf(TreePath treePath)
@@ -160,6 +202,15 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels.Base
             if (treePath.LastNode is TNode node)
             {
                 return node.ChildNodes.Count == 0 && node.ChildLeaves.Count == 0;
+            }
+            else if (treePath.LastNode is CombinedNode<TNode, TLeaf> combination)
+            {
+                TNode lastNode = combination.Nodes.LastOrDefault();
+                
+                if (lastNode == null)
+                    return true;
+
+                return lastNode.ChildNodes.Count == 0 && lastNode.ChildLeaves.Count == 0;
             }
             else return true;
         }

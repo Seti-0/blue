@@ -10,7 +10,7 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
     {
         public static int CoderScore(string parent, string source, string target)
         {
-            // This is a very silly way of doing things, I should really learn how to compare strings nicely... 
+            // This seems a very silly way of doing things, I should really learn how to compare strings nicely... 
 
             int score = 0;
             int j = 0;

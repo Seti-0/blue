@@ -17,8 +17,8 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
     {
         public string Namespace { get; }
 
-        public TypeTreeNode(TypeTreeNode parent, string name)
-            : base(parent, name, GeneralRes.IconNamespace)
+        public TypeTreeNode(string name)
+            : base(name, GeneralRes.IconNamespace)
         {
             Namespace = name;
         }

@@ -4,12 +4,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 using Duality;
 using Duality.Drawing;
 using Duality.Editor;
 
 using Soulstone.Duality.Editor.Blue.PropertyEditing.Base;
+using Soulstone.Duality.Editor.Blue.UndoRedoActions;
 using Soulstone.Duality.Plugins.Blue;
 using Soulstone.Duality.Plugins.Blue.Resources.Templating;
 
@@ -17,7 +19,12 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {
     public class TemplateNodeComponentEditor : CustomGroupedEditor
     {
-        private Type _referenceType;
+        private static readonly PropertyInfo valuesProperty =
+            typeof(TemplateNode).GetProperty(nameof(TemplateNode.Values));
+
+        private readonly Type _referenceType;
+
+        public Action<Type> Remover { get; set; }
 
         public override object DisplayedValue => GetValue()?.FirstOrDefault();
 
@@ -32,6 +39,11 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             _referenceType = referenceType;
 
             SetColor(referenceType);
+        }
+
+        public void Remove()
+        {
+            Remover?.Invoke(_referenceType);
         }
 
         private void SetColor(Type referenceType)
@@ -96,7 +108,6 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
         {
             return GetValue()
                 .OfType<TemplateNode>()
-                .Where(x => x.Values.ContainsKey(key))
                 .Select(x => Item_Editor_GetSingle(x, key));
         }
 
@@ -110,19 +121,31 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
         private void Item_Editor_Set(BlueProperty key, IEnumerable<object> values)
         {
-            IEnumerable<TemplateNode> targets = GetValue()
-                .OfType<TemplateNode>();
+            IEnumerable<IDictionary<BlueProperty, object>> targets;
+            
+            targets= GetValue()
+                .OfType<TemplateNode>()
+                .Select(x => x.Values);
 
-            targets.ApplyFrom(values, (target, value) => target.Values[key] = value);
+            // This is temporary - DictionarySetAction should be updated to deal with multiple values
+            UndoRedoManager.Do(new DictionarySetAction<BlueProperty, object>(key, values.First(), targets));
+            OnValueChanged();
+
+            //TemplateHelper.OnPropertyChanged(targets, valuesProperty, ParentGrid);
         }
 
         private void Item_Editor_Clear(BlueProperty key)
         {
-            IEnumerable<TemplateNode> targets = GetValue()
-                .OfType<TemplateNode>();
+            IEnumerable<IDictionary<BlueProperty, object>> targets;
 
-            foreach (TemplateNode target in targets)
-                target.Values.Remove(key);
+            targets = GetValue()
+                .OfType<TemplateNode>()
+                .Select(x => x.Values);
+
+            UndoRedoManager.Do(new DictionaryRemoveAction<BlueProperty, object>(key, targets));
+            OnValueChanged();
+
+            //TemplateHelper.OnPropertyChanged(targets, valuesProperty, ParentGrid);
         }
 
         private string Item_Editor_Describe(BlueProperty key)

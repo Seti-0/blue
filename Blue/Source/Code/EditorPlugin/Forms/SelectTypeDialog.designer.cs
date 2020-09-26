@@ -37,15 +37,12 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             this.buttonCancel = new System.Windows.Forms.Button();
             this.txtFilter = new CueTextBox();
             this.buttonExpandAll = new System.Windows.Forms.Button();
-            this.InfoLabel = new System.Windows.Forms.Label();
-            this.DataLabel = new System.Windows.Forms.Label();
-            this.HelpLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // viewObjectType
             // 
-            this.viewObjectType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.viewObjectType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.viewObjectType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.viewObjectType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -57,12 +54,12 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             this.viewObjectType.FullRowSelectInactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.viewObjectType.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.viewObjectType.LoadOnDemand = true;
-            this.viewObjectType.Location = new System.Drawing.Point(14, 86);
+            this.viewObjectType.Location = new System.Drawing.Point(14, 36);
             this.viewObjectType.Model = null;
             this.viewObjectType.Name = "viewObjectType";
             this.viewObjectType.NodeFilter = null;
             this.viewObjectType.SelectedNode = null;
-            this.viewObjectType.Size = new System.Drawing.Size(527, 309);
+            this.viewObjectType.Size = new System.Drawing.Size(608, 381);
             this.viewObjectType.TabIndex = 0;
             this.viewObjectType.SelectionChanged += new System.EventHandler(this.objectTypeView_SelectionChanged);
             // 
@@ -84,7 +81,7 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.Enabled = false;
-            this.buttonOk.Location = new System.Drawing.Point(385, 401);
+            this.buttonOk.Location = new System.Drawing.Point(466, 423);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 1;
@@ -96,26 +93,26 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(466, 401);
+            this.buttonCancel.Location = new System.Drawing.Point(547, 423);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Skip";
+            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // txtFilter
             // 
-            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilter.CueText = "Filter";
-            this.txtFilter.Location = new System.Drawing.Point(14, 61);
+            this.txtFilter.Location = new System.Drawing.Point(14, 11);
             this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(527, 20);
+            this.txtFilter.Size = new System.Drawing.Size(608, 20);
             this.txtFilter.TabIndex = 4;
             this.txtFilter.TextChanged += new System.EventHandler(this.TxtFilterInput_TextChanged);
             // 
@@ -125,42 +122,12 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             this.buttonExpandAll.FlatAppearance.BorderSize = 0;
             this.buttonExpandAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExpandAll.Image = global::Soulstone.Duality.Editor.Blue.Properties.Images.Expand_Active;
-            this.buttonExpandAll.Location = new System.Drawing.Point(14, 401);
+            this.buttonExpandAll.Location = new System.Drawing.Point(14, 423);
             this.buttonExpandAll.Name = "buttonExpandAll";
             this.buttonExpandAll.Size = new System.Drawing.Size(32, 23);
             this.buttonExpandAll.TabIndex = 5;
             this.buttonExpandAll.UseVisualStyleBackColor = true;
             this.buttonExpandAll.Click += new System.EventHandler(this.ButtonExpandAll_Click);
-            // 
-            // InfoLabel
-            // 
-            this.InfoLabel.AutoSize = true;
-            this.InfoLabel.Location = new System.Drawing.Point(11, 9);
-            this.InfoLabel.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(35, 13);
-            this.InfoLabel.TabIndex = 6;
-            this.InfoLabel.Text = "label1";
-            // 
-            // DataLabel
-            // 
-            this.DataLabel.AutoSize = true;
-            this.DataLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.DataLabel.Location = new System.Drawing.Point(11, 22);
-            this.DataLabel.Name = "DataLabel";
-            this.DataLabel.Size = new System.Drawing.Size(35, 13);
-            this.DataLabel.TabIndex = 7;
-            this.DataLabel.Text = "label1";
-            // 
-            // HelpLabel
-            // 
-            this.HelpLabel.AutoSize = true;
-            this.HelpLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.HelpLabel.Location = new System.Drawing.Point(11, 35);
-            this.HelpLabel.Name = "HelpLabel";
-            this.HelpLabel.Size = new System.Drawing.Size(35, 13);
-            this.HelpLabel.TabIndex = 8;
-            this.HelpLabel.Text = "label2";
             // 
             // SelectTypeDialog
             // 
@@ -169,10 +136,7 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(550, 446);
-            this.Controls.Add(this.HelpLabel);
-            this.Controls.Add(this.DataLabel);
-            this.Controls.Add(this.InfoLabel);
+            this.ClientSize = new System.Drawing.Size(631, 458);
             this.Controls.Add(this.viewObjectType);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.buttonExpandAll);
@@ -198,8 +162,5 @@ namespace Soulstone.Duality.Editor.Blue.Forms
         private System.Windows.Forms.Button buttonCancel;
         private CueTextBox txtFilter;
         private System.Windows.Forms.Button buttonExpandAll;
-        private System.Windows.Forms.Label InfoLabel;
-        private System.Windows.Forms.Label DataLabel;
-        private System.Windows.Forms.Label HelpLabel;
     }
 }
