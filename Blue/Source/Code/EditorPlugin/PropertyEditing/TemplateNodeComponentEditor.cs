@@ -14,6 +14,7 @@ using Soulstone.Duality.Editor.Blue.PropertyEditing.Base;
 using Soulstone.Duality.Editor.Blue.UndoRedoActions;
 using Soulstone.Duality.Plugins.Blue;
 using Soulstone.Duality.Plugins.Blue.Resources.Templating;
+using System.Runtime.CompilerServices;
 
 namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {
@@ -37,6 +38,8 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             HeaderHeight = 22;
 
             _referenceType = referenceType;
+            RuntimeHelpers.RunClassConstructor(_referenceType.TypeHandle);
+
 
             SetColor(referenceType);
         }
@@ -87,6 +90,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
             editor.KeyedGetter = Item_Editor_Get;
             editor.KeyedSetter = Item_Editor_Set;
+            editor.KeyCheck = Item_Editor_Check;
             editor.Clearer = Item_Editor_Clear;
             editor.Descriptor = Item_Editor_Describe;
 
@@ -146,6 +150,13 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             OnValueChanged();
 
             //TemplateHelper.OnPropertyChanged(targets, valuesProperty, ParentGrid);
+        }
+
+        private bool Item_Editor_Check(BlueProperty key)
+        {
+            return GetValue()
+                .OfType<TemplateNode>()
+                .All(x => x.Values.ContainsKey(key));
         }
 
         private string Item_Editor_Describe(BlueProperty key)

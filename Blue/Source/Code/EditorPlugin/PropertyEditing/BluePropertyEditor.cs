@@ -42,6 +42,8 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
         public Action<BlueProperty, IEnumerable<object>> KeyedSetter { get; set; }
 
+        public Func<BlueProperty, bool> KeyCheck { get; set; }
+
         public Action<BlueProperty> Clearer { get; set; }
 
         public Func<BlueProperty, string> Descriptor { get; set; }
@@ -179,7 +181,9 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
             PerformGetValue();
             _valueView.Setter = ValueEditor_Set;
-            PerformSetValue();
+            
+            if (KeyCheck == null || !KeyCheck.Invoke(Key))
+                PerformSetValue();
         }
 
         protected override void OnPaint(PaintEventArgs e)
