@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdamsLair.WinForms.PropertyEditing;
 using Duality;
 using Duality.Editor;
 using Soulstone.Duality.Editor.Blue.Forms;
@@ -19,13 +20,29 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {
     public class TemplateNodeEditor : CustomGroupedEditor
     {
-        //private static readonly PropertyInfo
-        //    componentsProperty = typeof(TemplateNode).GetProperty(nameof(TemplateNode.Components)),
-        //    childrenProperty = typeof(TemplateNode).GetProperty(nameof(TemplateNode.Children));
+        private static readonly object nameEditorKey = new object();
 
-        public override object DisplayedValue => GetValue()?.FirstOrDefault();
+        private bool _readonlyName;
+
+        public bool ReadonlyName
+        {
+            get => _readonlyName;
+
+            set
+            {
+                if (value != _readonlyName)
+                {
+                    _readonlyName = value;
+
+                    if (ContentInitialized)
+                        PerformGetValue();
+                }
+            }
+        }
 
         public Action Remover { get; set; }
+
+        public override object DisplayedValue => GetValue()?.FirstOrDefault();
 
         public TemplateNodeEditor()
         {
@@ -39,34 +56,6 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
         public void Remove()
         {
             Remover?.Invoke();
-        }
-
-        protected override void OnUpdateFromValues(IEnumerable<object> values)
-        {
-            List<TemplateNode> targets = values.OfType<TemplateNode>().ToList();
-
-            if (targets.Count == 1)
-                HeaderValueText = targets[0].Name;
-            else
-                HeaderValueText = $"{targets.Count} item(s)";
-
-            // Is there a simpler way to get the intersection?
-            IEnumerable<Type> componentTypes = targets
-                .SelectMany(x => x.Components)
-                .Where(x => targets.All(y => y.Components.Contains(x)));
-
-            // I'm not sure how I want to handle editing multiple trees simultaneously,
-            // and it doesn't seem an important feature anyways, so leaving it out for now
-            IEnumerable<TemplateNode> children = targets.Count == 1 ?
-                targets[0].Children : Enumerable.Empty<TemplateNode>();
-
-            Items.Clear();
-
-            foreach (Type componentType in componentTypes)
-                Items.Add<TemplateNodeComponentEditor, Type>(componentType, ComponentItem_CreateEditor);
-
-            foreach (TemplateNode childNode in children)
-                Items.Add<TemplateNodeEditor, TemplateNode>(childNode, ChildItem_CreateEditor);
         }
 
         public void AddComponent()
@@ -111,6 +100,66 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             OnValueChanged();
 
             PerformGetValue();
+        }
+
+        protected override void OnUpdateFromValues(IEnumerable<object> values)
+        {
+            List<TemplateNode> targets = values.OfType<TemplateNode>().ToList();
+
+            if (targets.Count == 1)
+                HeaderValueText = targets[0].Name;
+            else
+                HeaderValueText = $"{targets.Count} item(s)";
+
+            // Is there a simpler way to get the intersection?
+            IEnumerable<Type> componentTypes = targets
+                .SelectMany(x => x.Components)
+                .Where(x => targets.All(y => y.Components.Contains(x)));
+
+            // I'm not sure how I want to handle editing multiple trees simultaneously,
+            // and it doesn't seem an important feature anyways, so leaving it out for now
+            IEnumerable<TemplateNode> children = targets.Count == 1 ?
+                targets[0].Children : Enumerable.Empty<TemplateNode>();
+
+            Items.Clear();
+
+            if (!_readonlyName)
+                Items.Add<PropertyEditor, object>(nameEditorKey, NameItem_CreateEditor);
+
+            foreach (Type componentType in componentTypes)
+                Items.Add<TemplateNodeComponentEditor, Type>(componentType, ComponentItem_CreateEditor);
+
+            foreach (TemplateNode childNode in children)
+                Items.Add<TemplateNodeEditor, TemplateNode>(childNode, ChildItem_CreateEditor);
+        }
+
+        private PropertyEditor NameItem_CreateEditor(
+            EditorItem<PropertyEditor, object> item)
+        {
+            IEnumerable<object> Get()
+            {
+                return GetValue().OfType<TemplateNode>().Select(x => x.Name);
+            }
+
+            void Set(IEnumerable<object> rawValues)
+            {
+                IEnumerable<TemplateNode> targets = GetValue()
+                    .OfType<TemplateNode>();
+
+                IEnumerable<string> values = rawValues
+                    .OfType<string>();
+
+                targets.ApplyFrom(values, (target, value) => target.Name = value);
+
+                PerformGetValue();
+            }
+
+            PropertyEditor editor = ParentGrid.CreateEditor(typeof(string), this);
+            editor.Getter = Get;
+            editor.Setter = Set;
+            editor.PropertyName = "Name";
+            editor.PropertyDesc = "Set the name for GameObjects corresponding to this node";
+            return editor;
         }
 
         private TemplateNodeComponentEditor ComponentItem_CreateEditor(

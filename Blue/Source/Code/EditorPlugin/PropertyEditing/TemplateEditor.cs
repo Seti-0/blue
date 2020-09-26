@@ -17,6 +17,7 @@ using Soulstone.Duality.Plugins.Blue.Resources;
 using Soulstone.Duality.Plugins.Blue.Resources.Templating;
 using Soulstone.Duality.Editor.Blue.Forms;
 using Soulstone.Duality.Editor.Blue.Forms.TreeModels;
+using Soulstone.Duality.Plugins.Blue.Components;
 
 namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {
@@ -69,7 +70,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             if (targets.Any(x => x.Root != null))
                 return;
 
-            TypeTreeModel.BaseType = typeof(Resource);
+            TypeTreeModel.BaseType = typeof(Element);
             List<TemplateNode> values = new List<TemplateNode>();
 
             DialogResult result = SelectTypeDialog.Instance.ShowDialog();
@@ -200,6 +201,7 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
                 Getter = Get,
                 Remover = Remove,
                 EditedMember = rootInfo,
+                ReadonlyName = true
             };
 
             editor.ValueChanged += ValueChanged;

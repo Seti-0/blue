@@ -92,6 +92,8 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             viewObjectType.Model = _typeModel;
             _typeModel.NameHint = txtFilter.Text;
             UpdateView();
+
+            Text = $"Select {TypeTreeModel.BaseType?.Name ?? "Object"}";            
         }
 
         private bool CanInstantiateType(Type type)
@@ -114,16 +116,6 @@ namespace Soulstone.Duality.Editor.Blue.Forms
             DialogResult = DialogResult.OK;
             Close();
         }
-
-        /*private void InterpretResult(object item)
-        {
-            if (ImplicitCaster.TryAssign(BaseType, out object result, item))
-                _selectedType = result.GetType();
-
-            else
-                _selectedType = null;
-
-        }*/
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
