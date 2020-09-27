@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Duality;
 using Duality.Editor;
 
 namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
@@ -12,6 +13,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
     /// Allows an element to react to input - be it mouse, keyboard, or other.
     /// </summary>
     [EditorHintCategory(CategoryNames.Behaviour)]
+    [RequiredComponent(typeof(BlueObject))][RequiredComponent(typeof(Metrics))]
     public class Control : Behaviour
     {
         public static readonly BlueProperty 

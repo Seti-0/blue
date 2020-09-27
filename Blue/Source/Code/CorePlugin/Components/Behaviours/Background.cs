@@ -15,6 +15,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
     /// any other Brush.
     /// </summary>
     [EditorHintCategory(CategoryNames.Behaviour)]
+    [RequiredComponent(typeof(BlueObject))][RequiredComponent(typeof(Metrics))]
     public class Background : Behaviour
     {
         public static readonly BlueProperty 

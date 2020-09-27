@@ -16,6 +16,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
     /// component which will be resized to fit the element.
     /// </summary>
     [EditorHintCategory(CategoryNames.Behaviour)]
+    [RequiredComponent(typeof(BlueObject))][RequiredComponent(typeof(Metrics))]
     public class Image : Behaviour
     {
         public static readonly BlueProperty ContentProperty = RegisterProperty("Content",

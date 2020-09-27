@@ -15,6 +15,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
     /// for the effective dimensions of the component.
     /// </summary>
     [EditorHintCategory(CategoryNames.Behaviour)]
+    [RequiredComponent(typeof(BlueObject))][RequiredComponent(typeof(Metrics))]
     public class Layout : Behaviour
     {
         public static readonly BlueProperty

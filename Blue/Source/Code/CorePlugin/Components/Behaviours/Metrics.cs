@@ -15,11 +15,12 @@ namespace Soulstone.Duality.Plugins.Blue.Components.Behaviours
     /// usually set by the parent layout rather than the user.
     /// </summary>
     [EditorHintCategory(CategoryNames.Behaviour)]
+    [RequiredComponent(typeof(BlueObject))]
     public class Metrics : Behaviour
     {
         public static readonly BlueProperty 
             PositionProperty = RegisterProperty("Position", typeof(Vector3), typeof(Metrics), Vector3.Zero),
-            SizeProperty = RegisterProperty("Size", typeof(Vector2), typeof(Metrics), Vector2.Zero),
+            SizeProperty = RegisterProperty("Size", typeof(Vector2), typeof(Metrics), new Vector2(100, 100)),
             DepthOffsetProperty = RegisterProperty("DepthOffset", typeof(int), typeof(Metrics), 0);
 
         /// <summary>
