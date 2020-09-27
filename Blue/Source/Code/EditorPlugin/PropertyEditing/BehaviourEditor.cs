@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 using AdamsLair.WinForms.PropertyEditing;
 
 using Duality;
@@ -18,13 +19,9 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
     [PropertyEditorAssignment(typeof(Behaviour), PropertyEditorAssignmentAttribute.PrioritySpecialized)]
     public class BehaviourEditor : CustomComponentEditor
     {
-        private IEnumerable<Behaviour> _targets;
-
         protected override void UpdateItems(object[] values)
         {
-            _targets = values.OfType<Behaviour>();
-
-            IEnumerable<BlueProperty> keys = _targets
+            IEnumerable<BlueProperty> keys = GetValue()
                 .SelectMany(x => BluePropertyManager.GetRegisteredProperties(x.GetType()))
                 .Distinct()
                 .OrderBy(x => x.Name);
@@ -35,52 +32,70 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
                 Items.Add<BluePropertyEditor, BlueProperty>(key, Item_CreateEditor, Item_InitEditor);
         }
 
-        private BluePropertyEditor Item_CreateEditor(EditorItem<BluePropertyEditor, BlueProperty> subject)
+        private BluePropertyEditor Item_CreateEditor(EditorItem<BluePropertyEditor, BlueProperty> item)
         {
-            BluePropertyEditor editor = new BluePropertyEditor(subject.Key);
+            BluePropertyEditor editor = new BluePropertyEditor(item.Key);
 
-            editor.KeyedGetter = Item_Editor_Get;
-            editor.KeyedSetter = Item_Editor_Set;
-            editor.Clearer = Item_Editor_Clear;
-            editor.Descriptor = Item_Editor_Describe;
+            editor.KeyedGetter = Get;
+            editor.KeyedSetter = Set;
+            editor.KeyCheck = Check;
+            editor.Clearer = Clear;
+            editor.Descriptor = Describe;
 
             return editor;
+
+            IEnumerable<object> Get(BlueProperty key)
+            {
+                return GetValue()
+                    .OfType<Behaviour>()
+                    .Select(x => x.GetValue(key));
+            }
+
+
+            void Set(BlueProperty key, IEnumerable<object> values)
+            {
+                GetValue()
+                    .OfType<Behaviour>()
+                    .ApplyFrom(values, (target, value) => target.SetValue(key, value));
+            }
+
+            bool Check(BlueProperty key)
+            {
+                return GetValue()
+                    .OfType<Behaviour>()
+                    .All(x => x.BlueObj.HasLocal(key));
+            }
+
+            void Clear(BlueProperty key)
+            {
+                foreach (Behaviour target in GetValue().OfType<Behaviour>())
+                    target.ClearValue(key);
+            }
+
+            string Describe(BlueProperty key)
+            {
+                IEnumerable<Behaviour> targets = GetValue()
+                    .OfType<Behaviour>();
+
+                if (!GetValue().Any())
+                    return null;
+
+                PropertySource referenceSource = targets.First().BlueObj.GetSource(key);
+
+                if (targets.Any(x => x.BlueObj.GetSource(key) != referenceSource))
+                    return null;
+
+                return Enum.GetName(typeof(PropertySource), referenceSource);
+            }
         }
 
-        private void Item_InitEditor(EditorItem<BluePropertyEditor, BlueProperty> subject)
+       private void Item_InitEditor(EditorItem<BluePropertyEditor, BlueProperty> item)
         {
-            subject.Editor.Editing = _targets.All(x => x.BlueObj.HasLocal(subject.Key));
-            subject.Editor.InitContent();
-        }
+            item.Editor.Editing = GetValue()
+                .OfType<Behaviour>()
+                .All(x => x.BlueObj.HasLocal(item.Key));
 
-        private IEnumerable<object> Item_Editor_Get(BlueProperty key)
-        {
-            return _targets.Select(x => x.GetValue(key));
-        }
-
-
-        private void Item_Editor_Set(BlueProperty key, IEnumerable<object> values)
-        {
-            _targets.ApplyFrom(values, (target, value) => target.SetValue(key, value));
-        }
-
-        private void Item_Editor_Clear(BlueProperty key)
-        {
-            foreach (Behaviour target in _targets)
-                target.ClearValue(key);
-        }
-
-        private string Item_Editor_Describe(BlueProperty key)
-        {
-            if (!_targets.Any())
-                return null;
-
-            PropertySource referenceSource = _targets.First().BlueObj.GetSource(key);
-
-            if (_targets.Any(x => x.BlueObj.GetSource(key) != referenceSource))
-                return null;
-
-            return Enum.GetName(typeof(PropertySource), referenceSource);
+            item.Editor.InitContent();
         }
     }
 }

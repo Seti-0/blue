@@ -15,6 +15,6 @@
   <startScene dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
     <contentPath dataType="String">Data\Test Scenes\TextEditor.Scene.res</contentPath>
   </startScene>
-  <version dataType="UInt">437</version>
+  <version dataType="UInt">441</version>
 </root>
 <!-- XmlFormatterBase Document Separator -->
