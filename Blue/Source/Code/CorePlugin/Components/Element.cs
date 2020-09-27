@@ -11,7 +11,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 {
     [EditorHintCategory(CategoryNames.Elements)]
     [RequiredComponent(typeof(BlueObject))]
-    public class Element : Behaviour
+    public abstract class Element : Behaviour
     {
     }
 }

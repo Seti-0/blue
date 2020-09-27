@@ -54,7 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BluePropertyExtMethods.cs" />
+    <Compile Include="Components\Behaviours\Control.cs" />
+    <Compile Include="Components\Behaviours\Image.cs" />
+    <Compile Include="Components\Behaviours\Metrics.cs" />
+    <Compile Include="Components\Behaviours\Text.cs" />
     <Compile Include="Components\Elements\Button.cs" />
+    <Compile Include="Components\Elements\Image.cs" />
+    <Compile Include="Components\Elements\Panel.cs" />
+    <Compile Include="Components\Elements\TextBox.cs" />
     <Compile Include="IconNames.cs" />
     <Compile Include="CategoryNames.cs" />
     <Compile Include="BlueConfig.cs" />
