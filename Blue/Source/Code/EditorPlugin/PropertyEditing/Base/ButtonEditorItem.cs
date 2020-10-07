@@ -14,6 +14,8 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing.Base
 
         private ButtonEditor _editor;
 
+        public bool Enabled { get; set; } = true;
+
         public object UniqueID => _text;
 
         public ButtonEditorItem(string text, Action action)
@@ -24,8 +26,10 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing.Base
 
         public PropertyEditor CreateEditor()
         {
+            _editor?.Dispose();
             _editor = new ButtonEditor(_text);
             _editor.Clicked += Editor_Clicked;
+            _editor.ManualEnabled = Enabled;
             return _editor;
         }
 
@@ -41,6 +45,10 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing.Base
 
         public void InitEditor() { }
 
-        public void Update(IEnumerable<object> parentValues) { }
+        public void Update(IEnumerable<object> parentValues) 
+        {
+            if (_editor != null)
+                _editor.ManualEnabled = Enabled;
+        }
     }
 }

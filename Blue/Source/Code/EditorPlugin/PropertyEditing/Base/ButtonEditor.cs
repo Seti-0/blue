@@ -19,6 +19,8 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing.Base
 
         public int MaxWidth { get; set; } = int.MaxValue;
 
+        public bool ManualEnabled { get; set; } = true;
+
         public override object DisplayedValue => GetValue()?.FirstOrDefault();
 
         public event EventHandler<EventArgs> Clicked;
@@ -64,6 +66,12 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing.Base
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            if (ManualEnabled && Enabled)
+                button.State &= ~ButtonFlags.Disabled;
+            else
+                button.State |= ButtonFlags.Disabled;
+
             button.Draw(e.Graphics, this);
         }
 

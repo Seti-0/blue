@@ -9,7 +9,7 @@ using Duality;
 
 namespace Soulstone.Duality.Plugins.Blue.Collections
 {
-    public class ObservableList<T> : IList<T>, IDisposable
+    public class ObservableList<T> : IList<T>, IDisposable, IList
     {
         private List<ObservableListEntry<T>> _innerList = new List<ObservableListEntry<T>>();
 
@@ -41,6 +41,24 @@ namespace Soulstone.Duality.Plugins.Blue.Collections
         public int Count => _innerList.Count;
 
         public bool IsReadOnly => false;
+
+        #region IList
+
+        // Implemented mainly for the sake of the duality editor
+
+        bool IList.IsFixedSize => false;
+
+        bool ICollection.IsSynchronized => false;
+
+        object ICollection.SyncRoot => ((IList)_innerList).SyncRoot;
+
+        object IList.this[int index]
+        {
+            get => this[index];
+            set => this[index] = (T)value;
+        }
+
+        #endregion
 
         public event EventHandler<ListChangedEventArgs<T>> Changed
         {
@@ -182,5 +200,55 @@ namespace Soulstone.Duality.Plugins.Blue.Collections
         {
             return GetEnumerator();
         }
+
+        #region IList
+
+        // Implemented mainly for the sake of the duality editor
+
+        int IList.Add(object value)
+        {
+            if (value is T t)
+            {
+                Add(t);
+                return Count - 1;
+            }
+
+            return -1;
+        }
+
+        bool IList.Contains(object value)
+        {
+            return value is T t && Contains(t);
+        }
+
+        int IList.IndexOf(object value)
+        {
+            if (value is T t)
+                return IndexOf(t);
+
+            return -1;
+        }
+
+        void IList.Insert(int index, object value)
+        {
+            Insert(index, (T)value);
+        }
+
+        void IList.Remove(object value)
+        {
+            if (value is T t)
+                Remove(t);
+        }
+
+        void ICollection.CopyTo(Array array, int index)
+        {
+            Array values = _innerList
+                .Select(x => x.Value)
+                .ToArray();
+
+            Array.Copy(values, 0, array, index, values.Length);
+        }
+
+        #endregion
     }
 }

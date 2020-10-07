@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using AdamsLair.WinForms.PropertyEditing;
+using System.Windows.Forms;
 using Duality;
 using Duality.Editor;
+using Soulstone.Duality.Editor.Blue.Forms;
+using Soulstone.Duality.Editor.Blue.Forms.TreeModels;
 using Soulstone.Duality.Editor.Blue.PropertyEditing.Base;
+using Soulstone.Duality.Editor.Blue.UndoRedoActions;
+using Soulstone.Duality.Plugins.Blue;
 using Soulstone.Duality.Plugins.Blue.Components.Behaviours;
 using Soulstone.Duality.Plugins.Blue.Resources.Templating;
 
@@ -16,7 +19,13 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 {
     public class TemplateNodeEditor : CustomGroupedEditor
     {
+        //private static readonly PropertyInfo
+        //    componentsProperty = typeof(TemplateNode).GetProperty(nameof(TemplateNode.Components)),
+        //    childrenProperty = typeof(TemplateNode).GetProperty(nameof(TemplateNode.Children));
+
         public override object DisplayedValue => GetValue()?.FirstOrDefault();
+
+        public Action Remover { get; set; }
 
         public TemplateNodeEditor()
         {
@@ -25,6 +34,11 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
 
             Hints &= ~HintFlags.HasPropertyName;
             PropertyName = "";
+        }
+
+        public void Remove()
+        {
+            Remover?.Invoke();
         }
 
         protected override void OnUpdateFromValues(IEnumerable<object> values)
@@ -51,39 +65,50 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
             foreach (Type componentType in componentTypes)
                 Items.Add<TemplateNodeComponentEditor, Type>(componentType, ComponentItem_CreateEditor);
 
-            Items.Add(new ButtonEditorItem("Add Component", AddComponentAction));
-
             foreach (TemplateNode childNode in children)
                 Items.Add<TemplateNodeEditor, TemplateNode>(childNode, ChildItem_CreateEditor);
-
-            Items.Add(new ButtonEditorItem("Add Node", AddNodeAction));
         }
 
-        private void AddComponentAction()
+        public void AddComponent()
         {
-            IEnumerable<TemplateNode> targetNodes = GetValue().OfType<TemplateNode>();
+            TypeTreeModel.BaseType = typeof(Component);
+            DialogResult result = SelectTypeDialog.Instance.ShowDialog();
 
-            foreach (TemplateNode target in targetNodes)
+            if (result == DialogResult.OK)
             {
-                if (!target.Components.Contains(typeof(Layout)))
-                    target.Components.Add(typeof(Layout));
-
-                else if (!target.Components.Contains(typeof(Background)))
-                    target.Components.Add(typeof(Background));
+                Type componentType = SelectTypeDialog.Instance.SelectedType;
+                AddComponent(componentType);
             }
+        }
 
+        public void AddComponent(Type componentType)
+        {
+            IEnumerable<IList<Type>> targets;
+            
+            targets = GetValue()
+                .OfType<TemplateNode>()
+                .Select(x => x.Components);
+
+            UndoRedoManager.Do(new ListAddAction<Type>(componentType, targets));
+
+            OnValueChanged();
             PerformGetValue();
         }
 
-        private void AddNodeAction()
+        public void AddNode()
         {
-            IEnumerable<TemplateNode> targetNodes = GetValue().OfType<TemplateNode>();
+            IEnumerable<IList<TemplateNode>> targets;
+            
+            targets = GetValue()
+                .OfType<TemplateNode>()
+                .Select(x => x.Children);
 
-            foreach (TemplateNode target in targetNodes)
-            {
-                TemplateNode node = new TemplateNode();
-                target.Children.Add(node);
-            }
+            // Again, temporary measure. ListAddAction should be updated to
+            // accept multiple values
+            UndoRedoManager.Do(new ListAddAction<TemplateNode>(new TemplateNode(), targets));
+           
+            //TemplateHelper.OnPropertyChanged(targets, childrenProperty, ParentGrid);
+            OnValueChanged();
 
             PerformGetValue();
         }
@@ -91,25 +116,57 @@ namespace Soulstone.Duality.Editor.Blue.PropertyEditing
         private TemplateNodeComponentEditor ComponentItem_CreateEditor(
             EditorItem<TemplateNodeComponentEditor, Type> item)
         {
-            TemplateNodeComponentEditor editor = new TemplateNodeComponentEditor(item.Key);
-            editor.Getter = ComponentItem_Editor_Get;
-            editor.Setter = DummySetter;
-            return editor;
-        }
+            IEnumerable<object> Get()
+            {
+                return GetValue();
+            }
 
-        private IEnumerable<object> ComponentItem_Editor_Get()
-        {
-            return GetValue();
+            void Remove(Type referenceType)
+            {
+                foreach (TemplateNode target in GetValue().OfType<TemplateNode>())
+                {
+                    foreach (BlueProperty key in BluePropertyManager.GetRegisteredProperties(referenceType))
+                        target.Values.Remove(key);
+
+                    target.Components.Remove(referenceType);
+                    OnValueChanged();
+                }
+            }
+
+            TemplateNodeComponentEditor editor = new TemplateNodeComponentEditor(item.Key)
+            {
+                Getter = Get,
+                Setter = DummySetter,
+                Remover = Remove
+            };
+
+            return editor;
         }
 
         private TemplateNodeEditor ChildItem_CreateEditor(
             EditorItem<TemplateNodeEditor, TemplateNode> item)
         {
-            TemplateNode[] target = new TemplateNode[] { item.Key };
+            TemplateNode[] values = new TemplateNode[] { item.Key };
 
-            TemplateNodeEditor editor = new TemplateNodeEditor();
-            editor.Getter = () => target;
-            editor.Setter = DummySetter;
+            void Remover()
+            {
+                IEnumerable<IList<TemplateNode>> targets;
+
+                targets = GetValue()
+                    .OfType<TemplateNode>()
+                    .Select(x => x.Children);
+
+                UndoRedoManager.Do(new ListRemoveAction<TemplateNode>(item.Key, targets));
+                OnValueChanged();
+            }
+
+            TemplateNodeEditor editor = new TemplateNodeEditor
+            {
+                Getter = () => values,
+                Setter = DummySetter,
+                Remover = Remover
+            };
+
             return editor;
         }
 

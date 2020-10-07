@@ -22,39 +22,40 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
     /// </summary>
     public class TypeTreeModel : SortedTreeModel<TypeTreeNode, TypeTreeItem>
     {
-        private Type _baseType = typeof(object);
+        private static Type baseType = typeof(object);
 
-        protected override string EmptyMessage
+        public static Type BaseType
         {
-            get { return "No types found assignable to " + _baseType.GetFriendlyName(); }
-        }
+            get => baseType;
 
-        public Type BaseType
-        {
-            get { return _baseType; }
             set
             {
-                _baseType = value ?? typeof(object);
-                ApplyStructure();
+                if (baseType != value)
+                {
+                    baseType = value;
+                    BaseTypeChanged?.Invoke(null, EventArgs.Empty);
+                }
             }
         }
 
-        public TypeTreeModel(Type baseType = null)
+        public static event EventHandler<EventArgs> BaseTypeChanged;
+
+        protected override string EmptyMessage
         {
-            _baseType = baseType ?? typeof(object);
-            // This is disabled at the moment.
-            //ContentFilter = CheckContent;
+            get { return "No types found assignable to " + baseType.GetFriendlyName(); }
         }
 
-        protected bool CheckContent(Type type)
+        public TypeTreeModel()
         {
-            //bool acceptBase = _baseType == null || ImplicitCaster.AssignmentPathExists(_baseType, type);
-            //bool acceptType = acceptBase && !type.IsGenericType;
-
-            return true;
+            BaseTypeChanged += TypeTreeModel_BaseTypeChanged;
         }
 
-        protected override void OnInit()
+        private void TypeTreeModel_BaseTypeChanged(object sender, EventArgs e)
+        {
+            ApplyStructure();
+        }
+
+        protected override void OnInitializing()
         {
             Assembly[] loadedAssemblies =
                 DualityApp.AssemblyLoader.LoadedAssemblies
@@ -77,7 +78,6 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
             }
 
             var assemblies = selectableAssemblies.ToArray();
-            //ImplicitCaster.Init(assemblies);
 
             foreach (var type in assemblies.SelectMany(a => SafeGetTypes(a)))
             {
@@ -119,7 +119,7 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
 
             if (current == null)
             {
-                current = new TypeTreeNode(null, names[0]);
+                current = new TypeTreeNode(names[0]);
                 RootNodes.Add(current);
             }
 
@@ -129,7 +129,7 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
 
                 if (!current.ChildNodes.ContainsKey(name))
                 {
-                    var node = new TypeTreeNode(current, name);
+                    var node = new TypeTreeNode(name);
                     current.ChildNodes.Add(name, node);
                 }
 

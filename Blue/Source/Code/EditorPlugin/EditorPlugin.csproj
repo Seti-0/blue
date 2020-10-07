@@ -84,6 +84,7 @@
     <Compile Include="Forms\SelectTypeDialog.designer.cs">
       <DependentUpon>SelectTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TreeModels\Base\CombinedNode.cs" />
     <Compile Include="Forms\TreeModels\Base\SortedTreeItem.cs" />
     <Compile Include="Forms\TreeModels\Base\SortedTreeModel.cs" />
     <Compile Include="Forms\TreeModels\Base\SortedTreeNode.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="PropertyEditing\Base\CustomGroupedEditor.cs" />
     <Compile Include="PropertyEditing\Base\EditorItem.cs" />
     <Compile Include="PropertyEditing\Base\EditorItemList.cs" />
+    <Compile Include="PropertyEditing\Base\TemplateHelper.cs" />
     <Compile Include="PropertyEditing\Base\IEnumerableExtMethods.cs" />
     <Compile Include="PropertyEditing\BehaviourEditor.cs" />
     <Compile Include="PropertyEditing\BluePropertyEditor.cs" />
@@ -112,6 +114,16 @@
     <Compile Include="PropertyEditing\TemplateNodeComponentEditor.cs" />
     <Compile Include="PropertyEditing\TemplateEditor.cs" />
     <Compile Include="PropertyEditing\TemplateNodeEditor.cs" />
+    <Compile Include="UndoRedoActions\Base\BackupItem.cs" />
+    <Compile Include="UndoRedoActions\Base\RemoveAction.cs" />
+    <Compile Include="UndoRedoActions\Base\SetAction.cs" />
+    <Compile Include="UndoRedoActions\Base\SimpleAction.cs" />
+    <Compile Include="UndoRedoActions\DictionaryRemoveAction.cs" />
+    <Compile Include="UndoRedoActions\DictionarySetAction.cs" />
+    <Compile Include="UndoRedoActions\ListAddAction.cs" />
+    <Compile Include="UndoRedoActions\ListRemoveAction.cs" />
+    <Compile Include="UndoRedoActions\Base\PropertyAction.cs" />
+    <Compile Include="UndoRedoActions\Base\AddAction.cs" />
     <Compile Include="Utility\TypeExtMethods.cs" />
   </ItemGroup>
   <ItemGroup>

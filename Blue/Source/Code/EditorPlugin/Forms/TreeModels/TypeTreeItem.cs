@@ -22,6 +22,16 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
             Content = type;
         }
 
+        protected override bool GetFilterHint()
+        {
+            Type baseType = TypeTreeModel.BaseType;
+
+            bool acceptBase = baseType == null || baseType.IsAssignableFrom(Content);
+            bool acceptType = !Content.IsAbstract && !Content.IsGenericType;
+
+            return acceptBase && acceptType;
+        }
+
         protected override int GetScore(string nameHint, int depthLimit)
         {
             if (Content == null) return 0;
@@ -29,7 +39,5 @@ namespace Soulstone.Duality.Editor.Blue.Forms.TreeModels
             // This currently is not accounting for invalid nodes
             return StringHelper.CoderScore(Content.Namespace, Content.GetFriendlyName(), nameHint);
         }
-
-
     }
 }
