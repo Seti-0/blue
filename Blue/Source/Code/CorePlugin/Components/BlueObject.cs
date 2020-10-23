@@ -30,6 +30,10 @@ namespace Soulstone.Duality.Plugins.Blue.Components
     [EditorHintCategory(CategoryNames.Internal)]
     public class BlueObject : Component
     {
+        public static readonly BlueProperty
+            StyleProperty = BluePropertyManager.Register("Style", typeof(ContentRef<Style>), typeof(BlueObject), flags: BluePropertyFlags.AffectsLayout),
+            TemplateProperty = BluePropertyManager.Register("Template", typeof(ContentRef<Template>), typeof(BlueObject), flags: BluePropertyFlags.AffectsLayout);
+        
         private Dictionary<BlueProperty, object> _localDefaults;
         private TemplateNode _sourceTemplate;
         private NotifierRef<Style> _style = new NotifierRef<Style>();
@@ -190,7 +194,7 @@ namespace Soulstone.Duality.Plugins.Blue.Components
 
         // 2) Styles 
 
-        private void SetStyle(NotifierRef<Style> newStyle)
+        private void AttachToStyle(NotifierRef<Style> newStyle)
         {
             if (_style?.Ref == newStyle.Ref)
                 return;

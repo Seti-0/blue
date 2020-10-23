@@ -5,9 +5,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using AdamsLair.WinForms.PropertyEditing;
+
 using Duality;
 using Duality.Editor;
+
 using Soulstone.Duality.Editor.Blue.Forms;
 using Soulstone.Duality.Editor.Blue.Forms.TreeModels;
 using Soulstone.Duality.Editor.Blue.PropertyEditing.Base;
