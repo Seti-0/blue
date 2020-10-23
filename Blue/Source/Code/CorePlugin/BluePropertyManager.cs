@@ -43,6 +43,8 @@ namespace Soulstone.Duality.Plugins.Blue
 
                 Logs.Game.WriteWarning("Attempted to register a property whose full name already exists: " + property.FullName);
                 Logs.Game.Write($"Has \"{property}\" been defined in more than one place?");
+				
+				return;
             }
 
             _propertiesByName.Add(property.FullName, property);
@@ -67,7 +69,7 @@ namespace Soulstone.Duality.Plugins.Blue
                 Logs.Game.Write($"Has the property \"{property}\" been defined in more than one place?");
             }
 
-            _metadata.Add(property, metadata);
+            else _metadata.Add(property, metadata);
         }
 
         public static bool TryGetKey(string fullName, out BlueProperty result)
